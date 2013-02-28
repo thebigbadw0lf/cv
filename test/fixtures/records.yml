@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_date: 2013-02-28
+  end_date: 2013-02-28
+  job_title: MyString
+  company_id: 1
+  industry_id: 1
+  link: MyString
+
+two:
+  start_date: 2013-02-28
+  end_date: 2013-02-28
+  job_title: MyString
+  company_id: 1
+  industry_id: 1
+  link: MyString

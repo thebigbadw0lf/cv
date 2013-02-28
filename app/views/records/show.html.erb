@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start date:</b>
+  <%= @record.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @record.end_date %>
+</p>
+
+<p>
+  <b>Job title:</b>
+  <%= @record.job_title %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @record.company_id %>
+</p>
+
+<p>
+  <b>Industry:</b>
+  <%= @record.industry_id %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @record.link %>
+</p>
+<p>
+  <b>Is current?</b>
+  <%= @record.is_current %>
+</p>
+
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
