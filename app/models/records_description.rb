@@ -1,4 +1,4 @@
-class RecordsDescriptions < ActiveRecord::Base
+class RecordsDescription < ActiveRecord::Base
   attr_accessible :description_id, :record_id
   belongs_to :record
   belongs_to :description

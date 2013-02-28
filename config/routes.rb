@@ -1,8 +1,8 @@
 Cv::Application.routes.draw do
-  resources :records_descriptions
-
-
   resources :records_locations
+
+
+  resources :records_descriptions
 
 
   resources :descriptions

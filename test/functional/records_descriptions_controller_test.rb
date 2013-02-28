@@ -17,7 +17,7 @@ class RecordsDescriptionsControllerTest < ActionController::TestCase
   end
 
   test "should create records_description" do
-    assert_difference('RecordsDescriptions.count') do
+    assert_difference('RecordsDescription.count') do
       post :create, records_description: { description_id: @records_description.description_id, record_id: @records_description.record_id }
     end
 
@@ -40,10 +40,10 @@ class RecordsDescriptionsControllerTest < ActionController::TestCase
   end
 
   test "should destroy records_description" do
-    assert_difference('RecordsDescriptions.count', -1) do
+    assert_difference('RecordsDescription.count', -1) do
       delete :destroy, id: @records_description
     end
 
-    assert_redirected_to records_descriptions_index_path
+    assert_redirected_to records_descriptions_path
   end
 end
