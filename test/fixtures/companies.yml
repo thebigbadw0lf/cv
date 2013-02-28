@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  short_name: MyString
+  min_employees: 1
+  max_employees: 1
+  link: MyString
+  logo_link: MyString
+
+two:
+  name: MyString
+  short_name: MyString
+  min_employees: 1
+  max_employees: 1
+  link: MyString
+  logo_link: MyString

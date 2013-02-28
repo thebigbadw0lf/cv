@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  city: MyString
+  country: MyString
+  continent: MyString
+  latitude: 9.99
+  longitude: 9.99
+  link: MyString
+
+two:
+  city: MyString
+  country: MyString
+  continent: MyString
+  latitude: 9.99
+  longitude: 9.99
+  link: MyString

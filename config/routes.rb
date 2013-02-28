@@ -1,4 +1,22 @@
 Cv::Application.routes.draw do
+  resources :records_descriptions
+
+
+  resources :records_locations
+
+
+  resources :descriptions
+
+
+  resources :companies
+
+
+  resources :industries
+
+
+  resources :locations
+
+
   resources :records
 
 

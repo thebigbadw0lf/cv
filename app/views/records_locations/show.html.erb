@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Record:</b>
+  <%= @records_location.record_id %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @records_location.location_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_records_location_path(@records_location) %> |
+<%= link_to 'Back', records_locations_index_path %>

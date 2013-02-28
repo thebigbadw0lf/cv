@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228161242) do
+ActiveRecord::Schema.define(:version => 20130228173658) do
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.integer  "min_employees"
+    t.integer  "max_employees"
+    t.string   "link"
+    t.string   "logo_link"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "descriptions", :force => true do |t|
+    t.string   "description_short"
+    t.text     "description_long"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "industries", :force => true do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.string   "link"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "city"
+    t.string   "country"
+    t.string   "continent"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "link"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "records", :force => true do |t|
     t.date     "start_date"
@@ -23,6 +60,20 @@ ActiveRecord::Schema.define(:version => 20130228161242) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "is_current"
+  end
+
+  create_table "records_descriptions", :force => true do |t|
+    t.integer  "record_id"
+    t.integer  "description_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "records_locations", :force => true do |t|
+    t.integer  "record_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "taggings", :force => true do |t|

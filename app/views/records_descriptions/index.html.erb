@@ -1,0 +1,25 @@
+<h1>Listing records_descriptions</h1>
+
+<table>
+  <tr>
+    <th>Record</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @records_descriptions.each do |records_description| %>
+  <tr>
+    <td><%= records_description.record_id %></td>
+    <td><%= records_description.description_id %></td>
+    <td><%= link_to 'Show', records_description %></td>
+    <td><%= link_to 'Edit', edit_records_description_path(records_description) %></td>
+    <td><%= link_to 'Destroy', records_description, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Records descriptions', new_records_description_path %>

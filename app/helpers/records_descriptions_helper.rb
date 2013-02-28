@@ -1,0 +1,2 @@
+module RecordsDescriptionsHelper
+end

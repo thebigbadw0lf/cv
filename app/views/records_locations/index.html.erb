@@ -1,0 +1,25 @@
+<h1>Listing records_locations</h1>
+
+<table>
+  <tr>
+    <th>Record</th>
+    <th>Location</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @records_locations.each do |records_location| %>
+  <tr>
+    <td><%= records_location.record_id %></td>
+    <td><%= records_location.location_id %></td>
+    <td><%= link_to 'Show', records_location %></td>
+    <td><%= link_to 'Edit', edit_records_location_path(records_location) %></td>
+    <td><%= link_to 'Destroy', records_location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Records locations', new_records_location_path %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Record:</b>
+  <%= @records_description.record_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @records_description.description_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_records_description_path(@records_description) %> |
+<%= link_to 'Back', records_descriptions_index_path %>
