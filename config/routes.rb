@@ -1,4 +1,7 @@
 Cv::Application.routes.draw do
+  resources :schools
+
+
   resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records
 
   #tag links routing  

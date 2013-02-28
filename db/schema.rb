@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228183241) do
+ActiveRecord::Schema.define(:version => 20130228223210) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -75,6 +75,27 @@ ActiveRecord::Schema.define(:version => 20130228183241) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "schools", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "name"
+    t.string   "degree"
+    t.string   "degree_short"
+    t.integer  "location_id"
+    t.string   "link"
+    t.string   "logo_link"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "schools_descriptions", :id => false, :force => true do |t|
+    t.integer "school_id"
+    t.integer "description_id"
+  end
+
+  add_index "schools_descriptions", ["description_id"], :name => "index_schools_descriptions_on_description_id"
+  add_index "schools_descriptions", ["school_id"], :name => "index_schools_descriptions_on_school_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
