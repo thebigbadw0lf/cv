@@ -1,25 +1,12 @@
 Cv::Application.routes.draw do
-  resources :records_locations
+  resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records
 
-
-  resources :records_descriptions
-
-
-  resources :descriptions
-
-
-  resources :companies
-
-
-  resources :industries
-
-
-  resources :locations
-
-
-  resources :records
-
-
+  #tag links routing  
+  get 'skills/:skill', to: 'records#index', as: 'skill'
+  
+  root to: 'records#index'
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

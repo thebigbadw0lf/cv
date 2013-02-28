@@ -27,9 +27,18 @@
     <td><%= link_to 'Edit', edit_record_path(record) %></td>
     <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <tr>
+		<td>Skills: <%= raw record.skill_list.map { |t| link_to t, skill_path(t) }.join(', ') %></td>
+	</tr>
 <% end %>
 </table>
 
+<br />
+<div id="tag_cloud">
+  <% tag_cloud Record.skill_counts.order('name ASC'), %w{s m l} do |skill, css_class| %>
+  	<%= link_to skill.name, skill_path(skill.name), class: css_class %>
+	<% end %>
+</div>
 <br />
 
 <%= link_to 'New Record', new_record_path %>
