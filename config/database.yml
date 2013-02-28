@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: cv_development
   pool: 5
-  username: thebigbadwold
+  username: thebigbadwolf
   password: preek09verlee
   host: localhost
   port: 5432
@@ -45,7 +45,7 @@ test:
   encoding: unicode
   database: cv_test
   pool: 5
-  username: thebigbadwold
+  username: thebigbadwolf
   password: preek09verlee
   host: localhost
   port: 5432
