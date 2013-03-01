@@ -38,16 +38,16 @@
 <br />
 
 <div class="tag_cloud">
-  <% tag_cloud School.teaching_counts.order('name ASC'), %w{s m l} do |teaching, css_class| %>
-  	<%= link_to teaching.name, teaching_path(teaching.name), class: css_class %>
+  <% tag_cloud School.teaching_counts.order('name ASC'), %w{s m l} do |t, css_class| %>
+  	<%= link_to t.name, teaching_path(t.name), class: css_class %>
 	<% end %>
 </div>
 
 <br />
 
 <div class="tag_cloud">
-	<% tag_cloud @tags.sort_by(&:name), %w{s m l} do |teaching, css_class| %>
-  	<%= link_to teaching.name, teaching_path(teaching.name), class: css_class %>
+	<% tag_cloud @tags.sort_by(&:name), %w{s m l} do |t, css_class| %>
+  	<%= link_to t.name, "./tags/#{t.name}", class: css_class %>
 	<% end %>
 </div>
 

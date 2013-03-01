@@ -7,6 +7,7 @@ Cv::Application.routes.draw do
   #tag links routing  
   get 'skills/:skill', to: 'records#index', as: 'skill'
   get 'teachings/:teaching', to: 'schools#index', as: 'teaching'
+  get 'tags/:tag', to: 'records#index', as: 'tag'
   
   
   root to: 'records#index'
