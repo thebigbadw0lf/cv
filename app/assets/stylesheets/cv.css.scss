@@ -1,0 +1,435 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+
+/* custom css */
+
+/* sass variables */
+
+$title_color: #000000;
+
+/* embedded fonts */
+
+@font-face {
+	font-family: 'ChunkFiveRegular';
+	src: font-url('Chunkfive-webfont.eot');
+	src: font-url('Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+	     font-url('Chunkfive-webfont.woff') format('woff'),
+	     font-url('Chunkfive-webfont.ttf') format('truetype'),
+	     font-url('Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'SourceSansProSemiboldItalic';
+    src: font-url('SourceSansPro-SemiboldIt-webfont.eot');
+    src: font-url('SourceSansPro-SemiboldIt-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-SemiboldIt-webfont.woff') format('woff'),
+         font-url('SourceSansPro-SemiboldIt-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-SemiboldIt-webfont.svg#SourceSansProSemiboldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProBold';
+    src: font-url('SourceSansPro-Bold-webfont.eot');
+    src: font-url('SourceSansPro-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-Bold-webfont.woff') format('woff'),
+         font-url('SourceSansPro-Bold-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-Bold-webfont.svg#SourceSansProBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProBoldItalic';
+    src: font-url('SourceSansPro-BoldIt-webfont.eot');
+    src: font-url('SourceSansPro-BoldIt-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-BoldIt-webfont.woff') format('woff'),
+         font-url('SourceSansPro-BoldIt-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-BoldIt-webfont.svg#SourceSansProBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProBlack';
+    src: font-url('SourceSansPro-Black-webfont.eot');
+    src: font-url('SourceSansPro-Black-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-Black-webfont.woff') format('woff'),
+         font-url('SourceSansPro-Black-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-Black-webfont.svg#SourceSansProBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProBlackItalic';
+    src: font-url('SourceSansPro-BlackIt-webfont.eot');
+    src: font-url('SourceSansPro-BlackIt-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-BlackIt-webfont.woff') format('woff'),
+         font-url('SourceSansPro-BlackIt-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-BlackIt-webfont.svg#SourceSansProBlackItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProExtraLight';
+    src: font-url('SourceSansPro-ExtraLight-webfont.eot');
+    src: font-url('SourceSansPro-ExtraLight-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-ExtraLight-webfont.woff') format('woff'),
+         font-url('SourceSansPro-ExtraLight-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-ExtraLight-webfont.svg#SourceSansProExtraLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProExtraLightItalic';
+    src: font-url('SourceSansPro-ExtraLightIt-webfont.eot');
+    src: font-url('SourceSansPro-ExtraLightIt-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-ExtraLightIt-webfont.woff') format('woff'),
+         font-url('SourceSansPro-ExtraLightIt-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-ExtraLightIt-webfont.svg#SourceSansProExtraLightItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProLight';
+    src: font-url('SourceSansPro-Light-webfont.eot');
+    src: font-url('SourceSansPro-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-Light-webfont.woff') format('woff'),
+         font-url('SourceSansPro-Light-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-Light-webfont.svg#SourceSansProLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProLightItalic';
+    src: font-url('SourceSansPro-LightIt-webfont.eot');
+    src: font-url('SourceSansPro-LightIt-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-LightIt-webfont.woff') format('woff'),
+         font-url('SourceSansPro-LightIt-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-LightIt-webfont.svg#SourceSansProLightItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProRegular';
+    src: font-url('SourceSansPro-Regular-webfont.eot');
+    src: font-url('SourceSansPro-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-Regular-webfont.woff') format('woff'),
+         font-url('SourceSansPro-Regular-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-Regular-webfont.svg#SourceSansProRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProItalic';
+    src: font-url('SourceSansPro-It-webfont.eot');
+    src: font-url('SourceSansPro-It-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-It-webfont.woff') format('woff'),
+         font-url('SourceSansPro-It-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-It-webfont.svg#SourceSansProItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SourceSansProSemibold';
+    src: font-url('SourceSansPro-Semibold-webfont.eot');
+    src: font-url('SourceSansPro-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('SourceSansPro-Semibold-webfont.woff') format('woff'),
+         font-url('SourceSansPro-Semibold-webfont.ttf') format('truetype'),
+         font-url('SourceSansPro-Semibold-webfont.svg#SourceSansProSemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'SpecialEliteRegular';
+    src: url('SpecialElite-webfont.eot');
+    src: url('SpecialElite-webfont.eot?#iefix') format('embedded-opentype'),
+         url('SpecialElite-webfont.woff') format('woff'),
+         url('SpecialElite-webfont.ttf') format('truetype'),
+         url('SpecialElite-webfont.svg#SpecialEliteRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsLight';
+    src: url('BPdotsLight-webfont.eot');
+    src: url('BPdotsLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsLight-webfont.woff') format('woff'),
+         url('BPdotsLight-webfont.ttf') format('truetype'),
+         url('BPdotsLight-webfont.svg#BPdotsLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsRegular';
+    src: url('BPdots-webfont.eot');
+    src: url('BPdots-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdots-webfont.woff') format('woff'),
+         url('BPdots-webfont.ttf') format('truetype'),
+         url('BPdots-webfont.svg#BPdotsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsBold';
+    src: url('BPdotsBold-webfont.eot');
+    src: url('BPdotsBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsBold-webfont.woff') format('woff'),
+         url('BPdotsBold-webfont.ttf') format('truetype'),
+         url('BPdotsBold-webfont.svg#BPdotsBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsSquaresLight';
+    src: url('BPdotsSquareLight-webfont.eot');
+    src: url('BPdotsSquareLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsSquareLight-webfont.woff') format('woff'),
+         url('BPdotsSquareLight-webfont.ttf') format('truetype'),
+         url('BPdotsSquareLight-webfont.svg#BPdotsSquaresLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsSquaresRegular';
+    src: url('BPdotsSquare-webfont.eot');
+    src: url('BPdotsSquare-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsSquare-webfont.woff') format('woff'),
+         url('BPdotsSquare-webfont.ttf') format('truetype'),
+         url('BPdotsSquare-webfont.svg#BPdotsSquaresRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsSquaresBold';
+    src: url('BPdotsSquareBold-webfont.eot');
+    src: url('BPdotsSquareBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsSquareBold-webfont.woff') format('woff'),
+         url('BPdotsSquareBold-webfont.ttf') format('truetype'),
+         url('BPdotsSquareBold-webfont.svg#BPdotsSquaresBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsDiamondLight';
+    src: url('BPdotsDiamondLight-webfont.eot');
+    src: url('BPdotsDiamondLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsDiamondLight-webfont.woff') format('woff'),
+         url('BPdotsDiamondLight-webfont.ttf') format('truetype'),
+         url('BPdotsDiamondLight-webfont.svg#BPdotsDiamondLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsDiamondRegular';
+    src: url('BPdotsDiamond-webfont.eot');
+    src: url('BPdotsDiamond-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsDiamond-webfont.woff') format('woff'),
+         url('BPdotsDiamond-webfont.ttf') format('truetype'),
+         url('BPdotsDiamond-webfont.svg#BPdotsDiamondRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsDiamondBold';
+    src: url('BPdotsDiamondBold-webfont.eot');
+    src: url('BPdotsDiamondBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsDiamondBold-webfont.woff') format('woff'),
+         url('BPdotsDiamondBold-webfont.ttf') format('truetype'),
+         url('BPdotsDiamondBold-webfont.svg#BPdotsDiamondBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsPlusRegular';
+    src: url('BPdotsPlus-webfont.eot');
+    src: url('BPdotsPlus-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsPlus-webfont.woff') format('woff'),
+         url('BPdotsPlus-webfont.ttf') format('truetype'),
+         url('BPdotsPlus-webfont.svg#BPdotsPlusRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsPlusBold';
+    src: url('BPdotsPlusBold-webfont.eot');
+    src: url('BPdotsPlusBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsPlusBold-webfont.woff') format('woff'),
+         url('BPdotsPlusBold-webfont.ttf') format('truetype'),
+         url('BPdotsPlusBold-webfont.svg#BPdotsPlusBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsMinusRegular';
+    src: url('BPdotsMinus-webfont.eot');
+    src: url('BPdotsMinus-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsMinus-webfont.woff') format('woff'),
+         url('BPdotsMinus-webfont.ttf') format('truetype'),
+         url('BPdotsMinus-webfont.svg#BPdotsMinusRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsMinusBold';
+    src: url('BPdotsMinusBold-webfont.eot');
+    src: url('BPdotsMinusBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsMinusBold-webfont.woff') format('woff'),
+         url('BPdotsMinusBold-webfont.ttf') format('truetype'),
+         url('BPdotsMinusBold-webfont.svg#BPdotsMinusBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsVerticalRegular';
+    src: url('BPdotsVertical-webfont.eot');
+    src: url('BPdotsVertical-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsVertical-webfont.woff') format('woff'),
+         url('BPdotsVertical-webfont.ttf') format('truetype'),
+         url('BPdotsVertical-webfont.svg#BPdotsVerticalRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'BPdotsVerticalBold';
+    src: url('BPdotsVerticalBold-webfont.eot');
+    src: url('BPdotsVerticalBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('BPdotsVerticalBold-webfont.woff') format('woff'),
+         url('BPdotsVerticalBold-webfont.ttf') format('truetype'),
+         url('BPdotsVerticalBold-webfont.svg#BPdotsVerticalBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+.container-narrow {
+  max-width: 940px;
+}
+
+.masthead h3 {
+  text-align: center;
+  font-family: 'BPdotsLight';
+	color: #222222;
+	font-size: 1.35em;
+}
+
+.span9999 {
+  max-width: 595px;
+}
+
+.jumbotron h1 {
+	font-family: ChunkFiveRegular, Arial, sans-serif;
+	color: $title_color;
+	text-shadow: #999999 0px 0px 2px;
+	}
+
+.jumbotron p.lead {
+	font-family: SourceSansProSemiboldItalic, sans-serif;
+	text-shadow: #999999 0px 0px 2px;
+}
+
+span.title_light {
+	color: lighten($title_color, 35%);
+}
+
+span.title_separator {
+/*	color: lighten($title_color, 25%); */
+	font-size: 1.35em;
+}
+
+span.title_separator_light {
+	color: lighten($title_color, 35%);
+	font-size: 1.35em;
+}
