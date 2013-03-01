@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  start_date: 2013-02-28
-  end_date: 2013-02-28
+  start_date: 2013-03-01
+  end_date: 2013-03-01
   name: MyString
   degree: MyString
   degree_short: MyString
@@ -11,8 +11,8 @@ one:
   logo_link: MyString
 
 two:
-  start_date: 2013-02-28
-  end_date: 2013-02-28
+  start_date: 2013-03-01
+  end_date: 2013-03-01
   name: MyString
   degree: MyString
   degree_short: MyString

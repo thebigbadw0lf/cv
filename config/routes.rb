@@ -1,8 +1,6 @@
 Cv::Application.routes.draw do
-  resources :schools
 
-
-  resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records
+  resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records, :schools
 
   #tag links routing  
   get 'skills/:skill', to: 'records#index', as: 'skill'

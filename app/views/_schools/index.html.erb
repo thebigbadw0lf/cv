@@ -47,7 +47,7 @@
 
 <div class="tag_cloud">
 	<% tag_cloud @tags.sort_by(&:name), %w{s m l} do |t, css_class| %>
-  	<%= link_to t.name, "#{root_path}tags/#{t.name}", class: css_class %>
+  	<%= link_to t.name, "./tags/#{t.name}", class: css_class %>
 	<% end %>
 </div>
 

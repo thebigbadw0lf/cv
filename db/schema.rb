@@ -76,6 +76,19 @@ ActiveRecord::Schema.define(:version => 20130228223210) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "schools", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "name"
+    t.string   "degree"
+    t.string   "degree_short"
+    t.integer  "location_id"
+    t.string   "link"
+    t.string   "logo_link"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "schools_descriptions", :id => false, :force => true do |t|
     t.integer "school_id"
     t.integer "description_id"
