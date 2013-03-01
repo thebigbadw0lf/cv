@@ -34,7 +34,7 @@
 </table>
 
 <br />
-<div id="tag_cloud">
+<div class="tag_cloud">
   <% tag_cloud Record.skill_counts.order('name ASC'), %w{s m l} do |skill, css_class| %>
   	<%= link_to skill.name, skill_path(skill.name), class: css_class %>
 	<% end %>

@@ -30,14 +30,23 @@
     <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
   <tr>
-		<td>Teachings: <%= raw school.teaching_list.map { |t| link_to t, teaching_path(t) }.join(', ') %></td>
+		<td>Teachings: <%= raw school.teaching_list.sort.map { |t| link_to t, teaching_path(t) }.join(', ') %></td>
 	</tr>
 <% end %>
 </table>
 
 <br />
-<div id="tag_cloud">
+
+<div class="tag_cloud">
   <% tag_cloud School.teaching_counts.order('name ASC'), %w{s m l} do |teaching, css_class| %>
+  	<%= link_to teaching.name, teaching_path(teaching.name), class: css_class %>
+	<% end %>
+</div>
+
+<br />
+
+<div class="tag_cloud">
+	<% tag_cloud @tags.sort_by(&:name), %w{s m l} do |teaching, css_class| %>
   	<%= link_to teaching.name, teaching_path(teaching.name), class: css_class %>
 	<% end %>
 </div>
