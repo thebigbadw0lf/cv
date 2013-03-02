@@ -1,5 +1,10 @@
+// Place all the styles related to the cv controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
 @import "bootstrap";
 @import "bootstrap-responsive";
+
 body {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -399,12 +404,13 @@ $title_txt: 'ChunkFiveRegular';
   max-width: 1024px;
 }
 
-.span9999 {
-  max-width: 655px;
-	margin-right: 18px;
+.marketing {
+	margin-bottom: 0px;
 }
 
-.span4 {
+.row-fluid [class*="span"] {
+	margin-left: 0px;
+	margin-bottom: 60px;
 }
 
 .jumbotron h1 {
@@ -426,7 +432,7 @@ $title_txt: 'ChunkFiveRegular';
 	font-size: 1.35em;
 }
 
-.span9999 h1 {
+.span8 h1 {
 	font-family: $title_txt, Arial, sans-serif;
 	color: lighten($base_dark_color, 15%);
 	margin-bottom: 1.01em;
@@ -444,7 +450,7 @@ $title_txt: 'ChunkFiveRegular';
 	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
 }
 
-.span4 p {
+.span4 p, .span8 p {
 	font-family: 'SourceSansProLight', Arial, sans-serif;
 	margin-bottom: 1.05em;
 	color: lighten($base_dark_color, 35%);

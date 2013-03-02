@@ -1,5 +1,7 @@
 Cv::Application.routes.draw do
 
+  get "cv/index"
+
   resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records, :schools
 
   #tag links routing  
@@ -8,7 +10,7 @@ Cv::Application.routes.draw do
   get 'tags/:tag', to: 'records#index', as: 'tag'
   
   
-  root to: 'records#index'
+  root to: 'cv#index'
   
   
   # The priority is based upon order of creation:
