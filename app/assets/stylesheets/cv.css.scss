@@ -41,7 +41,8 @@ body {
 
 /* sass variables */
 
-$title_color: #000000;
+$base_dark_color: #000000;
+$title_txt: 'ChunkFiveRegular';
 
 /* embedded fonts */
 
@@ -395,7 +396,27 @@ $title_color: #000000;
 
 
 .container-narrow {
-  max-width: 940px;
+  max-width: 1024px;
+}
+
+.span9999 {
+  max-width: 655px;
+	margin-right: 18px;
+}
+
+.span4 {
+}
+
+.jumbotron h1 {
+	font-family: $title_txt, Arial, sans-serif;
+	color: $base_dark_color;
+	text-shadow: lighten($base_dark_color, 80%) 0px 0px 2px;
+	font-size: 5.35em;
+}
+
+.jumbotron p.lead {
+	font-family: SourceSansProSemiboldItalic, sans-serif;
+	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
 }
 
 .masthead h3 {
@@ -405,31 +426,62 @@ $title_color: #000000;
 	font-size: 1.35em;
 }
 
-.span9999 {
-  max-width: 595px;
+.span9999 h1 {
+	font-family: $title_txt, Arial, sans-serif;
+	color: lighten($base_dark_color, 15%);
+	margin-bottom: 1.01em;
+	font-size: 3.75em;
+	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+}
+
+
+.span4 h4 {
+	font-family: $title_txt, Arial, sans-serif;
+	color: lighten($base_dark_color, 15%);
+	font-size: 2.55em;
+	line-height: 0.69em;
+	margin-bottom: 0.55em;
+	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+}
+
+.span4 p {
+	font-family: 'SourceSansProLight', Arial, sans-serif;
+	margin-bottom: 1.05em;
+	color: lighten($base_dark_color, 35%);
+	font-size: 1.05em;
 }
 
 .jumbotron h1 {
-	font-family: ChunkFiveRegular, Arial, sans-serif;
-	color: $title_color;
+	font-family: $title_txt, Arial, sans-serif;
+	color: $base_dark_color;
 	text-shadow: #999999 0px 0px 2px;
-	}
+	font-size: 5.35em;
+}
 
-.jumbotron p.lead {
-	font-family: SourceSansProSemiboldItalic, sans-serif;
-	text-shadow: #999999 0px 0px 2px;
+.btn, .btn-large, .btn-success {
+	font-family: $title_txt, Arial, sans-serif;
+	font-size: 2.55em;
+	text-shadow: #333333 0px 0px 3px;
 }
 
 span.title_light {
-	color: lighten($title_color, 35%);
+	color: lighten($base_dark_color, 35%);
 }
 
 span.title_separator {
-/*	color: lighten($title_color, 25%); */
+/*	color: lighten($base_dark_color, 25%); */
 	font-size: 1.35em;
 }
 
 span.title_separator_light {
-	color: lighten($title_color, 35%);
+	color: lighten($base_dark_color, 35%);
 	font-size: 1.35em;
+}
+
+div.footer {
+	font-family: $title_txt, Arial, sans-serif;
+	color: $base_dark_color;
+	font-size: 1.95em;
+	text-align: center;
+	text-shadow: #999999 0px 0px 2px;
 }
