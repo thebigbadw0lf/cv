@@ -13,7 +13,7 @@ body {
 /* Custom container */
 .container-narrow {
   margin: 0 auto;
-  max-width: 700px;
+  max-width: 1024px;
 }
 .container-narrow > hr {
   margin: 30px 0;
@@ -35,19 +35,13 @@ body {
 
 /* Supporting marketing content */
 .marketing {
-  margin: 60px 0;
+  margin: 0px 0;
 }
 .marketing p + h4 {
   margin-top: 28px;
 }
 
 
-/* custom css */
-
-/* sass variables */
-
-$base_dark_color: #000000;
-$title_txt: 'ChunkFiveRegular';
 
 /* embedded fonts */
 
@@ -400,68 +394,83 @@ $title_txt: 'ChunkFiveRegular';
 
 
 
-.container-narrow {
-  max-width: 1024px;
+/* sass variables */
+
+$base_dark_color: #000000;
+$title_txt: 'ChunkFiveRegular';
+$body_side_padding: 20px;
+
+/* bootstrap marketing template customization */
+
+@media (max-width: 700px) {
+  .jumbotron {display:none}
 }
 
-.marketing {
-	margin-bottom: 0px;
+body {
+	padding-left:$body_side_padding;
+	padding-right:$body_side_padding;
 }
 
-.row-fluid [class*="span"] {
-	margin-left: 0px;
-	margin-bottom: 60px;
+.jumbotron {
+	h1 {
+		font-family: $title_txt, Arial, sans-serif;
+		color: $base_dark_color;
+		text-shadow: lighten($base_dark_color, 80%) 0px 0px 2px;
+		font-size: 5.35em;
+	}
+	
+	p.lead {
+		font-family: SourceSansProSemiboldItalic, sans-serif;
+		text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+	}
 }
 
-.jumbotron h1 {
-	font-family: $title_txt, Arial, sans-serif;
-	color: $base_dark_color;
-	text-shadow: lighten($base_dark_color, 80%) 0px 0px 2px;
-	font-size: 5.35em;
-}
-
-.jumbotron p.lead {
-	font-family: SourceSansProSemiboldItalic, sans-serif;
-	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
-}
-
-.masthead h3 {
+.masthead { 
+	h3 {
   text-align: center;
   font-family: 'BPdotsLight';
 	color: #222222;
 	font-size: 1.35em;
+	}
 }
 
-.span8 h1 {
-	font-family: $title_txt, Arial, sans-serif;
-	color: lighten($base_dark_color, 15%);
-	margin-bottom: 1.01em;
-	font-size: 3.75em;
-	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+.row-fluid {
+	.span4, .span8 {
+	margin-bottom: 40px;
+		p {
+		font-family: 'SourceSansProLight', Arial, sans-serif;
+		margin-bottom: 1.05em;
+		color: lighten($base_dark_color, 35%);
+		font-size: 1.05em;
+		}
+	}
+
+	.span8 {
+		h1 {
+			font-family: $title_txt, Arial, sans-serif;
+			color: lighten($base_dark_color, 15%);
+			margin-bottom: 1.01em;
+			font-size: 3.75em;
+			text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+		}
+	}
+	
+	.span4 {
+		h4 {
+			font-family: $title_txt, Arial, sans-serif;
+			color: lighten($base_dark_color, 15%);
+			font-size: 2.55em;
+			line-height: 0.69em;
+			margin-bottom: 0.55em;
+			text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+		}
+	}
 }
 
-
-.span4 h4 {
-	font-family: $title_txt, Arial, sans-serif;
-	color: lighten($base_dark_color, 15%);
-	font-size: 2.55em;
-	line-height: 0.69em;
-	margin-bottom: 0.55em;
-	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
-}
-
-.span4 p, .span8 p {
-	font-family: 'SourceSansProLight', Arial, sans-serif;
-	margin-bottom: 1.05em;
-	color: lighten($base_dark_color, 35%);
-	font-size: 1.05em;
-}
-
-.jumbotron h1 {
-	font-family: $title_txt, Arial, sans-serif;
-	color: $base_dark_color;
-	text-shadow: #999999 0px 0px 2px;
-	font-size: 5.35em;
+@media (min-width: 767px) {
+	.row-fluid .span4 {
+		padding-left: 16px;
+	}
 }
 
 .btn, .btn-large, .btn-success {
@@ -470,16 +479,16 @@ $title_txt: 'ChunkFiveRegular';
 	text-shadow: #333333 0px 0px 3px;
 }
 
-span.title_light {
+.title_light {
 	color: lighten($base_dark_color, 35%);
 }
 
-span.title_separator {
+.title_separator {
 /*	color: lighten($base_dark_color, 25%); */
 	font-size: 1.35em;
 }
 
-span.title_separator_light {
+.title_separator_light {
 	color: lighten($base_dark_color, 35%);
 	font-size: 1.35em;
 }

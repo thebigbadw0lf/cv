@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130228223210) do
+ActiveRecord::Schema.define(:version => 20130303152204) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(:version => 20130228223210) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
+
+  create_table "descriptions_schools", :id => false, :force => true do |t|
+    t.integer "description_id"
+    t.integer "school_id"
+  end
+
+  add_index "descriptions_schools", ["description_id"], :name => "index_descriptions_schools_on_description_id"
+  add_index "descriptions_schools", ["school_id"], :name => "index_descriptions_schools_on_school_id"
 
   create_table "industries", :force => true do |t|
     t.string   "name"
@@ -88,14 +96,6 @@ ActiveRecord::Schema.define(:version => 20130228223210) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
-
-  create_table "schools_descriptions", :id => false, :force => true do |t|
-    t.integer "school_id"
-    t.integer "description_id"
-  end
-
-  add_index "schools_descriptions", ["description_id"], :name => "index_schools_descriptions_on_description_id"
-  add_index "schools_descriptions", ["school_id"], :name => "index_schools_descriptions_on_school_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
