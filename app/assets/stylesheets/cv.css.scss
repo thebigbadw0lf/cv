@@ -412,6 +412,8 @@ body {
 }
 
 .jumbotron {
+	margin: 0px 0px 60px 0px;
+	padding-top: 10px;
 	h1 {
 		font-family: $title_txt, Arial, sans-serif;
 		color: $base_dark_color;
@@ -435,8 +437,9 @@ body {
 }
 
 .row-fluid {
-	.span4, .span8 {
+	margin-top: 40px;
 	margin-bottom: 40px;
+	.span4, .span8 {
 		p {
 		font-family: 'SourceSansProLight', Arial, sans-serif;
 		margin-bottom: 1.05em;
@@ -663,6 +666,26 @@ div.footer {
 
 /*my carousel stuff*/
 
-.carousel-slide {
-	background: #000000;
+
+
+
+/*custom non-bootstrap css*/
+
+.main_pic {
+	background: #ffffff;
+	width:130px;
+	height:130px;
+	display: inline-block;
+	text-align:center;
+	vertixal-align:middle;
+	-webkit-border-radius: 90px;
+	border-radius: 90px;
+	border-style: solid;
+	border-width: 20px;
+	border-color: #01B0F0;
+	background-image: url(http://media.rtv.net/image/201203/full/academia_de_studii_economice_ase_13485200.jpg);
+	background-repeat-x: no-repeat;
+	background-repeat-y: no-repeat;
+	background-position-x: 0px;
+	background-position-y: 0px;
 }
