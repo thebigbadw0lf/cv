@@ -412,8 +412,10 @@ body {
 }
 
 .jumbotron {
-	margin: 0px 0px 60px 0px;
+	overflow: hidden;
+	margin: 0px 0px 40px 0px;
 	padding-top: 10px;
+	height: 470px;
 	h1 {
 		font-family: $title_txt, Arial, sans-serif;
 		color: $base_dark_color;
@@ -424,7 +426,14 @@ body {
 	p.lead {
 		font-family: SourceSansProSemiboldItalic, sans-serif;
 		text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+		margin-bottom: 40px;
 	}
+	
+	.btn {
+	  font-size: 23px;
+		padding: 14px 8px 14px 8px;
+	}
+	
 }
 
 .masthead { 
@@ -478,9 +487,25 @@ body {
 
 .btn, .btn-large, .btn-success {
 	font-family: $title_txt, Arial, sans-serif;
-	font-size: 2.55em;
-	text-shadow: #333333 0px 0px 3px;
+	text-shadow: #333333 0px 0px 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	background-image: none;
+	background-color: #01B0F0;
+	border-width: 0px;
 }
+
+#btn-l {
+	background-color: #595959;
+	margin-right: 70px;
+}
+
+#btn-r {
+		background-color: #01b0f0;
+	}
+
+
 
 .title_light {
 	color: lighten($base_dark_color, 35%);
@@ -660,6 +685,9 @@ div.footer {
 
 .carousel-caption {
 	position: static;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	background-color: #ffffff;
 }
 
 
@@ -681,11 +709,12 @@ div.footer {
 	-webkit-border-radius: 90px;
 	border-radius: 90px;
 	border-style: solid;
-	border-width: 20px;
-	border-color: #01B0F0;
+	border-width: 7px;
+	border-color: #595959;
 	background-image: url(http://media.rtv.net/image/201203/full/academia_de_studii_economice_ase_13485200.jpg);
 	background-repeat-x: no-repeat;
 	background-repeat-y: no-repeat;
 	background-position-x: 0px;
 	background-position-y: 0px;
+	margin-bottom: 10px;
 }
