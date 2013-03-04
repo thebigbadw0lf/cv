@@ -398,7 +398,7 @@ body {
 
 $base_dark_color: #000000;
 $title_txt: 'ChunkFiveRegular';
-$body_side_padding: 20px;
+$body_side_spacing: 30px;
 
 /* bootstrap marketing template customization */
 
@@ -407,8 +407,8 @@ $body_side_padding: 20px;
 }*/
 
 body {
-	padding-left:$body_side_padding;
-	padding-right:$body_side_padding;
+	padding-left:$body_side_spacing;
+	padding-right:$body_side_spacing;
 }
 
 .jumbotron {
@@ -503,7 +503,7 @@ body {
 		background-color: #01b0f0;
 	}
 
-@media (max-width: 555px) {
+@media (max-width: 575px) {
   #btn-l {
 		margin-left: 6.01%;
 		margin-bottom: 28px;
