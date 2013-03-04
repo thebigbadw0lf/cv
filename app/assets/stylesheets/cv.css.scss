@@ -412,10 +412,8 @@ body {
 }
 
 .jumbotron {
-	overflow: hidden;
 	margin: 0px 0px 40px 0px;
 	padding-top: 10px;
-	height: 470px;
 	h1 {
 		font-family: $title_txt, Arial, sans-serif;
 		color: $base_dark_color;
@@ -498,13 +496,19 @@ body {
 
 #btn-l {
 	background-color: #595959;
-	margin-right: 70px;
+	margin-right: 6.01%;
 }
 
 #btn-r {
 		background-color: #01b0f0;
 	}
 
+@media (max-width: 555px) {
+  #btn-l {
+		margin-left: 6.01%;
+		margin-bottom: 28px;
+	}
+}
 
 
 .title_light {
