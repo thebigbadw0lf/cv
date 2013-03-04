@@ -483,6 +483,10 @@ body {
 	}
 }
 
+.marketing p + h4, #after_gmaps {
+  margin-top: 50px;
+}
+
 .btn, .btn-large, .btn-success {
 	font-family: $title_txt, Arial, sans-serif;
 	text-shadow: #333333 0px 0px 0px;
@@ -501,7 +505,22 @@ body {
 
 #btn-r {
 		background-color: #01b0f0;
+		.btn-success:hover, .btn-success:focus, .btn-success:active {
+			text-decoration:underline;
+			text-shadow: lighten($base_dark_color, 60%) 0px 0px 5px;
+		}
 	}
+
+#btn-r:focus, #btn-r:active, #btn-r:visited, #btn-r:hover {
+	text-decoration:underline;
+	text-shadow: darken(#01B0F0, 20%) 0px 0px 5px;
+}
+
+#btn-l:focus, #btn-l:active, #btn-l:visited, #btn-l:hover {
+	text-decoration:underline;
+	text-shadow: lighten($base_dark_color, 0%) 0px 0px 5px;
+}
+
 
 @media (max-width: 575px) {
   #btn-l {
@@ -509,7 +528,6 @@ body {
 		margin-bottom: 28px;
 	}
 }
-
 
 .title_light {
 	color: lighten($base_dark_color, 35%);
