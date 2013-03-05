@@ -498,35 +498,44 @@ body {
 	border-width: 0px;
 }
 
-#btn-l {
+.btn-r {
+	background-color: #01b0f0;
+}
+
+.btn-l {
 	background-color: #595959;
 	margin-right: 6.01%;
 }
 
-#btn-r {
-		background-color: #01b0f0;
-		.btn-success:hover, .btn-success:focus, .btn-success:active {
-			text-decoration:underline;
-			text-shadow: lighten($base_dark_color, 60%) 0px 0px 5px;
-		}
-	}
-
-#btn-r:focus, #btn-r:active, #btn-r:visited, #btn-r:hover {
-	text-decoration:underline;
-	text-shadow: darken(#01B0F0, 20%) 0px 0px 5px;
-}
-
-#btn-l:focus, #btn-l:active, #btn-l:visited, #btn-l:hover {
-	text-decoration:underline;
-	text-shadow: lighten($base_dark_color, 0%) 0px 0px 5px;
-}
-
-
 @media (max-width: 569px) {
-  #btn-l {
+  .btn-l {
 		margin-left: 6.01%;
 		margin-bottom: 28px;
 	}
+}
+
+.btn-r:focus, .btn-r:active, .btn-r:visited {
+	background-color: #01b0f0;
+}
+
+.btn-r:hover {
+	text-shadow: darken(#01B0F0, 20%) 0px 0px 2px;
+	text-decoration:underline;
+	background-color: darken(#01b0f0, 5%);
+}
+
+.btn-l:focus, .btn-l:active, .btn-l:visited {
+	background-color: #595959;
+}
+
+.btn-l:hover {
+	text-shadow: lighten($base_dark_color, 0%) 0px 0px 2px;
+	text-decoration:underline;
+	background-color: lighten(#595959, 10%);
+}
+
+.year_box {
+	margin: 0px 0px 4px 0px;
 }
 
 .title_light {
@@ -713,8 +722,6 @@ div.footer {
 }
 
 
-
-/*my carousel stuff*/
 
 
 
