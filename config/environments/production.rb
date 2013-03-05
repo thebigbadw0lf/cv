@@ -70,4 +70,6 @@ Cv::Application.configure do
 
   # Precompile additional assets
   config.assets.precompile += %w( .svg .eot .woff .ttf )
+  
+  config.assets.precompile += %w( html5shiv/html5fix_admin.js )
 end
