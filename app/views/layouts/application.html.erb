@@ -7,13 +7,29 @@
     <meta name="description" content="Alin's Curriculum Vitae">
     <meta name="author" content="Alin Maier">
 
-	  <%= stylesheet_link_tag "application", :media => "all" %>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
+	
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				// 'targetTopPosition' is the amount of pixels #resume
+				// is from the top of the document
+				var targetTopPosition = jQuery('#resume').offset().top;
+
+				// When #scroll is clicked
+				jQuery('#btn-l').click(function(){
+					// Scroll down to 'catTopPosition'
+					jQuery('html, body').animate({scrollTop:targetTopPosition-25}, 'slow');
+					// Stop the link from acting like a normal anchor link
+					return false;
+				});
+			});
+		</script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-	  	<%= javascript_include_tag "html5shiv/html5shiv" %>
+      <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
 
     <!-- Fav and touch icons -->
