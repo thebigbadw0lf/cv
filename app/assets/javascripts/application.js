@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_directory .
 
 // Loads all Bootstrap javascripts
 //= require bootstrap
