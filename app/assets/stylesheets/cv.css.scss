@@ -702,26 +702,30 @@ div.footer {
   line-height: 20px;
 }
 
-.carousel-caption h4 {
-  margin: 0 0 5px;
-}
-
-.carousel-caption p {
-  margin-bottom: 0;
-}
 
 
 
 
+/* carousel customization */
 
 .carousel-caption {
 	position: static;
 	padding-top: 0px;
 	padding-bottom: 0px;
 	background-color: #ffffff;
+	
+	.carousel-caption h4 {
+	  margin: 0 0 5px;
+	}
+
+	.carousel-caption p {
+	  margin-bottom: 0;
+	}
 }
 
-
+.carousel-control {
+	top: 40px;
+}
 
 
 
@@ -729,10 +733,10 @@ div.footer {
 /*custom non-bootstrap css*/
 
 .main_pic {
+	display: inline-block;
 	background: #ffffff;
 	width:130px;
 	height:130px;
-	display: inline-block;
 	text-align:center;
 	vertixal-align:middle;
 	-webkit-border-radius: 90px;
