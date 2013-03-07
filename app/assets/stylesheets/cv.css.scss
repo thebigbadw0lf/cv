@@ -514,6 +514,11 @@ body {
 	}
 }
 
+.btn-active {
+	background-color: #000000;
+	color: #ffffff;
+}
+
 .btn-r:focus, .btn-r:active, .btn-r:visited {
 	background-color: #01b0f0;
 }
@@ -534,8 +539,18 @@ body {
 	background-color: lighten(#595959, 10%);
 }
 
+.btn-active:focus, .btn-active:active, .btn-active:visited {
+	background-color: #000000;
+}
+
+.btn-active:hover {
+	text-shadow: lighten(#ffffff, 10%) 0px 0px 2px;
+	text-decoration:underline;
+	background-color: lighten(#000000, 10%);
+}
+
 .year_box {
-	margin: 0px 7px 7px 0px;
+	margin: 0px 7px 9px 0px;
 }
 
 .title_light {

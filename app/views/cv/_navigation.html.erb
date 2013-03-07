@@ -1,1 +1,1 @@
-<a class="btn btn-large btn-success <% if navigation_counter+1 <= position %>btn_l<% else %>btn_r<% end %> year_box" data-target="#myCarousel" data-slide-to="<%= navigation_counter+1 -%>" href="#"><%= navigation -%></a>
+<a class="btn btn-large btn-success <% if navigation_counter+1 < position %>btn-l<% elsif navigation_counter+1 == position %>btn-active<% else %>btn-r<% end %> year_box" data-target="#myCarousel" data-slide-to="<%= navigation_counter+1 -%>" href="#"><%= navigation -%></a>
