@@ -535,7 +535,7 @@ body {
 }
 
 .year_box {
-	margin: 0px 0px 4px 0px;
+	margin: 0px 7px 7px 0px;
 }
 
 .title_light {
@@ -729,8 +729,15 @@ div.footer {
 
 
 
-
 /*custom non-bootstrap css*/
+
+#test44 {
+		background: url(http://media.rtv.net/image/201203/full/academia_de_studii_economice_ase_13485200.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .main_pic {
 	display: inline-block;
