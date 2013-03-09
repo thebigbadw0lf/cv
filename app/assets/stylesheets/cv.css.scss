@@ -464,7 +464,7 @@ body {
 			font-family: $title_txt, Arial, sans-serif;
 			color: lighten($base_dark_color, 15%);
 			margin-bottom: 1.01em;
-			font-size: 3.75em;
+			font-size: 3.39em;
 			text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
 		}
 	}
@@ -500,6 +500,7 @@ body {
 	background-image: none;
 	background-color: #01B0F0;
 	border-width: 0px;
+	border-color: #444444;
 }
 
 .btn-r {
@@ -544,13 +545,13 @@ body {
 }
 
 .btn-active:focus, .btn-active:active, .btn-active:visited {
-	background-color: #000000;
+	background-color: #D6C537;
 }
 
 .btn-active:hover {
-	text-shadow: lighten(#ffffff, 10%) 0px 0px 2px;
+	text-shadow: lighten(#ffffff, 10%) 0px 0px 0px;
 	text-decoration:underline;
-	background-color: lighten(#000000, 10%);
+	background-color: darken(#D6C537, 10%);
 }
 
 .year_box {
@@ -558,7 +559,7 @@ body {
 }
 
 .year_box2 {
-	margin: 0px 0px 0px 0px;
+	margin: 0px 0px 4px 0px;
 }
 
 
@@ -736,12 +737,19 @@ div.footer {
 }
 
 .close_presentation {
+  display: block;
+  margin: 0px 0px 20px 0px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	color: lighten(#0088cc, 00%);
+	font-size: 1.05em;
+	text-shadow: lighten($base_dark_color, 70%) 0px 0px 0px;
+	text-decoration: underline;
+}
+
+.go-to-top {
   display: inline-block;
-  margin: 20px 0px 0px 0px;
-  font-family: $title_txt, Arial, sans-serif;
-	color: lighten($base_dark_color, 30%);
-	font-size: 1.55em;
-	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+  width: 100%;
+  text-align: center;
 }
 
 

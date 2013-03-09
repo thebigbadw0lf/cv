@@ -4,6 +4,8 @@
 	<!-- /.carousel -->	
 	
 	<div id="myCarousel" class="carousel slide">
+	  
+	  <%= link_to "close lifestory...".html_safe, "#", :class => "close_presentation" %>
 		
 		<div id="arrows_narrow" class="carousel-controls-narrow">
 			<%= link_to "‹".html_safe, "#myCarousel", :class => "left carousel-control btn-l btn-l2 pres-ctrl-narrow", "data-slide" => "prev" %>			
@@ -40,9 +42,7 @@
 	  		
 		<%= link_to "‹".html_safe, "#myCarousel", :id => "left_arrow_wide", :class => "left carousel-control btn-l2 pres-ctrl", "data-slide" => "prev" %>			
 		<%= link_to "›".html_safe, "#myCarousel", :id => "right_arrow_wide", :class => "right carousel-control btn-r pres-ctrl", "data-slide" => "next" %>
-		
-		<%= link_to "&#215; close lifestory...".html_safe, "#", :class => "close_presentation" %>
-  		  
+		  		  
 	</div>
 	<!--  Carousel - consult the Twitter Bootstrap docs at
 	      http://twitter.github.com/bootstrap/javascript.html#carousel -->

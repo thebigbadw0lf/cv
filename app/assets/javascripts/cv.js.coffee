@@ -67,3 +67,11 @@ $(document).ready ->
       scrollTop: p_anchorTopPosition + 20
     , 800
 
+  $(".go-to-top").click (event) ->
+    event.preventDefault()
+
+    # Scroll to top
+    $("html, body").animate
+      scrollTop: 0
+    , 800
+
