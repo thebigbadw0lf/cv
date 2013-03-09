@@ -9,4 +9,8 @@ module CvHelper
         class_future
     end
   end
+  
+  def year_switch(navigation_counter)
+    navigation_counter.even? ? "year_box" : "year_box2"
+  end
 end

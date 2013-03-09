@@ -6,8 +6,8 @@
 	<div id="myCarousel" class="carousel slide">
 		
 		<div id="arrows_narrow" class="carousel-controls-narrow">
-			<a class="left carousel-control btn-l btn-l2 pres-ctrl-narrow" href="#myCarousel" data-slide="prev">‹</a>
-			<a class="right carousel-control btn-r pres-ctrl-narrow" href="#myCarousel" data-slide="next">›</a>
+			<%= link_to "‹".html_safe, "#myCarousel", :class => "left carousel-control btn-l btn-l2 pres-ctrl-narrow", "data-slide" => "prev" %>			
+			<%= link_to "›".html_safe, "#myCarousel", :class => "right carousel-control btn-r pres-ctrl-narrow", "data-slide" => "next" %>
 		</div>
 		
 	  <div class="carousel-inner">
@@ -49,8 +49,9 @@
 	    </div>
 
 	  </div>
-		<a id="left_arrow_wide" class="left carousel-control btn-l2 pres-ctrl" href="#myCarousel" data-slide="prev">‹</a>
-		<a id="right_arrow_wide" class="right carousel-control btn-r pres-ctrl" href="#myCarousel" data-slide="next">›</a>
+		
+		<%= link_to "‹".html_safe, "#myCarousel", :id => "left_arrow_wide", :class => "left carousel-control btn-l2 pres-ctrl", "data-slide" => "prev" %>			
+		<%= link_to "›".html_safe, "#myCarousel", :id => "right_arrow_wide", :class => "right carousel-control btn-r pres-ctrl", "data-slide" => "next" %>
 	</div>
 	<!--  Carousel - consult the Twitter Bootstrap docs at
 	      http://twitter.github.com/bootstrap/javascript.html#carousel -->

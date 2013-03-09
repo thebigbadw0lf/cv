@@ -1,1 +1,2 @@
-<a class="btn btn-large btn-success <%= year_format(navigation_counter, position, "btn-l", "btn-active", "btn-r") %> year_box" data-target="#myCarousel" data-slide-to="<%= navigation_counter -%>" href="#"><%= navigation -%></a>
+<%= link_to navigation, "#", :class => "btn btn-large btn-success " + year_format(navigation_counter, position, "btn-l", "btn-active", "btn-r") + " " + year_switch(navigation_counter) + " slide_align", "data-target" => "#myCarousel", "data-slide-to" => navigation_counter %>
+

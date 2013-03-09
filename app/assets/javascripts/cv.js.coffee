@@ -18,7 +18,7 @@ $(document).ready ->
   
   $("#btn-l").click ->
     
-    # Scroll down to target
+    # Scroll to target
     $("html, body").animate
       scrollTop: cvTopPosition - 30
     , "slow"
@@ -35,15 +35,15 @@ $(document).ready ->
     $(".carousel").carousel interval: false
     $(".carousel").carousel "cycle"
 
-    # Scroll down to target
+    # Scroll to target
     $("html, body").animate
-      scrollTop: p_anchorTopPosition - 30
+      scrollTop: p_anchorTopPosition + 20
     , "slow"
     
     # Stop the link from acting like a normal anchor link
     false
 
-  $("#close_show").click (event) ->
+  $(".close_show").click (event) ->
     event.preventDefault()
     $("#am").toggle()
     $("#presentation").toggle()
@@ -51,11 +51,20 @@ $(document).ready ->
     cvTopPosition = jQuery("#resume").offset().top
     p_anchorTopPosition = jQuery("#p_anchor").offset().top
 
-    # Scroll down to target
+    # Scroll to top
     $("html, body").animate
-      scrollTop: p_anchorTopPosition - 30
+      scrollTop: 0
     , "slow"
     
     # Stop the link from acting like a normal anchor link
     false
+
+  $(".slide_align").click (event) ->
+    event.preventDefault()
+    p_anchorTopPosition = jQuery("#p_anchor").offset().top
+
+    # Scroll to top
+    $("html, body").animate
+      scrollTop: p_anchorTopPosition + 20
+    , "slow"
 
