@@ -402,10 +402,6 @@ $body_side_spacing: 30px;
 
 /* bootstrap marketing template customization */
 
-/*@media (max-width: 700px) {
-  .jumbotron {display:none}
-}*/
-
 body {
 	padding-left:$body_side_spacing;
 	padding-right:$body_side_spacing;
@@ -426,6 +422,14 @@ body {
 		padding: 14px 8px 14px 8px;
 	}
 	
+}
+
+@media (max-width: 500px) {
+  .jumbotron {
+    h1 {
+      font-size: 4.01em;
+    }
+  }
 }
 
 .lead {
@@ -722,3 +726,11 @@ div.footer {
 /*.carousel-control, .carousel-controls-narrow { visibility: hidden; }
 .carousel:hover .carousel-control, .carousel:hover .carousel-controls-narrow { visibility: visible; }*/
 
+#title_img {
+  width: 155px;
+  height: 100px;
+}
+
+.section {
+  margin-bottom: 70px;
+}

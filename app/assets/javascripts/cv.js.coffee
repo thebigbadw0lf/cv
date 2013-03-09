@@ -31,7 +31,8 @@ $(document).ready ->
   $("#start_show").click (event) ->
     event.preventDefault()
     $("#am").toggle()
-    $("#presentation").toggle()
+    $("#presentation").fadeToggle "slow", ->
+    
     $(".carousel").carousel interval: false
     $(".carousel").carousel "cycle"
 
@@ -45,8 +46,8 @@ $(document).ready ->
 
   $(".close_show").click (event) ->
     event.preventDefault()
-    $("#am").toggle()
     $("#presentation").toggle()
+    $("#am").fadeToggle "slow", ->
     $(".carousel").carousel "pause"
     cvTopPosition = jQuery("#resume").offset().top
     p_anchorTopPosition = jQuery("#p_anchor").offset().top
@@ -54,7 +55,7 @@ $(document).ready ->
     # Scroll to top
     $("html, body").animate
       scrollTop: 0
-    , "slow"
+    , 700
     
     # Stop the link from acting like a normal anchor link
     false
@@ -66,5 +67,5 @@ $(document).ready ->
     # Scroll to top
     $("html, body").animate
       scrollTop: p_anchorTopPosition + 20
-    , "slow"
+    , 800
 
