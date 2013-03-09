@@ -40,10 +40,11 @@
 		    <div id="am">
 					<div class="carousel-slide">
 						<%= image_tag "frust_free.png", :id => "title_img" %>
-		        <h1><span class="title_light">Ma</span><span class="title_separator_light">.</span><span class="title_light">ier</span>Al<span class="title_separator">.</span>in</h1>
-		        <p class="lead">Ruby on rails loving geek with a business side, investment banking IT project manager, former internet startup co-founder &amp; <abbr title="Chief Technology Officer">CTO</abbr> and owner of web development company, all in one frustration-free package...also an <abbr title="Master of Business Administration">MBA</abbr>...Click below to find out more.</p>
+		        <h1 class="noPrint"><span class="title_light">Ma</span><span class="title_separator_light">.</span><span class="title_light">ier</span>Al<span class="title_separator">.</span>in</h1>
+		        <h1 class="print_name">Alin Maier</h1>
+		        <p class="lead">Ruby on rails loving geek with a business side, investment banking IT project manager, former internet startup co-founder &amp; <abbr title="Chief Technology Officer">CTO</abbr> and freelance webdeveloper, all in one frustration-free package...also an <abbr title="Master of Business Administration">MBA</abbr>.<span class="noPrint">..Click below to find out more.</span></p>
 					</div>
-					<div class="carousel-caption">
+					<div class="carousel-caption noPrint">
 						<%= link_to "Read my CV &#9660;".html_safe, "#", :id => "btn-l", :class => "btn btn-large btn-success btn-l" %>
 						<%= link_to "View my life story &#9654;".html_safe, "#", :id => "start_show", :class => "btn btn-large btn-success btn-r", "data-target" => "#myCarousel", "data-slide-to" => "0" %>
 		      </div>
@@ -55,7 +56,7 @@
 			</div>
 
       <hr>
-
+      
       <div class="row-fluid marketing">
         <div class="span8" id="resume">
 					<%= yield %>

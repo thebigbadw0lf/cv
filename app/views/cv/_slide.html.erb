@@ -1,5 +1,10 @@
-<div class="carousel-slide">
-  <h1 class="slide_title"><%= title %></h1>
-	<%= picture %>
-  <p class="lead slide_item"><%= description %></p>
+<div class="item <% if position == 0 %>active <% end %>item-slide">
+	<div class="carousel-slide">
+	  <h1 class="slide_title"><%= title %></h1>
+		<%= picture %>
+	  <p class="lead slide_item"><%= description %></p>
+	</div>
+	<%= render :partial => "carousel_caption", 
+							:locals 				=>		{ :position => position }
+	%>
 </div>

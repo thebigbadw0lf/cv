@@ -440,10 +440,10 @@ body {
 
 .masthead { 
 	h3 {
-  text-align: center;
-  font-family: 'BPdotsLight';
-	color: #222222;
-	font-size: 1.35em;
+    text-align: center;
+    font-family: 'BPdotsLight';
+  	color: #222222;
+  	font-size: 1.35em;
 	}
 }
 
@@ -733,4 +733,42 @@ div.footer {
 
 .section {
   margin-bottom: 70px;
+}
+
+.close_presentation {
+  display: inline-block;
+  margin: 20px 0px 0px 0px;
+  font-family: $title_txt, Arial, sans-serif;
+	color: lighten($base_dark_color, 30%);
+	font-size: 1.55em;
+	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+}
+
+
+/* print settings */
+
+.print_name {
+  display:none;
+}
+
+@media print {
+  .noPrint {
+    display:none;
+  }
+  
+  .pagebreak { 
+    page-break-after: always; 
+  }
+  
+  .print_name {
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  
+  .row-fluid .span8, .row-fluid .span4 {
+    width:100%;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
 }

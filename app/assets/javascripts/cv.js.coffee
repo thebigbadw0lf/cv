@@ -16,15 +16,14 @@ $(document).ready ->
   cvTopPosition = jQuery("#resume").offset().top
   p_anchorTopPosition = jQuery("#p_anchor").offset().top
   
-  $("#btn-l").click ->
+  $("#btn-l").click (event) ->
+    event.preventDefault()
     
     # Scroll to target
     $("html, body").animate
       scrollTop: cvTopPosition - 30
     , "slow"
     
-    # Stop the link from acting like a normal anchor link
-    false
 
   #toggle presentation
 
@@ -41,10 +40,8 @@ $(document).ready ->
       scrollTop: p_anchorTopPosition + 20
     , "slow"
     
-    # Stop the link from acting like a normal anchor link
-    false
 
-  $(".close_show").click (event) ->
+  $(".close_presentation").click (event) ->
     event.preventDefault()
     $("#presentation").toggle()
     $("#am").fadeToggle "slow", ->
@@ -57,8 +54,9 @@ $(document).ready ->
       scrollTop: 0
     , 700
     
-    # Stop the link from acting like a normal anchor link
-    false
+    #quietly go to first slide
+    $('.carousel').carousel 0;
+    
 
   $(".slide_align").click (event) ->
     event.preventDefault()
