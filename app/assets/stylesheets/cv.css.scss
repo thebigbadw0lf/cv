@@ -708,3 +708,12 @@ div.footer {
 .item-slide {
 	padding: 0px;
 }
+
+#presentation {
+	display: none;
+}
+
+/*controls show on mouseover*/
+/*.carousel-control, .carousel-controls-narrow { visibility: hidden; }
+.carousel:hover .carousel-control, .carousel:hover .carousel-controls-narrow { visibility: visible; }*/
+

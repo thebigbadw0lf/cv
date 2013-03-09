@@ -1,82 +1,58 @@
-<script>
-  $(document).ready(function(){
-    $('.carousel').carousel({
-			interval: false
-		});
-  });
-</script>
 
+<div id="carousel-container">
 
-<!-- /.carousel -->
-
-<div class="carousel-controls-narrow">
-	<a class="left carousel-control btn-l btn-l2 pres-ctrl-narrow" href="#myCarousel" data-slide="prev">‹</a>
-	<a class="right carousel-control btn-r pres-ctrl-narrow" href="#myCarousel" data-slide="next">›</a>
-</div>	
+	<!-- /.carousel -->	
 	
-<div id="myCarousel" class="carousel slide">
-  <div class="carousel-inner">
+	<div id="myCarousel" class="carousel slide">
+		
+		<div id="arrows_narrow" class="carousel-controls-narrow">
+			<a class="left carousel-control btn-l btn-l2 pres-ctrl-narrow" href="#myCarousel" data-slide="prev">‹</a>
+			<a class="right carousel-control btn-r pres-ctrl-narrow" href="#myCarousel" data-slide="next">›</a>
+		</div>
+		
+	  <div class="carousel-inner">
+
+			<div class="item active item-slide">
+				<%= render :partial => "slide", 
+										:locals => { 
+											:title				=>	"<span class='title_light'>June 7</span><span class='title_light'>,</span> 1978".html_safe,
+											:picture			=>	"".html_safe,
+											:description  =>	"Prince2 certified IT Project Manager / Business Analyst with proven track record of delivery in international technology transformation programmes in investment, commercial and retail banking. Previous technology startup experience. <abbr title='Master of Business Administration'>MBA</abbr> and MSc in IT Management degrees.".html_safe
+										} %>
+				<%= render :partial => "carousel_caption", 
+											:locals 				=>		{ :position => 0 }
+				%>
+	    </div>
 	
-    <div class="item active">
-			<div class="carousel-slide">
-				<div class="main_pic"></div>
-        <h1><span class="title_light">Ma</span><span class="title_separator_light">.</span><span class="title_light">ier</span>Al<span class="title_separator">.</span>in</h1>
-        <p class="lead">Ruby on rails loving geek with a business side, internet startup co-founder &amp; <abbr title="Chief Technology Officer">CTO</abbr>, investment banking IT project manager and former owner of web development company, all in one frustration-free package...also an <abbr title="Master of Business Administration">MBA</abbr>...Click below to find out more.</p>
-			</div>
-			<div class="carousel-caption">
-				<a id="btn-l" class="btn btn-large btn-success btn-l" href="#">Read my CV &#9660;</a>
-        <a class="btn btn-large btn-success btn-r" data-target="#myCarousel" data-slide-to="1" href="#">View my life story &#9654;</a>
-      </div>
-    </div>
-
-		<div class="item item-slide">
-			<%= render :partial => "slide", 
-									:locals => { 
-										:title				=>	"<span class='title_light'>June 7</span><span class='title_light'>,</span> 1978".html_safe,
-										:picture			=>	"".html_safe,
-										:description  =>	"Prince2 certified IT Project Manager / Business Analyst with proven track record of delivery in international technology transformation programmes in investment, commercial and retail banking. Previous technology startup experience. <abbr title='Master of Business Administration'>MBA</abbr> and MSc in IT Management degrees.".html_safe
-									} %>
-			<div class="carousel-caption">
-				<%= render :partial => "navigation", 
-											:collection 		=>		@years,
-											:locals 				=>		{ :position => 1 }
+			<div class="item item-slide">
+				<%= render :partial => "slide", 
+										:locals => { 
+											:title				=>	"<span class='title_light'>June 7</span><span class='title_light'>,</span> 1978".html_safe,
+											:picture			=>	"<div class='slider_pic'></div>".html_safe,
+											:description  =>	"Prince2 certified IT Project Manager / Business Analyst with proven track record of delivery in international technology transformation programmes in investment, commercial and retail banking. Previous technology startup experience. <abbr title='Master of Business Administration'>MBA</abbr> and MSc in IT Management degrees.".html_safe
+										} %>
+				<%= render :partial => "carousel_caption", 
+										:locals 				=>		{ :position => 1 }
 				%>
-      </div>
-    </div>
-	
-		<div class="item item-slide">
-			<%= render :partial => "slide", 
-									:locals => { 
-										:title				=>	"<span class='title_light'>June 7</span><span class='title_light'>,</span> 1978".html_safe,
-										:picture			=>	"<div class='slider_pic'></div>".html_safe,
-										:description  =>	"Prince2 certified IT Project Manager / Business Analyst with proven track record of delivery in international technology transformation programmes in investment, commercial and retail banking. Previous technology startup experience. <abbr title='Master of Business Administration'>MBA</abbr> and MSc in IT Management degrees.".html_safe
-									} %>
-			<div class="carousel-caption">
-				<%= render :partial => "navigation", 
-											:collection 		=>		@years,
-											:locals 				=>		{ :position => 2 }
-				%>
-      </div>
-    </div>
+	    </div>
 
-		<div class="item item-slide">
-			<%= render :partial => "slide", 
-									:locals => { 
-										:title				=>	"<span class='title_light'>June 7</span><span class='title_light'>,</span> 1978".html_safe,
-										:picture			=>	"<img src='http://media.rtv.net/image/201203/full/academia_de_studii_economice_ase_13485200.jpg' alt='' class='slide_pic' /> <img src='http://media.rtv.net/image/201203/full/academia_de_studii_economice_ase_13485200.jpg' alt='' class='slide_pic' />".html_safe,
-										:description  =>	"Prince2 certified IT Project Manager / Business Analyst with proven track record of delivery in international technology transformation programmes in investment, commercial and retail banking. Previous technology startup experience. <abbr title='Master of Business Administration'>MBA</abbr> and MSc in IT Management degrees.".html_safe
-									} %>
-			<div class="carousel-caption">
-				<%= render :partial => "navigation", 
-											:collection 		=>		@years,
-											:locals 				=>		{ :position => 3 }
+			<div class="item item-slide">
+				<%= render :partial => "slide", 
+										:locals => { 
+											:title				=>	"<span class='title_light'>June 7</span><span class='title_light'>,</span> 1978".html_safe,
+											:picture			=>	"<img src='http://media.rtv.net/image/201203/full/academia_de_studii_economice_ase_13485200.jpg' alt='' class='slide_pic' /> <img src='http://media.rtv.net/image/201203/full/academia_de_studii_economice_ase_13485200.jpg' alt='' class='slide_pic' />".html_safe,
+											:description  =>	"Prince2 certified IT Project Manager / Business Analyst with proven track record of delivery in international technology transformation programmes in investment, commercial and retail banking. Previous technology startup experience. <abbr title='Master of Business Administration'>MBA</abbr> and MSc in IT Management degrees.".html_safe
+										} %>
+				<%= render :partial => "carousel_caption", 
+										:locals 				=>		{ :position => 2 }
 				%>
-      </div>
-    </div>
+	    </div>
 
-  </div>
-	<a class="left carousel-control btn-l2 pres-ctrl" href="#myCarousel" data-slide="prev">‹</a>
-	<a class="right carousel-control btn-r pres-ctrl" href="#myCarousel" data-slide="next">›</a>
+	  </div>
+		<a id="left_arrow_wide" class="left carousel-control btn-l2 pres-ctrl" href="#myCarousel" data-slide="prev">‹</a>
+		<a id="right_arrow_wide" class="right carousel-control btn-r pres-ctrl" href="#myCarousel" data-slide="next">›</a>
+	</div>
+	<!--  Carousel - consult the Twitter Bootstrap docs at
+	      http://twitter.github.com/bootstrap/javascript.html#carousel -->
+
 </div>
-<!--  Carousel - consult the Twitter Bootstrap docs at
-      http://twitter.github.com/bootstrap/javascript.html#carousel -->
