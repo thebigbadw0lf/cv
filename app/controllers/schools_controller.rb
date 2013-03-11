@@ -4,10 +4,10 @@ class SchoolsController < ApplicationController
   def index
     @schools = School.all
     @tags = ActsAsTaggableOn::Tag.find(:all,
-  	      :select => "#{ActsAsTaggableOn::Tag.table_name}.id, #{ActsAsTaggableOn::Tag.table_name}.name, COUNT(*) AS count, #{ActsAsTaggableOn::Tagging.table_name}.context",
-          :joins  => "LEFT OUTER JOIN taggings ON #{ActsAsTaggableOn::Tag.table_name}.id = #{ActsAsTaggableOn::Tagging.table_name}.tag_id",
-          :group  => "#{ActsAsTaggableOn::Tag.table_name}.id, #{ActsAsTaggableOn::Tagging.table_name}.context HAVING COUNT(*) > 0",
-          :order  => "count DESC"
+  	      :select => "#{ActsAsTaggableOn::Tag.table_name}.id, #{ActsAsTaggableOn::Tag.table_name}.name, COUNT(*) AS count",
+          :joins  => "INNER JOIN taggings ON #{ActsAsTaggableOn::Tag.table_name}.id = #{ActsAsTaggableOn::Tagging.table_name}.tag_id",
+          :group  => "#{ActsAsTaggableOn::Tag.table_name}.id HAVING COUNT(*) > 0",
+          :order  => "LOWER(#{ActsAsTaggableOn::Tag.table_name}.name) ASC"
   	    )
 
     respond_to do |format|

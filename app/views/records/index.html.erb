@@ -6,7 +6,6 @@
     <th>End date</th>
     <th>Job title</th>
     <th>Company</th>
-    <th>Industry</th>
     <th>Link</th>
     <th>Is current?</th>
     <th></th>
@@ -20,7 +19,6 @@
     <td><%= record.end_date %></td>
     <td><%= record.job_title %></td>
     <td><%= record.company_id %></td>
-    <td><%= record.industry_id %></td>
     <td><%= record.link %></td>
     <td><%= record.is_current %></td>
     <td><%= link_to 'Show', record %></td>
@@ -35,7 +33,7 @@
 
 <br />
 <div class="tag_cloud">
-  <% tag_cloud Record.skill_counts.order('name ASC'), %w{s m l} do |skill, css_class| %>
+  <% tag_cloud Record.skill_counts.order('LOWER(name) ASC'), %w{s m l xl xxl} do |skill, css_class| %>
   	<%= link_to skill.name, skill_path(skill.name), class: css_class %>
 	<% end %>
 </div>

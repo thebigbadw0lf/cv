@@ -5,6 +5,7 @@
     <th>Start date</th>
     <th>End date</th>
     <th>Name</th>
+    <th>Name short</th>
     <th>Degree</th>
     <th>Degree short</th>
     <th>Location</th>
@@ -20,6 +21,7 @@
     <td><%= school.start_date %></td>
     <td><%= school.end_date %></td>
     <td><%= school.name %></td>
+    <td><%= school.name_short %></td>
     <td><%= school.degree %></td>
     <td><%= school.degree_short %></td>
     <td><%= school.location_id %></td>
@@ -46,7 +48,7 @@
 <br />
 
 <div class="tag_cloud">
-	<% tag_cloud @tags.sort_by(&:name), %w{s m l} do |t, css_class| %>
+	<% tag_cloud @tags, %w{s m l xl xxl} do |t, css_class| %>
   	<%= link_to t.name, "#{root_path}tags/#{t.name}", class: css_class %>
 	<% end %>
 </div>

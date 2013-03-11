@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Street</th>
     <th>City</th>
     <th>Country</th>
     <th>Continent</th>
@@ -15,6 +16,7 @@
 
 <% @locations.each do |location| %>
   <tr>
+    <td><%= location.street %></td>
     <td><%= location.city %></td>
     <td><%= location.country %></td>
     <td><%= location.continent %></td>

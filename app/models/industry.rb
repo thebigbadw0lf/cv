@@ -1,4 +1,4 @@
 class Industry < ActiveRecord::Base
   attr_accessible :link, :name, :short_name
-  belongs_to :record
+  has_and_belongs_to_many :companies, :join_table => "industries_companies"
 end

@@ -13,15 +13,19 @@
 
   <div class="field">
     <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+    <%= f.date_select :start_date, :start_year => 1978 %>
   </div>
   <div class="field">
     <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+    <%= f.date_select :end_date, :start_year => 1978 %>
   </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :name_short %><br />
+    <%= f.text_field :name_short %>
   </div>
   <div class="field">
     <%= f.label :degree %><br />

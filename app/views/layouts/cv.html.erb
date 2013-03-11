@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Alin's Curriculum Vitae</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alin's Curriculum Vitae">
+    <meta name="author" content="Alin Maier">
+
+	  <%= stylesheet_link_tag "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+
+		<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+	  	<%= javascript_include_tag "html5shiv/html5fix_admin", :media => "all" %>
+		<![endif]-->
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body onload="initialize()">
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <h3 class="muted">uk.linkedin.com/alinmaier - +44.75.8727.6082 - alin dot maier at gmail...</h3>
+      </div>
+
+      <hr id="p_anchor">
+
+      <div class="jumbotron">
+	
+		    <div id="am">
+					<div class="carousel-slide">
+						<%= image_tag "frust_free.png", :id => "title_img" %>
+		        <h1 class="noPrint"><span class="title_light">Ma</span><span class="title_separator_light">.</span><span class="title_light">ier</span>Al<span class="title_separator">.</span>in</h1>
+		        <h1 class="print_name">Alin Maier</h1>
+		        <p class="lead">Ruby on rails loving geek with a business side, investment banking IT project manager, former internet startup co-founder &amp; <abbr title="Chief Technology Officer">CTO</abbr> and freelance webdeveloper, all in one frustration-free package...also an <abbr title="Master of Business Administration">MBA</abbr>.<span class="noPrint">..Click below to find out more.</span></p>
+					</div>
+					<div class="carousel-caption noPrint">
+						<%= link_to "Read my CV &#9660;".html_safe, "#", :id => "btn-l", :class => "btn btn-large btn-success btn-l" %>
+						<%= link_to "View my life story &#9654;".html_safe, "#", :id => "start_show", :class => "btn btn-large btn-success btn-r", "data-target" => "#myCarousel", "data-slide-to" => "0" %>
+		      </div>
+		    </div>
+		
+				<div id="presentation">
+					<%= render 'cv/carousel' %>
+      	</div>
+			</div>
+
+      <hr>
+      
+      <div class="row-fluid marketing">
+        <div class="span8" id="resume">
+					<%= yield %>
+        </div>
+
+        <div class="span4">
+          <h4>Career<br />Analytics<span class="title_separator_light">:</span></h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Locations<span class="title_separator_light">:</span></h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+					<div id="google-map-container"><%= render 'cv/gmaps' %></div>
+
+          <h4 id="after_gmaps">Companies<span class="title_separator_light">:</span></h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+
+          <h4>Industries<span class="title_separator_light">:</span></h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+
+          <h4>Schools<span class="title_separator_light">:</span></h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+      
+      <%= link_to "Go to top...", "#", :class => "go-to-top" %>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; 2013 <span class="title_light">Ma</span><span class="title_separator_light">.</span><span class="title_light">ier</span>Al<span class="title_separator">.</span>in</p>
+      </div>
+
+    </div> <!-- /container -->
+  </body>
+</html>

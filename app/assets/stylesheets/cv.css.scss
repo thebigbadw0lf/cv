@@ -394,6 +394,249 @@ body {
 
 
 
+
+
+
+
+
+
+
+/* bootstrap marketing template width customization */
+
+
+$span8_width_all: 68.95745%;
+$span8_width_all_star: 68.90426%;
+$span4_width_all: 28.91489%;
+$span4_width_all_star: 28.8617%;
+
+$span8_width_min1200: 68.81197%;
+$span8_width_min1200_star: 68.75877%;
+$span4_width_min1200: 28.62393%;
+$span4_width_min1200_star: 28.57074%;
+
+$span8_width_min868_max979: 68.74586%;
+$span8_width_min868_max979_star: 68.69266%;
+$span4_width_min868_max979: 28.49171%;
+$span4_width_min868_max979_star: 28.43852%;
+
+
+
+/* 100% for @media {max-wdth: 767px} */
+
+
+/* @media all */
+
+/* line 582, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+.span8 {
+  width: 620px;
+}
+/* line 582, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+.span4 {
+  width: 300px;
+}
+/* line 608, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+.row-fluid [class*="span"] {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  margin-left: 2.12766%;
+  *margin-left: 2.07447%;
+}
+/* line 614, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+.row-fluid [class*="span"]:first-child {
+  margin-left: 0;
+}
+/* line 619, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+.row-fluid .controls-row [class*="span"] + [class*="span"] {
+  margin-left: 2.12766%;
+}
+
+
+
+
+
+
+
+/* line 631, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+.row-fluid .span8 {
+  width: $span8_width_all;
+  *width: $span8_width_all_star;
+}
+/* line 631, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+.row-fluid .span4 {
+  width: $span4_width_all;
+  *width: $span4_width_all_star;
+  padding-left: 36px;
+}
+
+
+
+
+
+
+
+
+
+@media (min-width: 1200px) {
+  /* line 561, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  [class*="span"] {
+    float: left;
+    min-height: 1px;
+    margin-left: 30px;
+  }
+
+  /* line 582, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .span8 {
+    width: 770px;
+  }
+
+  /* line 582, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .span4 {
+    width: 370px;
+  }
+
+  /* line 605, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid {
+    width: 100%;
+    *zoom: 1;
+  }
+  /* line 608, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid [class*="span"] {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 2.5641%;
+    *margin-left: 2.51091%;
+  }
+  /* line 614, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid [class*="span"]:first-child {
+    margin-left: 0;
+  }
+  /* line 619, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .controls-row [class*="span"] + [class*="span"] {
+    margin-left: 2.5641%;
+  }
+  
+  
+  
+  
+  
+  
+  /* line 631, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span8 {
+    width: $span8_width_min1200;
+    *width: $span8_width_min1200_star;
+  }
+  /* line 631, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span4 {
+    width: $span4_width_min1200;
+    *width: $span4_width_min1200_star;
+    padding-left: 36px;
+  }
+}
+
+
+
+
+
+
+@media (min-width: 980px) {
+  /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_responsive-navbar.scss */
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+
+
+
+
+
+
+
+
+@media (min-width: 868px) and (max-width: 979px) {
+  /* line 561, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  [class*="span"] {
+    float: left;
+    min-height: 1px;
+    margin-left: 20px;
+  }
+
+  /* line 582, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .span8 {
+    width: 476px;
+  }
+
+  /* line 582, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .span4 {
+    width: 228px;
+  }
+
+  /* line 605, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid {
+    width: 100%;
+    *zoom: 1;
+  }
+  
+  
+  
+  
+  
+  
+  /* line 631, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span8 {
+    width: $span8_width_min868_max979;
+    *width: $span8_width_min868_max979_star;
+  }
+  /* line 631, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .row-fluid .span4 {
+    width: $span4_width_min868_max979;
+    *width: $span4_width_min868_max979_star;
+    padding-left: 36px;
+  }
+}
+
+
+
+
+
+
+@media (max-width: 867px) {
+  /* line 47, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_responsive-767px-max.scss */
+  .row-fluid {
+    width: 100%;
+  }
+
+  /* line 62, ../../../../../.rvm/gems/ruby-1.9.3-p362@rails32/gems/bootstrap-sass-2.3.0.1/vendor/assets/stylesheets/bootstrap/_responsive-767px-max.scss */
+  [class*="span"],
+  .uneditable-input[class*="span"],
+  .row-fluid [class*="span"] {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+
+
+
+
+
+
+
 /* sass variables */
 
 $base_dark_color: #000000;
@@ -473,17 +716,11 @@ body {
 		h4 {
 			font-family: $title_txt, Arial, sans-serif;
 			color: lighten($base_dark_color, 15%);
-			font-size: 2.55em;
+			font-size: 2.25em;
 			line-height: 0.69em;
 			margin-bottom: 0.55em;
 			text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
 		}
-	}
-}
-
-@media (min-width: 767px) {
-	.row-fluid .span4 {
-		padding-left: 16px;
 	}
 }
 
@@ -539,19 +776,30 @@ body {
 }
 
 .btn-l:hover {
-	text-shadow: lighten($base_dark_color, 0%) 0px 0px 2px;
+	text-shadow: lighten($base_dark_color, 0%) 0px 0px 0px;
 	text-decoration:underline;
 	background-color: lighten(#595959, 10%);
 }
 
+.btn-l2:hover {
+	text-shadow: lighten($base_dark_color, 0%) 0px 0px 0px;
+	background-color: lighten(#595959, 0%);
+}
+
+
 .btn-active:focus, .btn-active:active, .btn-active:visited {
+	text-shadow: lighten(#333333, 10%) 0px 0px 0px;
+	text-decoration:none;
 	background-color: #D6C537;
+	color: #333333;
 }
 
 .btn-active:hover {
-	text-shadow: lighten(#ffffff, 10%) 0px 0px 0px;
-	text-decoration:underline;
-	background-color: darken(#D6C537, 10%);
+	text-shadow: lighten(#333333, 10%) 0px 0px 0px;
+	text-decoration:none;
+	background-color: #D6C537;
+	color: #333333;
+	cursor: default;
 }
 
 .year_box {

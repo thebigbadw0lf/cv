@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+    <%= f.date_select :start_date, :start_year => 1978 %>
   </div>
   <div class="field">
     <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+    <%= f.date_select :end_date, :start_year => 1978 %>
   </div>
   <div class="field">
     <%= f.label :job_title %><br />
@@ -26,10 +26,6 @@
   <div class="field">
     <%= f.label :company_id %><br />
     <%= f.number_field :company_id %>
-  </div>
-  <div class="field">
-    <%= f.label :industry_id %><br />
-    <%= f.number_field :industry_id %>
   </div>
   <div class="field">
     <%= f.label :link %><br />

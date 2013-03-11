@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303152204) do
+ActiveRecord::Schema.define(:version => 20130311172825) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -47,15 +47,25 @@ ActiveRecord::Schema.define(:version => 20130303152204) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "industries_companies", :id => false, :force => true do |t|
+    t.integer "industry_id"
+    t.integer "company_id"
+  end
+
+  add_index "industries_companies", ["company_id"], :name => "index_industries_companies_on_company_id"
+  add_index "industries_companies", ["industry_id"], :name => "index_industries_companies_on_industry_id"
+
   create_table "locations", :force => true do |t|
     t.string   "city"
     t.string   "country"
     t.string   "continent"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
     t.string   "link"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "street"
   end
 
   create_table "records", :force => true do |t|
@@ -63,10 +73,9 @@ ActiveRecord::Schema.define(:version => 20130303152204) do
     t.date     "end_date"
     t.string   "job_title"
     t.integer  "company_id"
-    t.integer  "industry_id"
     t.string   "link"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "is_current"
   end
 
@@ -95,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20130303152204) do
     t.string   "logo_link"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "name_short"
   end
 
   create_table "taggings", :force => true do |t|
