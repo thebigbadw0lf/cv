@@ -10,7 +10,11 @@
 
 <div class="section">
 	<h1>Skills<span class="title_separator_light">:</span></h1>
-	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+  <div class="tag_cloud">
+  	<% tag_cloud @tags, %w{s m l xl xxl} do |t, css_class| %>
+    	<%= link_to t.name, "#{root_path}tags/#{t.name}", class: css_class %>, 
+  	<% end %>
+  </div>
 </div>
 
 <div class="section">
