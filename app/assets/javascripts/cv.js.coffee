@@ -91,9 +91,18 @@ $(document).ready ->
     event.preventDefault()
     $("#all_tags").removeClass "control_active"
     $(this).addClass "control_active"
+    $('.tag_cloud_item[data-count=1]').each (index) ->
+      $(this).next(".tag_cloud_separator").hide()
+      $(this).hide()
+    $('.tag_cloud_item[data-count!=1]').last().next(".tag_cloud_separator").hide()
 
   $("#all_tags").click (event) ->
     event.preventDefault()
     $("#top_tags").removeClass "control_active"
     $(this).addClass "control_active"
+    $('.tag_cloud_item[data-count=1]').each (index) ->
+      $(this).next(".tag_cloud_separator").show()
+      $(this).show()
+    $('.tag_cloud_item[data-count!=1]').last().next(".tag_cloud_separator").show()
+    
 

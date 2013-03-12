@@ -20,8 +20,8 @@
   </div>
   <div class="tag_cloud">
   	<% tag_cloud @tags, %w{s m l xl xxl} do |t, css_class| %>
-    	<%= link_to t.name, "#", class: "tag_cloud_item " + css_class -%>
-    	<%= "&#8226;".html_safe unless @tags.last == t -%>
+    	<%= link_to t.name, "#", class: "tag_cloud_item " + css_class, "data-count" => t.count -%>
+    	<%= "<span class='tag_cloud_separator'>&#8226;</span>".html_safe unless @tags.last == t -%>
   	<% end %>
   </div>
 </div>
