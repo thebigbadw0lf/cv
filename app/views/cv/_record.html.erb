@@ -1,9 +1,5 @@
 <div class="record">
-  <h3><span class="record_job_title"><%= record.job_title -%></span><span class="record_separator">&#8226;</span><%= record.company.name -%><span class="record_separator">&#8226;</span><% 
-  record.locations.each do |location| %>
-    <%= link_to location.city + ", " + location.country, "#" -%><%= " / " unless record.locations.last == location -%>
-  <% end 
-  %><span class="record_separator">&#8226;</span><span class="record_dates"><%= date_format record.start_date -%> - <%= date_format record.end_date -%></h3>
+  <h3><%= %{<span class="record_job_title" data-title="#{record.job_title}">}.html_safe + record.job_title + %{</span>}.html_safe -%><span class="record_separator">&#8226;</span><%= %{<span class="company_name" data-company="#{record.company.name}">}.html_safe + record.company.name + %{</span>}.html_safe -%><span class="record_separator">&#8226;</span><% record.locations.each do |location| %><%= link_to location.city + ", " + location.country, "#", :class => "location_head", "data-location" => "#{location.city}" -%><%= " / " unless record.locations.last == location -%><% end %><span class="record_separator">&#8226;</span><span class="record_dates"><%= date_format record.start_date -%> - <%= date_format record.end_date unless record.is_current ==1 -%><%= "Present" if record.is_current ==1 -%></h3>
 
   <ul class="record_description_container">
     <% record.descriptions.each do |description| %>
@@ -11,7 +7,12 @@
     <% end %>
   </ul>
   
+  <div class="record_industries">
+    Industry: 
+    <% record.company.industries.each do |industry| %><%= %{<span class="industry" data-industry="#{industry.name}">#{industry.name.capitalize}</span><span class="industry_separator">|</span>}.html_safe -%><% if record.company.industries.last == industry %><span class="industry_employees"><%= record.company.min_employees -%><%= "+" if record.company.max_employees.nil? %><%= " - " + record.company.max_employees.to_s unless record.company.max_employees.nil? %> employees</span><% end %><% end %>
+  </div>
+  
   <div class="record_tags">
-    Tags: <%= raw order_tags(record.skill_list).map { |t| link_to t, "#" }.join(' &#8226; ') %>
+    Tags: <%= raw order_tags(record.skill_list).map { |t| link_to t, "#", :class => "tag_item", "data-tag" => t }.join(' &#8226; ') %>
   </div>
 </div>

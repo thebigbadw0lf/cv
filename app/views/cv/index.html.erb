@@ -20,18 +20,31 @@
   </div>
   <div class="tag_cloud">
   	<% tag_cloud @tags, %w{s m l xl xxl} do |t, css_class| %>
-    	<%= link_to t.name, "#", class: "tag_cloud_item " + css_class, "data-count" => t.count -%>
+    	<%= link_to t.name, "#", class: "tag_cloud_item " + css_class, "data-count" => t.count, "data-tag" => t.name -%>
     	<%= "<span class='tag_cloud_separator'>&#8226;</span>".html_safe unless @tags.last == t -%>
   	<% end %>
   </div>
 </div>
 
-<div class="section">
+<div class="section section_compact">
 	<h1>Languages<span class="title_separator_light">:</span></h1>
-	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+	<div id="flags" class="flags_container">
+    <%= image_tag "flag_gbus.png", :id => "en_flag", :class => "flags_pic", "data-language" => "English:", "data-level" => " fluent." %>
+  	<%= image_tag "flag_fr.png", :id => "fr_flag", :class => "flags_pic", "data-language" => "French:", "data-level" => " intermediate." %>
+  	<%= image_tag "flag_ro.png", :id => "ro_flag", :class => "flags_pic", "data-language" => "Romanian:", "data-level" => " native speaker." %>
+  	<%= image_tag "flag_nl.png", :id => "nl_flag", :class => "flags_pic", "data-language" => "Dutch:", "data-level" => " basic comprehension." %>
+  </div>
+	<p id="language_infobox" class="l_infobox"><span id="lng" class="lang"></span><span id="lvl"></span></p>
 </div>
 
-<div class="section">
-	<h1>Hobbies<span class="title_separator_light">:</span></h1>
-	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+<div class="section section_compact">
+	<h1>Interests<span class="title_separator_light">:</span></h1>
+	<div id="interests" class="interests_container">
+	  <%= image_tag "interests_photo.png", :id => "interests_photo", :class => "interests_pic", "data-info" => "Travel and landscape photography." %>
+  	<%= image_tag "interests_hiking.png", :id => "interests_hiking", :class => "interests_pic", "data-info" => "Hiking." %>
+  	<%= image_tag "interests_gps.png", :id => "interests_gps", :class => "interests_pic", "data-info" => "Outdoor GPS devices and geocaching." %>
+  	<%= image_tag "interests_golf.png", :id => "interests_golf", :class => "interests_pic", "data-info" => "Golf." %>
+  	<%= image_tag "interests_globe.png", :id => "interests_world", :class => "interests_pic", "data-info" => "Armchair world politics." %>
+	</div>
+	<p id="interests_infobox" class="i_infobox"></p>
 </div>

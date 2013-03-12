@@ -706,7 +706,7 @@ body {
 
 .row-fluid {
 	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	.span4, .span8 {
 		p {
 		font-family: 'SourceSansProLight', Arial, sans-serif;
@@ -1057,12 +1057,51 @@ div.footer {
   background-color: darken(#ffffff, 5%);
 }
 
+.tag_active {
+  display: inline-block;
+  padding: 4px;
+  margin: 4px;
+  line-height: 1.01em;
+  -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-color: lighten(#D6C537, 0%);
+	color: #ffffff;
+}
+
+.tag_active:hover, .tag_active:visited, .tag_active:focus, .tag_active:active {
+  color: #ffffff;
+}
+
+div.info_box {
+  position: fixed;
+  display: none;
+  right: 5px;
+  bottom: 5px;
+  color: #333333;
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+  -moz-box-shadow: 2px 2px 2px lighten(black, 40%);
+  -webkit-box-shadow: 2px 2px 2px lighten(black, 40%);
+  box-shadow: 2px 2px 2px lighten(black, 40%);
+}
+
+div.info_box:hover {
+  color: #333333;
+}
+
+.infobox_highlight {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #ffffff;
+}
+
 hr.top_hr {
   margin-top:20px;
 }
 
 div.record_tags {
-  margin-top: 0.75em;
+  margin-top: 0.51em;
 }
 
 div.controls {
@@ -1088,6 +1127,85 @@ span.tag_cloud_separator {
   color: lighten(#333333, 30%);
 }
 
+.sidebar_sections {
+  margin-bottom: 50px;
+}
+
+div.record_industries {
+  font-size: 1.01em;
+  span.industry, span.industry_employees {
+    font-family: "SourceSansProLight", Arial, sans-serif;
+    font-size: 1.05em;
+    color: #595959;
+  }
+  
+  span.industry_separator {
+    font-family: "SourceSansProLight", Arial, sans-serif;
+    display: inline-block;
+    margin: 0px 9px 0px 9px;
+    color: lighten(#333333, 50%);
+  }
+}
+
+img.flags_pic {
+  display: inline-block;
+  width: 15%;
+  height: 15%;
+  -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin: 0px 40px 15px 0px;
+	cursor: hand;
+	cursor: pointer;
+	border:5px solid #ffffff;
+}
+
+img.flags_pic:hover, img.interests_pic:hover {
+  border:5px solid #D6C537;
+}
+
+
+img.interests_pic {
+	display: inline-block;
+  width: 50px;
+  height: 50px;
+  -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin: 0px 40px 15px 0px;
+	cursor: hand;
+	cursor: pointer;
+	border:5px solid #ffffff;
+}
+
+
+.row-fluid .span8 p.l_infobox {
+  font-family: "SourceSansProLight", Arial, sans-serif;
+  font-size: 1.65em;
+  color: #595959;
+  span.lang {
+    font-family: "SourceSansProSemibold", Arial, sans-serif;
+  }
+}
+
+
+.row-fluid .span8 p.i_infobox {
+  font-family: "SourceSansProLight", Arial, sans-serif;
+  font-size: 1.65em;
+  color: #595959;
+}
+
+.i_infobox {
+  height: 60px;
+}
+
+.l_infobox {
+  height: 30px;
+}
+
+.section_compact {
+  margin-bottom:0px;
+}
 
 /* print settings */
 

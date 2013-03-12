@@ -5,5 +5,7 @@ class Record < ActiveRecord::Base
   has_many :records_locations
   has_many :locations, :through => :records_locations
   has_many :records_descriptions
-  has_many :descriptions, :through => :records_descriptions
+  has_many :descriptions, :through => :records_descriptions, :order => "id ASC"
+  has_many :items, :order => "some_col DESC"
+  
 end

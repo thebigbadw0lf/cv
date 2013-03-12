@@ -21,7 +21,7 @@ $(document).ready ->
     
     # Scroll to target
     $("html, body").animate
-      scrollTop: cvTopPosition - 30
+      scrollTop: cvTopPosition - 20
     , "slow"
     
 
@@ -105,4 +105,96 @@ $(document).ready ->
       $(this).show()
     $('.tag_cloud_item[data-count!=1]').last().next(".tag_cloud_separator").show()
     
+  $(".tag_cloud_item").click (event) ->
+    event.preventDefault()
+    $('#del_highlight_msg').clearQueue();
+    $('#add_highlight_msg').clearQueue();
+    data_tag = $(this).attr("data-tag")
+    if $(this).hasClass("tag_active")
+      $(this).removeClass "tag_active"
+      $(".tag_item[data-tag='#{data_tag}']").removeClass "tag_active"
+      $('#del_highlight_msg').hide();
+      $('#add_highlight_msg').hide();
+      $("#deselected_tag").text(data_tag)
+      $('#del_highlight_msg').fadeIn(250).delay(2300).fadeOut 250, ->
+    else
+      $(this).addClass "tag_active"
+      $(".tag_item[data-tag='#{data_tag}']").addClass "tag_active"
+      $('#add_highlight_msg').hide();
+      $('#del_highlight_msg').hide();
+      $("#selected_tag").text(data_tag)
+      $('#add_highlight_msg').fadeIn(250).delay(3300).fadeOut 250, ->
+      
+  $(".tag_item").click (event) ->
+    event.preventDefault()
+    $('#del_highlight_msg').clearQueue();
+    $('#add_highlight_msg').clearQueue();
+    data_tag2 = $(this).attr("data-tag")
+    if $(this).hasClass("tag_active")
+      $(this).removeClass "tag_active"
+      $(".tag_cloud_item[data-tag='#{data_tag2}']").removeClass "tag_active"
+      $(".tag_item[data-tag='#{data_tag2}']").not(this).removeClass "tag_active"
+      $('#del_highlight_msg').hide();
+      $('#add_highlight_msg').hide();
+      $("#deselected_tag").text(data_tag2)
+      $('#del_highlight_msg').fadeIn(250).delay(2300).fadeOut 250, ->
+    else
+      $(this).addClass "tag_active"
+      $(".tag_cloud_item[data-tag='#{data_tag2}']").addClass "tag_active"
+      $(".tag_item[data-tag='#{data_tag2}']").not(this).addClass "tag_active"
+      $('#add_highlight_msg').hide();
+      $('#del_highlight_msg').hide();
+      $("#selected_tag").text(data_tag2)
+      $('#add_highlight_msg').fadeIn(250).delay(3300).fadeOut 250, ->
+      
+  $(".flags_pic").click (event) ->
+    event.preventDefault()
+    language = $(this).attr("data-language")
+    level = $(this).attr("data-level")
+    
+    $('.flags_pic').not(this).css
+      "border-color": "#ffffff"
+    $(this).css
+      "border-color": "#D6C537"
+    $("#lng").text(language)
+    $("#lvl").text(level)
+    
+    
+  $(".flags_pic").mouseover (event) ->
+    language = $(this).attr("data-language")
+    level = $(this).attr("data-level")
+  
+    $(this).css
+      "border-color": "#D6C537"
+    $("#lng").text(language)
+    $("#lvl").text(level)
+      
+  $(".flags_pic").mouseout (event) ->
+    $(this).css
+      "border-color": "#ffffff"
+    $("#lng").text("")
+    $("#lvl").text("")
+
+  $(".interests_pic").click (event) ->
+    event.preventDefault()
+    info = $(this).attr("data-info")
+    $('.interests_pic').not(this).css
+      "border-color": "#ffffff"
+    $(this).css
+      "border-color": "#D6C537"
+    info = $(this).attr("data-info")
+    $("#interests_infobox").text(info)
+
+  $(".interests_pic").mouseover (event) ->
+    info = $(this).attr("data-info")
+    $(this).css
+      "border-color": "#D6C537"
+    $("#interests_infobox").text(info)
+
+  $(".interests_pic").mouseout (event) ->
+    $(this).css
+      "border-color": "#ffffff"
+    $("#interests_infobox").text("")
+      
+      
 

@@ -64,21 +64,30 @@
 
         <div class="span4">
           <h4>Career<br />Analytics<span class="title_separator_light">:</span></h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
+          <div class="sidebar_sections">
+            <%= render 'cv/side_analytics' %>
+          </div>
+          
           <h4>Locations<span class="title_separator_light">:</span></h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-					<div id="google-map-container"><%= render 'cv/gmaps' %></div>
-
-          <h4 id="after_gmaps">Companies<span class="title_separator_light">:</span></h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-
+          <div class="sidebar_sections">
+            <%= render 'cv/side_locations' %>
+            <div id="google-map-container"><%= render 'cv/gmaps' %></div>
+          </div>
+	
+          <h4>Companies<span class="title_separator_light">:</span></h4>
+          <div class="sidebar_sections">
+            <%= render 'cv/side_companies' %>
+          </div>
+          
           <h4>Industries<span class="title_separator_light">:</span></h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <div class="sidebar_sections">
+            <%= render 'cv/side_industries' %>
+          </div>
 
           <h4>Schools<span class="title_separator_light">:</span></h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+          <div class="sidebar_sections">
+            <%= render 'cv/side_schools' %>
+          </div>
         </div>
       </div>
       
@@ -88,6 +97,14 @@
 
       <div class="footer">
         <p>&copy; 2013 <span class="title_light">Ma</span><span class="title_separator_light">.</span><span class="title_light">ier</span>Al<span class="title_separator">.</span>in</p>
+      </div>
+      
+      <div id="add_highlight_msg" class="tag_active info_box noPrint">
+        All instances of tag <span id="selected_tag" class="infobox_highlight"></span> have been highlighted. Click any of them to undo.
+      </div>
+      
+      <div id="del_highlight_msg" class="tag_active info_box noPrint">
+        All highligths of tag <span id="deselected_tag" class="infobox_highlight"></span> have been removed.
       </div>
 
     </div> <!-- /container -->
