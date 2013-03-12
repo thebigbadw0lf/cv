@@ -13,10 +13,10 @@
 </div>
 
 <div class="section">
-	<h1>Skills<span class="title_separator_light">:</span></h1>
+	<h1>Tags<span class="title_separator_light">:</span></h1>
 	<div class="controls noPrint">
     <%= link_to "Show all tags", "#", :class => "control control_active", :id => "all_tags" %>
-  	<%= link_to "Hide tags only appearing once", "#", :class => "control", :id => "top_tags" %>
+  	<%= link_to "Show top tags", "#", :class => "control", :id => "top_tags" %>
   </div>
   <div class="tag_cloud">
   	<% tag_cloud @tags, %w{s m l xl xxl} do |t, css_class| %>
