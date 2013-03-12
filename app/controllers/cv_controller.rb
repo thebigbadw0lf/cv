@@ -14,5 +14,12 @@ class CvController < ApplicationController
           :group  => "#{ActsAsTaggableOn::Tag.table_name}.id HAVING COUNT(*) > 0",
           :order  => "LOWER(#{ActsAsTaggableOn::Tag.table_name}.name) ASC"
   	    )
+  	    
+  	@min_tag_count = 99999999
+  	
+  	@tags.each do |t|
+  	   @min_tag_count = t.count unless t.count > @min_tag_count
+  	end
+  	  	
   end
 end

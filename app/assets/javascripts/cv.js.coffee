@@ -89,12 +89,13 @@ $(document).ready ->
 
   $("#top_tags").click (event) ->
     event.preventDefault()
+    min_count = $(".tag_cloud_item").first().attr("data-min-count")
     $("#all_tags").removeClass "control_active"
     $(this).addClass "control_active"
-    $('.tag_cloud_item[data-count=1]').each (index) ->
+    $(".tag_cloud_item[data-count='#{min_count}']").each (index) ->
       $(this).next(".tag_cloud_separator").hide()
       $(this).hide()
-    $('.tag_cloud_item[data-count!=1]').last().next(".tag_cloud_separator").hide()
+    $(".tag_cloud_item[data-count!='#{min_count}']").last().next(".tag_cloud_separator").hide()
 
   $("#all_tags").click (event) ->
     event.preventDefault()
