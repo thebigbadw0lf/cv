@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311172825) do
+ActiveRecord::Schema.define(:version => 20130312053138) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130311172825) do
     t.string   "logo_link"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "record_id"
   end
 
   create_table "descriptions", :force => true do |t|
@@ -68,11 +69,18 @@ ActiveRecord::Schema.define(:version => 20130311172825) do
     t.string   "street"
   end
 
+  create_table "locations_schools", :id => false, :force => true do |t|
+    t.integer "location_id"
+    t.integer "school_id"
+  end
+
+  add_index "locations_schools", ["location_id"], :name => "index_locations_schools_on_location_id"
+  add_index "locations_schools", ["school_id"], :name => "index_locations_schools_on_school_id"
+
   create_table "records", :force => true do |t|
     t.date     "start_date"
     t.date     "end_date"
     t.string   "job_title"
-    t.integer  "company_id"
     t.string   "link"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -99,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20130311172825) do
     t.string   "name"
     t.string   "degree"
     t.string   "degree_short"
-    t.integer  "location_id"
     t.string   "link"
     t.string   "logo_link"
     t.datetime "created_at",   :null => false

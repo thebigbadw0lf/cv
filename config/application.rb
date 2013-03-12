@@ -61,5 +61,12 @@ module Cv
     
     #for heroku hosting
     config.assets.initialize_on_precompile = false
+    
+    #To change the tag list delimiter, do this in your config/application.rb:
+    #ActsAsTaggableOn.delimiter = ' ' # use space as delimiter
+    
+    #If you would like to remove unused tag objects after removing taggings, add
+    ActsAsTaggableOn.remove_unused_tags = true
+    
   end
 end

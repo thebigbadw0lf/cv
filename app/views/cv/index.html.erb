@@ -1,18 +1,27 @@
+<div class="controls noPrint">
+  <%= link_to "detailed view", "#", :class => "control control_active", :id => "detailed_view" %>
+	<%= link_to "compact view", "#", :class => "control", :id => "compact_view" %>
+</div>
 <div class="section">
 	<h1>Work experience<span class="title_separator_light">:</span></h1>
-	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+  <%= render :partial => "record", :collection => @records, :as => :record %>
 </div>
 
 <div class="section">
 	<h1>Education<span class="title_separator_light">:</span></h1>
-	<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+  <%= render :partial => "school", :collection => @schools, :as => :school %>
 </div>
 
 <div class="section">
 	<h1>Skills<span class="title_separator_light">:</span></h1>
+	<div class="controls noPrint">
+    <%= link_to "Show all tags", "#", :class => "control control_active", :id => "all_tags" %>
+  	<%= link_to "Hide tags only appearing once", "#", :class => "control", :id => "top_tags" %>
+  </div>
   <div class="tag_cloud">
   	<% tag_cloud @tags, %w{s m l xl xxl} do |t, css_class| %>
-    	<%= link_to t.name, "#{root_path}tags/#{t.name}", class: css_class %>, 
+    	<%= link_to t.name, "#", class: "tag_cloud_item " + css_class -%>
+    	<%= "&#8226;".html_safe unless @tags.last == t -%>
   	<% end %>
   </div>
 </div>

@@ -13,4 +13,8 @@ module CvHelper
   def year_switch(navigation_counter)
     navigation_counter.even? ? "year_box" : "year_box2"
   end
+  
+  def date_format(date)
+    date.strftime("%B %Y")
+  end
 end

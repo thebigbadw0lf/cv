@@ -75,3 +75,25 @@ $(document).ready ->
       scrollTop: 0
     , 800
 
+  $("#compact_view").click (event) ->
+    event.preventDefault()
+    $("#detailed_view").removeClass "control_active"
+    $(this).addClass "control_active"
+    $('.record_description_container').hide()
+    
+  $("#detailed_view").click (event) ->
+    event.preventDefault()
+    $("#compact_view").removeClass "control_active"
+    $(this).addClass "control_active"
+    $('.record_description_container').show()
+
+  $("#top_tags").click (event) ->
+    event.preventDefault()
+    $("#all_tags").removeClass "control_active"
+    $(this).addClass "control_active"
+
+  $("#all_tags").click (event) ->
+    event.preventDefault()
+    $("#top_tags").removeClass "control_active"
+    $(this).addClass "control_active"
+
