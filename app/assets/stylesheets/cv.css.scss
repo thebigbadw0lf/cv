@@ -658,12 +658,15 @@ body {
 
 .jumbotron {
 	margin: 0px 0px 40px 0px;
-	padding-top: 10px;
+	padding-top: 0px;
 	h1 {
 		font-family: $title_txt, Arial, sans-serif;
 		color: $base_dark_color;
 		text-shadow: lighten($base_dark_color, 80%) 0px 0px 2px;
 		font-size: 5.35em;
+		margin-top: 0px;
+		padding:0px 0px 10px 0px;
+		line-height: 0.91em;
 	}
 	
 	.btn {
@@ -1017,8 +1020,16 @@ div.footer {
 .carousel:hover .carousel-control, .carousel:hover .carousel-controls-narrow { visibility: visible; }*/
 
 #title_img {
-  width: 155px;
-  height: 100px;
+  display: inline-block;
+  width: 10%;
+  height: 10%;
+  -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin: 0px 40px 15px 0px;
+	cursor: hand;
+	cursor: pointer;
+	border:5px solid #333333;
 }
 
 .section {
