@@ -1,4 +1,1 @@
-<div class="side_item_box">  
-  <p class="side_item_container"><%= link_to location.city + ", " + location.country, "#", :class => "side_item", "data-location-name" => location.city + ", " + location.country -%></p>
-  <p class="side_info">(1.2 years)</p>
-</div>
+<%= link_to location.city + ", " + location.country, "#", :class => "side_item", "data-location-name" => location.city + ", " + location.country unless location.region? -%><%= link_to location.city + ", " + location.region + ", " + location.country, "#", :class => "side_item", "data-location-name" => location.city + ", " + location.country if location.region? -%><%= %{ &#8226; }.html_safe unless @locations.last == location -%>
