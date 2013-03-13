@@ -730,11 +730,19 @@ body {
 		h3 {
 		  font-family: 'SourceSansProLight', Arial, sans-serif;
 		  font-size: 1.35em;
-      line-height: 1.21em;
+      line-height: 1.41em;
       font-weight: normal;
       
       span.record_job_title {
+        display: inline-block;
   		  font-family: 'SourceSansProSemibold', Arial, sans-serif;
+  		  cursor: pointer;
+  		  cursor: hand;
+      }
+     span.company_name {
+        display: inline-block;
+  		  cursor: pointer;
+  		  cursor: hand;
       }
       span.record_dates {
         font-style: italic;
@@ -744,6 +752,12 @@ body {
         margin: 0px 8px;
         font-size: 1.55em;
         color: lighten(#333333, 30%);
+        line-height: 22px;
+      }
+      span.school_name {
+        display: inline-block;
+        cursor: pointer;
+  		  cursor: hand;
       }
 		}
 	}
@@ -758,6 +772,10 @@ body {
 			text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
 		}
 	}
+}
+
+span.record_job_title:hover, span.company_name:hover, span.school_name:hover {
+  text-decoration: underline;
 }
 
 .marketing p + h4, #after_gmaps {
@@ -1228,6 +1246,7 @@ img.interests_pic {
 
 .row-fluid .span4 p.side_item_container {
   margin-bottom: 0px;
+  line-height: 1.11em;
 }
 
 a.side_item {
