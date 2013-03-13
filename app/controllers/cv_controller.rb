@@ -20,6 +20,12 @@ class CvController < ApplicationController
   	@tags.each do |t|
   	   @min_tag_count = t.count unless t.count > @min_tag_count
   	end
+  	
+  	@companies = Company.find :all, :order => "updated_at DESC"
+  	
+  	@industries = Industry.find :all, :order => "updated_at DESC"
+  	
+  	@locations = Location.find :all, :order => "updated_at DESC"
   	  	
   end
 end

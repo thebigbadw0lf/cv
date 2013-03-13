@@ -1,0 +1,31 @@
+<h4>Career<br />Analytics<span class="title_separator_light">:</span></h4>
+<div class="sidebar_sections">
+  <%= render 'side_analytics' %>
+</div>
+
+<h4>Locations<span class="title_separator_light">:</span></h4>
+<div class="sidebar_sections">
+  <%= render :partial => "side_locations", :collection => @locations, :as => :location %>
+  <div id="google-map-container"><%= render 'cv/gmaps' %></div>
+</div>
+
+<h4>Companies<span class="title_separator_light">:</span></h4>
+<div class="sidebar_sections">
+  <%= render :partial => "side_companies", :collection => @companies, :as => :company %>
+</div>
+
+<h4>Industries<span class="title_separator_light">:</span></h4>
+<div class="sidebar_sections">
+  <%= render :partial => "side_industries", :collection => @industries, :as => :industry %>
+
+</div>
+
+<h4>Schools<span class="title_separator_light">:</span></h4>
+<div class="sidebar_sections">
+  <%= render :partial => "side_schools", :collection => @schools, :as => :school %>
+</div>
+
+<h4>Job titles<span class="title_separator_light">:</span></h4>
+<div class="sidebar_sections">
+  <%= render :partial => "side_titles", :collection => @records, :as => :record %>
+</div>
