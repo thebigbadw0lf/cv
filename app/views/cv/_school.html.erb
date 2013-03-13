@@ -1,7 +1,7 @@
 <div class="record">    
   <h3><span class="record_job_title"><%= school.degree -%></span><span class="record_separator">&#8226;</span><%= school.name -%><span class="record_separator">&#8226;</span><% 
   school.locations.each do |location| %>
-    <%= link_to location.city + ", " + location.country, "#" -%><%= " / " unless school.locations.last == location -%>
+    <%= link_to location.city + ", " + location.country, "#" unless location.region? -%><%= link_to location.city + ", " + location.region + ", " + location.country, "#" if location.region? -%><%= " / " unless school.locations.last == location -%>
   <% end 
   %><span class="record_separator">&#8226;</span><span class="record_dates"><%= date_format school.end_date -%></h3>
 

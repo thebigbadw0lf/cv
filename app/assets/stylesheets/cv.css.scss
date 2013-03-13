@@ -765,7 +765,7 @@ body {
 }
 
 .btn, .btn-large, .btn-success {
-  font-family: 'SourceSansProLight', Arial, sans-serif;
+  font-family: 'SourceSansProRegular', Arial, sans-serif;
   font-size: 1.35em;
   line-height: 1.01em;
   font-weight: normal;
@@ -1216,6 +1216,28 @@ img.interests_pic {
 
 .section_compact {
   margin-bottom:0px;
+}
+
+.row-fluid .span4 h4{
+  margin-bottom: 0.75em;
+}
+
+.side_item_box {
+  margin: 0px 0px 10px 0px;
+}
+
+.row-fluid .span4 p.side_item_container {
+  margin-bottom: 0px;
+}
+
+a.side_item {
+  font-family: SourceSansProSemiBold, Arial, sans-serif;
+}
+
+.row-fluid .span4 p.side_info {
+  font-family: SourceSansProLight, Arial, sans-serif;
+  font-size: 14px;
+  margin-top: 0px;
 }
 
 /* print settings */
