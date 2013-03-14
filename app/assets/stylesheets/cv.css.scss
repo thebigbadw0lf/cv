@@ -736,8 +736,6 @@ body {
       span.record_job_title {
         display: inline-block;
   		  font-family: 'SourceSansProSemibold', Arial, sans-serif;
-  		  cursor: pointer;
-  		  cursor: hand;
       }
      span.company_name {
         display: inline-block;
@@ -774,7 +772,12 @@ body {
 	}
 }
 
-span.record_job_title:hover, span.company_name:hover, span.school_name:hover {
+span.link_sim {
+  cursor: pointer;
+  cursor: hand;
+}
+
+span.link_sim:hover, span.company_name:hover, span.school_name:hover {
   text-decoration: underline;
 }
 
