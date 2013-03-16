@@ -1,5 +1,11 @@
 Cv::Application.routes.draw do
 
+  resources :education_records
+
+
+  resources :job_titles
+
+
 #  get "cv/index"
 
   resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records, :schools

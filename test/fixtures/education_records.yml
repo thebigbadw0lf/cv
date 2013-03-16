@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  degree_name: MyString
+  degree_short_name: MyString
+  start_date: 2013-03-16
+  end_date: 2013-03-16
+  is_current: false
+
+two:
+  id: 1
+  degree_name: MyString
+  degree_short_name: MyString
+  start_date: 2013-03-16
+  end_date: 2013-03-16
+  is_current: false

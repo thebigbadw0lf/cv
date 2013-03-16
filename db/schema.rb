@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316065403) do
+ActiveRecord::Schema.define(:version => 20130316164017) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(:version => 20130316065403) do
   add_index "descriptions_schools", ["description_id"], :name => "index_descriptions_schools_on_description_id"
   add_index "descriptions_schools", ["school_id"], :name => "index_descriptions_schools_on_school_id"
 
+  create_table "education_records", :force => true do |t|
+    t.string   "degree_name"
+    t.string   "degree_short_name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.boolean  "is_current"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.integer  "school_id"
+  end
+
   create_table "industries", :force => true do |t|
     t.string   "name"
     t.string   "short_name"
@@ -54,6 +65,13 @@ ActiveRecord::Schema.define(:version => 20130316065403) do
 
   add_index "industries_companies", ["company_id"], :name => "index_industries_companies_on_company_id"
   add_index "industries_companies", ["industry_id"], :name => "index_industries_companies_on_industry_id"
+
+  create_table "job_titles", :force => true do |t|
+    t.string   "title_short"
+    t.string   "title_long"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "locations", :force => true do |t|
     t.string   "city"
@@ -80,12 +98,12 @@ ActiveRecord::Schema.define(:version => 20130316065403) do
   create_table "records", :force => true do |t|
     t.date     "start_date"
     t.date     "end_date"
-    t.string   "job_title"
     t.string   "link"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "is_current"
     t.integer  "company_id"
+    t.integer  "job_title_id"
   end
 
   create_table "records_descriptions", :force => true do |t|

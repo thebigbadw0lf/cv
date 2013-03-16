@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @education_record.id %>
+</p>
+
+<p>
+  <b>Degree name:</b>
+  <%= @education_record.degree_name %>
+</p>
+
+<p>
+  <b>Degree short name:</b>
+  <%= @education_record.degree_short_name %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @education_record.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @education_record.end_date %>
+</p>
+
+<p>
+  <b>Is current:</b>
+  <%= @education_record.is_current %>
+</p>
+
+
+<%= link_to 'Edit', edit_education_record_path(@education_record) %> |
+<%= link_to 'Back', education_records_path %>

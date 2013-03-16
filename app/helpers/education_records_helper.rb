@@ -1,0 +1,2 @@
+module EducationRecordsHelper
+end

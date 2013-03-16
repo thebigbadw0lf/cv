@@ -1,0 +1,33 @@
+<h1>Listing education_records</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Degree name</th>
+    <th>Degree short name</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Is current</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @education_records.each do |education_record| %>
+  <tr>
+    <td><%= education_record.id %></td>
+    <td><%= education_record.degree_name %></td>
+    <td><%= education_record.degree_short_name %></td>
+    <td><%= education_record.start_date %></td>
+    <td><%= education_record.end_date %></td>
+    <td><%= education_record.is_current %></td>
+    <td><%= link_to 'Show', education_record %></td>
+    <td><%= link_to 'Edit', edit_education_record_path(education_record) %></td>
+    <td><%= link_to 'Destroy', education_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Education record', new_education_record_path %>

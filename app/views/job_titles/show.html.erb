@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title short:</b>
+  <%= @job_title.title_short %>
+</p>
+
+<p>
+  <b>Title long:</b>
+  <%= @job_title.title_long %>
+</p>
+
+
+<%= link_to 'Edit', edit_job_title_path(@job_title) %> |
+<%= link_to 'Back', job_titles_path %>
