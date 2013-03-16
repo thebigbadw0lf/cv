@@ -43,10 +43,11 @@ module CvHelper
     case duration
     when 384..3650000000000
       output_days = duration / 365
+      output_days = output_days.round(1)
       if output_days % 1 == 0 then
         output_text = output_days.round.to_s + " years"
       else
-        output_text = output_days.round(1).to_s + " years"
+        output_text = output_days.to_s + " years"
       end
     when 350...384
       output_text = "1 year"
