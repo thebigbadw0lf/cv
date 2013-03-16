@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316164017) do
+ActiveRecord::Schema.define(:version => 20130316201548) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(:version => 20130316164017) do
     t.datetime "updated_at",        :null => false
   end
 
-  create_table "descriptions_schools", :id => false, :force => true do |t|
+  create_table "descriptions_education_records", :id => false, :force => true do |t|
     t.integer "description_id"
-    t.integer "school_id"
+    t.integer "education_record_id"
   end
 
-  add_index "descriptions_schools", ["description_id"], :name => "index_descriptions_schools_on_description_id"
-  add_index "descriptions_schools", ["school_id"], :name => "index_descriptions_schools_on_school_id"
+  add_index "descriptions_education_records", ["description_id"], :name => "index_descriptions_education_records_on_description_id"
+  add_index "descriptions_education_records", ["education_record_id"], :name => "index_descriptions_education_records_on_education_record_id"
 
   create_table "education_records", :force => true do |t|
     t.string   "degree_name"
@@ -48,7 +48,16 @@ ActiveRecord::Schema.define(:version => 20130316164017) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.integer  "school_id"
+    t.boolean  "is_certification"
   end
+
+  create_table "education_records_locations", :id => false, :force => true do |t|
+    t.integer "location_id"
+    t.integer "education_record_id"
+  end
+
+  add_index "education_records_locations", ["education_record_id"], :name => "index_education_records_locations_on_education_record_id"
+  add_index "education_records_locations", ["location_id"], :name => "index_education_records_locations_on_location_id"
 
   create_table "industries", :force => true do |t|
     t.string   "name"
@@ -87,14 +96,6 @@ ActiveRecord::Schema.define(:version => 20130316164017) do
     t.string   "region"
   end
 
-  create_table "locations_schools", :id => false, :force => true do |t|
-    t.integer "location_id"
-    t.integer "school_id"
-  end
-
-  add_index "locations_schools", ["location_id"], :name => "index_locations_schools_on_location_id"
-  add_index "locations_schools", ["school_id"], :name => "index_locations_schools_on_school_id"
-
   create_table "records", :force => true do |t|
     t.date     "start_date"
     t.date     "end_date"
@@ -121,15 +122,11 @@ ActiveRecord::Schema.define(:version => 20130316164017) do
   end
 
   create_table "schools", :force => true do |t|
-    t.date     "start_date"
-    t.date     "end_date"
     t.string   "name"
-    t.string   "degree"
-    t.string   "degree_short"
     t.string   "link"
     t.string   "logo_link"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "name_short"
   end
 

@@ -19,7 +19,7 @@ module CvHelper
   end
   
   def calculate_duration(item)
-    item.records.each_with_index do | r, i|  #split records associated with current job title
+    item.each_with_index do | r, i|  #split records associated with current job title
       r.is_current == 1 ? end_date = Date.today : end_date = r.end_date #use today's date if job is current
       start_date = r.start_date
     

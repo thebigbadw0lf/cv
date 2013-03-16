@@ -6,7 +6,9 @@ class CvController < ApplicationController
     
     @records = Record.find :all, :order => "end_date DESC"
     
-    @schools = School.find :all, :order => "end_date DESC"
+    @education_records = EducationRecord.find :all, :order => "end_date DESC"
+    
+    @schools = School.find :all
     
     @tags = ActsAsTaggableOn::Tag.find(:all,
   	      :select => "#{ActsAsTaggableOn::Tag.table_name}.id, #{ActsAsTaggableOn::Tag.table_name}.name, COUNT(*) AS count",

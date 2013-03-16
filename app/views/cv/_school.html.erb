@@ -1,17 +1,17 @@
 <div class="record">    
-  <h3><span class="record_job_title"><%= school.degree -%></span><span class="record_separator">&#8226;</span><%= %{<span class="school_name" "data-school-name" = #{school.name}>}.html_safe + school.name + %{</span>}.html_safe -%><span class="record_separator">&#8226;</span><% 
-  school.locations.each do |location| %>
-    <%= link_to location.city + ", " + location.country, "#", :class => "school_location", "data-location-name" => location.city unless location.region? -%><%= link_to location.city + ", " + location.region + ", " + location.country, "#", :class => "school_location", "data-location-name" => location.city if location.region? -%><%= " / " unless school.locations.last == location -%>
+  <h3><span class="record_job_title"><%= education_record.degree_name -%></span><span class="record_separator">&#8226;</span><%= %{<span class="school_name" "data-school-name" = #{education_record.school.name}>}.html_safe + education_record.school.name + %{</span>}.html_safe -%><span class="record_separator">&#8226;</span><% 
+  education_record.locations.each do |location| %>
+    <%= link_to location.city + ", " + location.country, "#", :class => "school_location", "data-location-name" => location.city unless location.region? -%><%= link_to location.city + ", " + location.region + ", " + location.country, "#", :class => "school_location", "data-location-name" => location.city if location.region? -%><%= " / " unless education_record.locations.last == location -%>
   <% end 
-  %><span class="record_separator">&#8226;</span><span class="record_dates"><%= date_format school.end_date -%></h3>
+  %><span class="record_separator">&#8226;</span><span class="record_dates"><%= date_format education_record.end_date -%></h3>
 
   <div class="record_description_container">
-    <% school.descriptions.each do |description| %>
+    <% education_record.descriptions.each do |description| %>
       <p class="record_description">&#8226; <%= description.description_long %></p>
     <% end %>
   </div>
   
   <div class="record_tags">
-    Tags: <%= raw order_tags(school.teaching_list).map { |t| link_to t, "#", :class => "tag_item", "data-tag" => t }.join(' &#8226; ') %>
+    Tags: <%= raw order_tags(education_record.teaching_list).map { |t| link_to t, "#", :class => "tag_item", "data-tag" => t }.join(' &#8226; ') %>
   </div>
 </div>
