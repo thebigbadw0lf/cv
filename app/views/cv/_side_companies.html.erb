@@ -1,4 +1,5 @@
 <div class="side_item_box">
   <p class="side_item_container"><%= link_to company.name, "#", :class => "side_item", "data-company-name" => company.name -%></p>
   <p class="side_info">(1.2 years)</p>
+  <p class="side_info"><% company.records.each do |r| %><%= r.job_title -%><% end %></p>
 </div>

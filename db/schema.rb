@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313171955) do
+ActiveRecord::Schema.define(:version => 20130316065403) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(:version => 20130313171955) do
     t.string   "logo_link"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "record_id"
   end
 
   create_table "descriptions", :force => true do |t|
@@ -86,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20130313171955) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "is_current"
+    t.integer  "company_id"
   end
 
   create_table "records_descriptions", :force => true do |t|

@@ -14,18 +14,26 @@ class CvController < ApplicationController
           :group  => "#{ActsAsTaggableOn::Tag.table_name}.id HAVING COUNT(*) > 0",
           :order  => "LOWER(#{ActsAsTaggableOn::Tag.table_name}.name) ASC"
   	    )
-  	    
-  	@min_tag_count = 99999999
   	
-  	@tags.each do |t|
-  	   @min_tag_count = t.count unless t.count > @min_tag_count
-  	end
-  	
+    #find out the smallest number of occurences for tags in the tag cloud and make it available to the view (shown in the view in the data-min-count css element from where it is picked up by jQuery and used for hiding less frequent tags in the tag cloud)
+  	@min_tag_count = min_tag_count(@tags)
+    
   	@companies = Company.find :all, :order => "updated_at DESC"
   	
   	@industries = Industry.find :all, :order => "updated_at DESC"
   	
   	@locations = Location.find :all, :order => "updated_at DESC"
   	  	
+  end
+  
+  protected
+  def min_tag_count(tags)
+  	tag_count = 99999999
+  	
+  	tags.each do |t|
+  	   tag_count = t.count unless t.count > tag_count
+  	end
+    
+    tag_count
   end
 end
