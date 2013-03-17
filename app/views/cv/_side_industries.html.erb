@@ -1,6 +1,4 @@
 <div class="side_item_box">
   <p class="side_item_container"><%= link_to industry.name.capitalize, "#", :class => "side_item", "data-industry-name" => industry.name.capitalize -%></p>
-  <% industry.companies.each do |c| %>
-    <p class="side_info"><%= c %></p>
-  <% end %>
+    <p class="side_info"><%= calc_duration_industries(industry.companies) %></p>
 </div>

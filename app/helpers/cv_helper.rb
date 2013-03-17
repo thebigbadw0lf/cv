@@ -19,8 +19,13 @@ module CvHelper
   end
   
   def calculate_duration(item)
-    item.each_with_index do | r, i|  #split records associated with current job title
-      r.is_current == 1 ? end_date = Date.today : end_date = r.end_date #use today's date if job is current
+    item.each_with_index do | r, i|  #split records associated with current item
+      if defined?(r.is_current) then
+        r.is_current == 1 ? end_date = Date.today : end_date = r.end_date #use today's date if item is current
+      else
+        end_date = r.end_date
+      end
+      
       start_date = r.start_date
     
       if i > 0 then  #start_date_prev(ious) and end_date_prev(ious) are not available in first iteration
@@ -40,7 +45,7 @@ module CvHelper
     
     duration =  @days.to_f
         
-    case duration
+    case duration   #output duration in years, months or days depending on length
     when 384..3650000000000
       output_days = duration / 365
       output_days = output_days.round(1)
@@ -64,4 +69,17 @@ module CvHelper
     
     output_text
   end
+  
+  def calc_duration_industries(item)
+    industry_records = Array.new
+    item.each do |i|
+      i.records.each do |r|
+        industry_records << r
+      end
+    end
+    
+    industry_records = industry_records.sort_by(&:end_date).reverse!
+    calculate_duration(industry_records)
+  end
 end
+
