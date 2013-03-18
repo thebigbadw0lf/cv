@@ -2,8 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-# 'cvTopPosition' is the amount of pixels the target
-# is from the top of the document
 cvTopPosition = {}
 p_anchorTopPosition = {}
 
@@ -75,6 +73,7 @@ $(document).ready ->
       scrollTop: 0
     , 800
 
+  # cv details/compact view toggle
   $("#compact_view").click (event) ->
     event.preventDefault()
     $("#detailed_view").removeClass "control_active"
@@ -87,6 +86,7 @@ $(document).ready ->
     $(this).addClass "control_active"
     $('.record_description_container').show()
 
+  #tag cloud all tags / top tags toggle
   $("#top_tags").click (event) ->
     event.preventDefault()
     min_count = $(".tag_cloud_item").first().attr("data-min-count")
@@ -106,6 +106,7 @@ $(document).ready ->
       $(this).show()
     $('.tag_cloud_item[data-count!=1]').last().next(".tag_cloud_separator").show()
     
+  #tag hughlighting
   $(".tag_cloud_item").click (event) ->
     event.preventDefault()
     $('#del_highlight_msg').clearQueue();
@@ -130,24 +131,25 @@ $(document).ready ->
     event.preventDefault()
     $('#del_highlight_msg').clearQueue();
     $('#add_highlight_msg').clearQueue();
-    data_tag2 = $(this).attr("data-tag")
+    data_tag = $(this).attr("data-tag")
     if $(this).hasClass("tag_active")
       $(this).removeClass "tag_active"
-      $(".tag_cloud_item[data-tag='#{data_tag2}']").removeClass "tag_active"
-      $(".tag_item[data-tag='#{data_tag2}']").not(this).removeClass "tag_active"
+      $(".tag_cloud_item[data-tag='#{data_tag}']").removeClass "tag_active"
+      $(".tag_item[data-tag='#{data_tag}']").not(this).removeClass "tag_active"
       $('#del_highlight_msg').hide();
       $('#add_highlight_msg').hide();
-      $("#deselected_tag").text(data_tag2)
+      $("#deselected_tag").text(data_tag)
       $('#del_highlight_msg').fadeIn(250).delay(2300).fadeOut 250, ->
     else
       $(this).addClass "tag_active"
-      $(".tag_cloud_item[data-tag='#{data_tag2}']").addClass "tag_active"
-      $(".tag_item[data-tag='#{data_tag2}']").not(this).addClass "tag_active"
+      $(".tag_cloud_item[data-tag='#{data_tag}']").addClass "tag_active"
+      $(".tag_item[data-tag='#{data_tag}']").not(this).addClass "tag_active"
       $('#add_highlight_msg').hide();
       $('#del_highlight_msg').hide();
-      $("#selected_tag").text(data_tag2)
+      $("#selected_tag").text(data_tag)
       $('#add_highlight_msg').fadeIn(250).delay(3300).fadeOut 250, ->
       
+  #language section text on country flags mouseover and click (for touchscreen UIs)
   $(".flags_pic").click (event) ->
     event.preventDefault()
     language = $(this).attr("data-language")
@@ -159,8 +161,7 @@ $(document).ready ->
       "border-color": "#D6C537"
     $("#lng").text(language)
     $("#lvl").text(level)
-    
-    
+  
   $(".flags_pic").mouseover (event) ->
     language = $(this).attr("data-language")
     level = $(this).attr("data-level")
@@ -176,6 +177,7 @@ $(document).ready ->
     $("#lng").text("")
     $("#lvl").text("")
 
+  #interests section text on interests icons mouseover and click (for touch screen UIs)
   $(".interests_pic").click (event) ->
     event.preventDefault()
     info = $(this).attr("data-info")
