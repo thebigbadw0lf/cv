@@ -189,6 +189,9 @@ $(document).ready ->
     $("#interests_infobox").text(info)
 
   $(".interests_pic").mouseover (event) ->
+    #currentId = $(this).attr('id')
+    #myfunction(currentId)  
+    
     info = $(this).attr("data-info")
     $(this).css
       "border-color": "#D6C537"
@@ -200,4 +203,10 @@ $(document).ready ->
     $("#interests_infobox").text("")
       
       
-
+myfunction = (id) ->
+  elem_id = "#" + id
+  info = $(elem_id).attr("data-info")
+  $(elem_id).css
+    "border-color": "#D6C537"
+  $("#interests_infobox").text(info)
+   
