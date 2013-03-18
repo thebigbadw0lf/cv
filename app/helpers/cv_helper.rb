@@ -70,16 +70,16 @@ module CvHelper
     output_text
   end
   
-  def calc_duration_industries(item)
+  def calc_duration_industries(item)   #build array to hold all records belonging to companies tagged with one specific industry
     industry_records = Array.new
-    item.each do |i|
-      i.records.each do |r|
-        industry_records << r
+    item.each do |i|  #split each industry array into companies
+      i.records.each do |r|   #split each company array into records
+        industry_records << r   #append each record to new array
       end
     end
     
-    industry_records = industry_records.sort_by(&:end_date).reverse!
-    calculate_duration(industry_records)
+    industry_records = industry_records.sort_by(&:end_date).reverse!   #sort records by end_date desc
+    calculate_duration(industry_records)   #send new array to method for computing industry duration and return duration back to the view
   end
 end
 
