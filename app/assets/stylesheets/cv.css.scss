@@ -28,10 +28,6 @@ body {
   font-size: 72px;
   line-height: 1;
 }
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
 
 /* Supporting marketing content */
 .marketing {
@@ -671,7 +667,8 @@ body {
 	
 	.btn {
 	  font-size: 23px;
-		padding: 17px 24px 5px 5px;
+		padding: 15px 15px 10px 15px;
+    border-radius: 5px;
 	}
 	
 }
@@ -830,7 +827,7 @@ span.link_sim:hover, span.company_name:hover, span.school_name:hover {
 	border-radius: 0px;
 	background-image: none;
 	background-color: #01B0F0;
-	border-width: 0px 0px 5px 0px;
+	border-width: 0px 0px 0px 0px;
 }
 
 .btn-r {
@@ -1133,6 +1130,7 @@ div.footer {
 	border-radius: 5px;
 	background-color: lighten(#D6C537, 0%);
   color: #ffffff !important;
+  margin: 1px;
 }
 
 .highlight_active:hover, .highlight_active:visited, .highlight_active:focus, .highlight_active:active {
