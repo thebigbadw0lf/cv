@@ -733,7 +733,11 @@ body {
       line-height: 1.41em;
       font-weight: normal;
       
-      span.record_job_title {
+      .highlight_active {
+        padding-top: 9px;
+      }
+      
+      span.record_job_title, span.record_school_title {
         display: inline-block;
   		  font-family: 'SourceSansProSemibold', Arial, sans-serif;
       }
@@ -770,6 +774,36 @@ body {
 			text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
 		}
 	}
+}
+
+p.side_item_container {
+  a.highlight_active {
+    padding-top: 7px !important;
+  }
+}
+
+div.side_locations_tags {
+  a.highlight_active {
+    padding-top: 7px !important;
+  }
+}
+
+div.record_tags {
+  a.highlight_active {
+    padding-bottom: 8px !important;
+  }
+}
+
+div.record_industries {
+  span.highlight_active {
+    padding-top: 7px !important
+  }
+}
+
+div.tag_cloud {
+  a.highlight_active {
+    padding-bottom: 0.54em;
+  }
 }
 
 span.link_sim {
@@ -1089,28 +1123,29 @@ div.footer {
   background-color: darken(#ffffff, 5%);
 }
 
-.tag_active {
+.highlight_active {
   display: inline-block;
-  padding: 4px;
-  margin: 4px;
-  line-height: 1.01em;
+  padding: 0.34em;
+  margin: 0px;
+  line-height: 1.21em;
   -moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	background-color: lighten(#D6C537, 0%);
-	color: #ffffff;
+  color: #ffffff !important;
 }
 
-.tag_active:hover, .tag_active:visited, .tag_active:focus, .tag_active:active {
-  color: #ffffff;
+.highlight_active:hover, .highlight_active:visited, .highlight_active:focus, .highlight_active:active {
+  color: #ffffff !important;
 }
 
 div.info_box {
   position: fixed;
   display: none;
+  font-weight: normal !important;
   right: 5px;
   bottom: 5px;
-  color: #333333;
+  color: #333333 !important;
   opacity: 0.9;
   filter: alpha(opacity=90);
   -moz-box-shadow: 2px 2px 2px lighten(black, 40%);
@@ -1119,7 +1154,7 @@ div.info_box {
 }
 
 div.info_box:hover {
-  color: #333333;
+  color: #333333 !important;
 }
 
 .infobox_highlight {
@@ -1134,6 +1169,10 @@ hr.top_hr {
 
 div.record_tags {
   margin-top: 0.51em;
+  vertical-align: middle;
+}
+
+.tag_item {
 }
 
 div.controls {
@@ -1252,7 +1291,7 @@ img.interests_pic {
   line-height: 1.11em;
 }
 
-a.side_item {
+a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.side_title {
   font-family: SourceSansProSemiBold, Arial, sans-serif;
 }
 

@@ -81,5 +81,9 @@ module CvHelper
     industry_records = industry_records.sort_by(&:end_date).reverse!   #sort records by end_date desc
     calculate_duration(industry_records)   #send new array to method for computing industry duration and return duration back to the view
   end
+  
+  def order_tags(tags)
+    tags.sort { |a,b| a.downcase <=> b.downcase }
+  end
 end
 

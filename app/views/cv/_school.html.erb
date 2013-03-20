@@ -1,7 +1,7 @@
 <div class="record">    
-  <h3><span class="record_job_title"><%= education_record.degree_name -%></span><span class="record_separator">&#8226;</span><%= %{<span class="school_name" "data-school-name" = #{education_record.school.name}>}.html_safe + education_record.school.name + %{</span>}.html_safe -%><span class="record_separator">&#8226;</span><% 
+  <h3><span class="record_school_title"><%= education_record.degree_name -%></span><span class="record_separator">&#8226;</span><%= %{<span id="#{SecureRandom.uuid}" class="school_name" data-info="#{education_record.school.name.downcase}" data-flash-text="#{education_record.school.name}">}.html_safe + education_record.school.name + %{</span>}.html_safe -%><span class="record_separator">&#8226;</span><% 
   education_record.locations.each do |location| %>
-    <%= link_to location.city + ", " + location.country, "#", :class => "school_location", "data-location-name" => location.city unless location.region? -%><%= link_to location.city + ", " + location.region + ", " + location.country, "#", :class => "school_location", "data-location-name" => location.city if location.region? -%><%= " / " unless education_record.locations.last == location -%>
+    <%= link_to location.city + ", " + location.country, "#", :id => SecureRandom.uuid, :class => "school_location", "data-info" => location.city.downcase, "data-flash-text" => location.city + ", " + location.country unless location.region? -%><%= link_to location.city + ", " + location.region + ", " + location.country, "#", :id => SecureRandom.uuid, :class => "school_location", "data-info" => location.city.downcase, "data-flash-text" => location.city + ", " + location.region + ", " + location.country if location.region? -%><%= " / " unless education_record.locations.last == location -%>
   <% end 
   %><span class="record_separator">&#8226;</span><span class="record_dates"><%= date_format education_record.end_date -%></h3>
 
@@ -12,6 +12,6 @@
   </div>
   
   <div class="record_tags">
-    Tags: <%= raw order_tags(education_record.teaching_list).map { |t| link_to t, "#", :class => "tag_item", "data-tag" => t }.join(' &#8226; ') %>
+    Tags: <%= raw order_tags(education_record.teaching_list).map { |t| link_to t, "#", :id => SecureRandom.uuid, :class => "tag_item", "data-info" => t.downcase, "data-info" => t }.join(' &#8226; ') %>
   </div>
 </div>

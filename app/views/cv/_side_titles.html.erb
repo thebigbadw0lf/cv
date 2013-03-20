@@ -1,4 +1,4 @@
 <div class="side_item_box">
-  <p class="side_item_container"><%= link_to job_title.title_long, "#", :class => "side_item", "data-job-title" => job_title.title_long -%></p>
+  <p class="side_item_container"><%= link_to job_title.title_long, "#", :id => SecureRandom.uuid, :class => "side_item side_title", "data-info" => job_title.title_long.downcase, "data-flash-text" => job_title.title_long -%></p>
   <p class="side_info">(<%= calculate_duration(job_title.records) %>)</p>
 </div>
