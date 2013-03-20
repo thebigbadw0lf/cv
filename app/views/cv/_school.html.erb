@@ -12,6 +12,6 @@
   </div>
   
   <div class="record_tags">
-    Tags: <%= raw order_tags(education_record.teaching_list).map { |t| link_to t, "#", :id => SecureRandom.uuid, :class => "tag_item", "data-info" => t.downcase, "data-info" => t }.join(' &#8226; ') %>
+    Tags: <%= raw order_tags(education_record.teaching_list).map { |t| link_to t, "#", :id => SecureRandom.uuid, :class => "tag_item", "data-info" => t.downcase, "data-flash-text" => t }.join(' &#8226; ') %>
   </div>
 </div>
