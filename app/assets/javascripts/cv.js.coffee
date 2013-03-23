@@ -166,22 +166,24 @@ $(document).ready ->
    
 toggle_highlight = (id) ->
   elem_id = "#" + id
-  $('#del_highlight_msg').clearQueue();
-  $('#add_highlight_msg').clearQueue();
+  $('#del_highlight_msg').clearQueue()
+  $('#add_highlight_msg').clearQueue()
   data_info = $(elem_id).attr("data-info")
   data_text = $(elem_id).attr("data-flash-text")
+  selection = ".tag_cloud_item[data-info='#{data_info}'], .tag_item[data-info='#{data_info}'], .record_job_title[data-info='#{data_info}'], .company_name[data-info='#{data_info}'], .location_head[data-info='#{data_info}'], .industry[data-info='#{data_info}'], .school_name[data-info='#{data_info}'], .school_location[data-info='#{data_info}'], .side_company[data-info='#{data_info}'], .side_industry[data-info='#{data_info}'], .side_location[data-info='#{data_info}'], .side_school[data-info='#{data_info}'], .side_title[data-info='#{data_info}']"
   content_deselect  = "All highligths of <span id='deselected_item' class='infobox_highlight'>#{data_text}</span> have been removed."
-  content_select = "All instances of <span id='selected_item' class='infobox_highlight'>#{data_text}</span> have been highlighted. Click any of them to undo."
+  content_select = "All instances of <span id='selected_item' class='infobox_highlight'>#{data_text}</span> occuring on this page have been highlighted. Click any of them to undo."
   if $(elem_id).hasClass("highlight_active")
-    $(".tag_cloud_item[data-info='#{data_info}'], .tag_item[data-info='#{data_info}'], .record_job_title[data-info='#{data_info}'], .company_name[data-info='#{data_info}'], .location_head[data-info='#{data_info}'], .industry[data-info='#{data_info}'], .school_name[data-info='#{data_info}'], .school_location[data-info='#{data_info}'], .side_company[data-info='#{data_info}'], .side_industry[data-info='#{data_info}'], .side_location[data-info='#{data_info}'], .side_school[data-info='#{data_info}'], .side_title[data-info='#{data_info}']").removeClass "highlight_active"
-    $('#del_highlight_msg').hide();
-    $('#add_highlight_msg').hide();
+    $(selection).removeClass "highlight_active"
+    $('#del_highlight_msg').hide()
+    $('#add_highlight_msg').hide()
     $("#del_highlight_msg").html(content_deselect)
     $('#del_highlight_msg').fadeIn(250).delay(2300).fadeOut 250, ->
   else
-    $(".tag_cloud_item[data-info='#{data_info}'], .tag_item[data-info='#{data_info}'], .record_job_title[data-info='#{data_info}'], .company_name[data-info='#{data_info}'], .location_head[data-info='#{data_info}'], .industry[data-info='#{data_info}'], .school_name[data-info='#{data_info}'], .school_location[data-info='#{data_info}'], .side_company[data-info='#{data_info}'], .side_industry[data-info='#{data_info}'], .side_location[data-info='#{data_info}'], .side_school[data-info='#{data_info}'], .side_title[data-info='#{data_info}']").addClass "highlight_active"
-    $('#add_highlight_msg').hide();
-    $('#del_highlight_msg').hide();
+    $(selection).addClass "highlight_active"
+    $('#add_highlight_msg').hide()
+    $('#del_highlight_msg').hide()
     $("#add_highlight_msg").html(content_select)
     $('#add_highlight_msg').fadeIn(250).delay(3300).fadeOut 250, ->
+
 

@@ -841,7 +841,7 @@ span.link_sim:hover, span.company_name:hover, span.school_name:hover {
 	margin-right: 6.01%;
 }
 
-@media (max-width: 569px) {
+@media (max-width: 545px) {
   .btn-l {
 		margin-left: 6.01%;
 		margin-bottom: 28px;
@@ -849,8 +849,10 @@ span.link_sim:hover, span.company_name:hover, span.school_name:hover {
 }
 
 .btn-active {
+  font-family: "SourceSansProBold", Arial, sans-serif;
 	background-color: #D6C537;
 	color: #333333;
+	text-decoration: underline;
 }
 
 .btn-r:focus, .btn-r:active, .btn-r:visited {
@@ -885,14 +887,14 @@ span.link_sim:hover, span.company_name:hover, span.school_name:hover {
 
 .btn-active:focus, .btn-active:active, .btn-active:visited {
 	text-shadow: lighten(#333333, 10%) 0px 0px 0px;
-	text-decoration:none;
+	text-decoration: underline;
 	background-color: #D6C537;
 	color: #333333;
 }
 
 .btn-active:hover {
 	text-shadow: lighten(#333333, 10%) 0px 0px 0px;
-	text-decoration:none;
+	text-decoration: underline;
 	background-color: #D6C537;
 	color: #333333;
 	cursor: default;
@@ -1302,6 +1304,8 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
 #google-map-container {
   margin-top: 15px;
 }
+
+
 
 /* print settings */
 
