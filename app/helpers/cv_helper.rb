@@ -89,5 +89,17 @@ module CvHelper
   def order_tags(tags)
     tags.sort { |a,b| a.downcase <=> b.downcase }
   end
+  
+  def compute_average_duration(records)
+    duration = 0
+    
+    records.each do |record|
+      record.end_date = Date.today if record.is_current == 1
+      duration += record.end_date - record.start_date
+    end
+    
+    average_duration = duration / records.count
+    verbalize_duration(average_duration.to_f)
+  end
 end
 

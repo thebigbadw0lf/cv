@@ -7,11 +7,6 @@
   <p class="side_item_container side_link">(<%= link_to "view large map", "#", :id => "view_large_map_btn", :class => "side_item side_title" -%>)</p>
 </div>
 
-<h4>Career<br />Analytics<span class="title_separator_light">:</span></h4>
-<div class="sidebar_sections">
-  <%= render 'side_analytics' %>
-</div>
-
 <h4>Job titles<span class="title_separator_light">:</span></h4>
 <div class="sidebar_sections">
   <%= render :partial => "side_titles", :collection => @job_titles, :as => :job_title %>
@@ -32,3 +27,7 @@
   <%= render :partial => "side_schools", :collection => @schools, :as => :school %>
 </div>
 
+<h4>Career<br />Analytics<span class="title_separator_light">:</span></h4>
+<div class="sidebar_sections">
+  <%= render 'side_analytics' %>
+</div>

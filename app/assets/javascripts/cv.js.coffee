@@ -162,7 +162,18 @@ $(document).ready ->
       "border-color": "#ffffff"
     $("#interests_infobox").text("")
 
+  #show large map
+  $("#view_large_map_btn").click (event) ->
+    event.preventDefault()
+    $('#add_highlight_msg').hide()
+    $('#del_highlight_msg').hide()
+    $('#big_map_container').fadeIn 500, ->
    
+   #show email explaination
+   $("#ml_address").click (event) ->
+     event.preventDefault()
+     $('#email_explain').fadeIn(500).delay(2500).fadeOut 800, ->
+       
    
 toggle_highlight = (id) ->
   elem_id = "#" + id
