@@ -832,12 +832,10 @@ span.link_sim:hover, span.company_name:hover, span.school_name:hover {
 
 .btn-r {
 	background-color: #01b0f0;
-	border-color: darken(#01b0f0, 10%);
 }
 
 .btn-l {
 	background-color: #595959;
-	border-color: darken(#595959, 10%);
 	margin-right: 6.01%;
 }
 
@@ -1385,8 +1383,8 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
   background-color: rgba(153,153,153,0.9);
 	border: 3px solid #000000;
   background-color: #555555;
-  opacity: 0.85;
-  filter: alpha(opacity=85);
+  opacity: 0.90;
+  filter: alpha(opacity=90);
   -webkit-box-shadow: 0 0 3px rgba(0,0,0, .65);
   -moz-box-shadow: 0 0 3px rgba(0,0,0, .65);
   box-shadow: 0 0 3px rgba(0,0,0, .65);
@@ -1396,7 +1394,7 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
   
   p {
     margin: 0px;
-    font-family: SourceSansProLight, Arial, sans-serif;
+    font-family: SourceSansProRegular, Arial, sans-serif;
     font-size: 15px;
   }
 }

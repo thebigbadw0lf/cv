@@ -168,12 +168,19 @@ $(document).ready ->
     $('#add_highlight_msg').hide()
     $('#del_highlight_msg').hide()
     $('#big_map_container').fadeIn 500, ->
+      
+  $("#close_map_link").click (event) ->
+    event.preventDefault()
+    $('#add_highlight_msg').hide()
+    $('#del_highlight_msg').hide()
+    $('#big_map_container').fadeOut 500, ->
    
    #show email explaination
    $("#ml_address").click (event) ->
      event.preventDefault()
      $('#email_explain').fadeIn(500).delay(2500).fadeOut 800, ->
-       
+
+
    
 toggle_highlight = (id) ->
   elem_id = "#" + id
