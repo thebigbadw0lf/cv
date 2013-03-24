@@ -12,7 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_directory .
+//
+//= require ./gmaps4rails/gmaps4rails.base
+//= require ./gmaps4rails/gmaps4rails.googlemaps
 //
 // Loads all Bootstrap javascripts
 //= require bootstrap
+
