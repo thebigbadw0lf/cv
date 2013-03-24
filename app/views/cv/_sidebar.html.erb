@@ -3,9 +3,7 @@
   <div class="side_locations_tags">
     <%= render :partial => "side_locations", :collection => @locations, :as => :location %>
   </div>
-  <div id="google-map-container">
-    <%= gmaps4rails(@json) %>
-  </div>
+  <div id="google-map-container"><%= gmaps4rails(@json) %></div>
   <p class="side_item_container side_link">(<%= link_to "view larger map", "#", :id => "view_large_map_btn", :class => "side_item side_title" -%>)</p>
 </div>
 

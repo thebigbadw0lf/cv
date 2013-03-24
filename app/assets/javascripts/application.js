@@ -14,8 +14,7 @@
 //= require jquery_ujs
 //= require_directory .
 //
-//= require ./gmaps4rails/gmaps4rails.base
-//= require ./gmaps4rails/gmaps4rails.googlemaps
+//= require_directory ./gmaps4rails
 //
 // Loads all Bootstrap javascripts
 //= require bootstrap
