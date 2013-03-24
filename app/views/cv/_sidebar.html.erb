@@ -3,7 +3,27 @@
   <div class="side_locations_tags">
     <%= render :partial => "side_locations", :collection => @locations, :as => :location %>
   </div>
-  <div id="google-map-container"><%= gmaps4rails(@json) %></div>
+     
+  <%= gmaps(:map_options  => {:raw               => "{
+                                                        disableDefaultUI: true, 
+                                                        panControl: false, 
+                                                        zoomControl: true,
+                                                        mapTypeControl: true,
+                                                        scaleControl: false,
+                                                        streetViewControl: true,
+                                                        streetViewControlOptions: {
+                                                            position: google.maps.ControlPosition.RIGHT_BOTTOM
+                                                        },
+                                                        overviewMapControl: false,
+                                                        mapTypeId: google.maps.MapTypeId.ROADMAP}",
+                              :auto_adjust       => true, 
+                              :container_class => "google_map_container", 
+                              :id => "map_canvas1", 
+                              :class => "map_canvas_small" },
+            :last_map     => true,
+            :markers      => {:data              => @json,
+                              :options           => { :do_clustering => true } }) %>
+                                
   <p class="side_item_container side_link">(<%= link_to "view larger map", "#", :id => "view_large_map_btn", :class => "side_item side_title" -%>)</p>
 </div>
 

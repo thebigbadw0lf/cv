@@ -1219,7 +1219,7 @@ div.record_industries {
 img.flags_pic {
   display: inline-block;
   width: 15%;
-  height: 15%;
+  min-width: 50px;
   -moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -1301,10 +1301,6 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
 
 .row-fluid .span4 h4.locations_title {
   margin-bottom: 0.58em;
-}
-
-#google-map-container {
-  margin-top: 15px;
 }
 
 .row-fluid .span4 p.side_bold {
@@ -1400,6 +1396,24 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
     font-size: 15px;
   }
 }
+
+
+/* google_maps */
+
+.google_map_container {
+  margin-top: 15px;
+}
+
+.map_canvas_small {
+  width: 100%;
+  height: 200px;
+  
+  img {
+    max-width:none;
+  }
+}
+
+
 
 /* print settings */
 

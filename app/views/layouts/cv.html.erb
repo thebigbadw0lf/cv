@@ -84,7 +84,9 @@
     </div> <!-- /container -->
     
     <div id="big_map_container">
-      <div id="big_map_inner" class="noPrint"><%= link_to "Close...", "#", :id => "close_map_link" -%></div>
+      <div id="big_map_inner" class="noPrint">
+        <%= link_to "Close...", "#", :id => "close_map_link" -%>
+      </div>
     </div>
     
     <%= yield :scripts %>
