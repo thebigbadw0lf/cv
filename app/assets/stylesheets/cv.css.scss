@@ -1351,9 +1351,9 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
   position: relative;
   display: block;
   font-weight: normal;
-  top: 8%;
-  width: 88%;
-  height: 80%;
+  top: 5%;
+  width: 92%;
+  height: 85%;
   margin: auto;
   background-color: #555555;
 	border: 15px solid #000000;
@@ -1378,6 +1378,8 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
   display: none;
   bottom: 5px;
   right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
   padding: 5px 10px;
   background-color: #999999;
   background-color: rgba(153,153,153,0.9);

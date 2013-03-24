@@ -28,6 +28,8 @@ class CvController < ApplicationController
   	@industries = Industry.find :all, 
             :include => {:companies => :records},
             :conditions => "records.* IS NOT NULL"
+            
+    @json = Location.all.to_gmaps4rails
   end
   
   protected
