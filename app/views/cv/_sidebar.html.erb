@@ -1,14 +1,14 @@
-<h4>Career<br />Analytics<span class="title_separator_light">:</span></h4>
-<div class="sidebar_sections">
-  <%= render 'side_analytics' %>
-</div>
-
-<h4>Locations<span class="title_separator_light">:</span></h4>
+<h4 class="locations_title">Locations<span class="title_separator_light">:</span></h4>
 <div class="sidebar_sections">
   <div class="side_locations_tags">
     <%= render :partial => "side_locations", :collection => @locations, :as => :location %>
   </div>
   <div id="google-map-container"><%= render 'cv/gmaps' %></div>
+</div>
+
+<h4>Career<br />Analytics<span class="title_separator_light">:</span></h4>
+<div class="sidebar_sections">
+  <%= render 'side_analytics' %>
 </div>
 
 <h4>Job titles<span class="title_separator_light">:</span></h4>
@@ -30,3 +30,4 @@
 <div class="sidebar_sections">
   <%= render :partial => "side_schools", :collection => @schools, :as => :school %>
 </div>
+

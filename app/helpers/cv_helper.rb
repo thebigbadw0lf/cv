@@ -44,27 +44,31 @@ module CvHelper
     end
     
     duration =  @days.to_f
-        
+    
+    verbalize_duration(duration)
+  end
+  
+  def verbalize_duration(duration)
     case duration   #output duration in years, months or days depending on length
-    when 384..3650000000000
-      output_days = duration / 365
-      output_days = output_days.round(1)
-      if output_days % 1 == 0 then
-        output_text = output_days.round.to_s + " years"
-      else
-        output_text = output_days.to_s + " years"
-      end
-    when 350...384
-      output_text = "1 year"
-    when 33...350
-      output_days = duration / 30
-      output_text = output_days.round.to_s + " months"
-    when 27...33
-      output_text = "1 month"
-    when 1.5...27
-      output_text = duration.round.to_i.to_s + " days"
-    when 0...1.5
-      output_text = "1 day"
+      when 384..3650000000000
+        output_days = duration / 365
+        output_days = output_days.round(1)
+        if output_days % 1 == 0 then
+          output_text = output_days.round.to_s + " years"
+        else
+          output_text = output_days.to_s + " years"
+        end
+      when 350...384
+        output_text = "1 year"
+      when 33...350
+        output_days = duration / 30
+        output_text = output_days.round.to_s + " months"
+      when 27...33
+        output_text = "1 month"
+      when 1.5...27
+        output_text = duration.round.to_i.to_s + " days"
+      when 0...1.5
+        output_text = "1 day"
     end
     
     output_text

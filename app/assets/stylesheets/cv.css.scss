@@ -1301,11 +1301,38 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
   margin-top: 0px;
 }
 
+.row-fluid .span4 h4.locations_title {
+  margin-bottom: 0.58em;
+}
+
 #google-map-container {
   margin-top: 15px;
 }
 
+.row-fluid .span4 p.side_bold {
+  font-family: SourceSansProSemiBold, Arial, sans-serif;
+  font-size: 15px;
+  margin-bottom: 0px;
+  color: #333333;
+}
 
+.row-fluid .span4 p.side_bold span.side_info {
+  font-family: SourceSansProLight, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.row-fluid .span4 p.side_info span.ca_separator {
+  display: inline-block;
+  margin: 0px 5px;
+  color: #808080;
+  font-size: 1.35em;
+}
+
+.row-fluid .span4 p.side_info span.ca_small_item:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  cursor: hand;
+}
 
 /* print settings */
 
