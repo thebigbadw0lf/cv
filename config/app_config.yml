@@ -1,0 +1,20 @@
+default: &default
+  :linkedin_api_key: 4jzkb0wet3x4
+  :linkein_secret_key: zQmroAgjlaiecAEr
+  :linkedin_client_options:
+    :request_token_path: '/uas/oauth/requestToken?scope=r_fullprofile+rw_nus+r_network'
+    :access_token_path: '/uas/oauth/accessToken'
+    :authorize_path: '/uas/oauth/authorize'
+    :api_host: 'https://api.linkedin.com'
+  :linkedin_atoken: ea424dc7-2297-4a79-b576-b65a309b24eb
+  :linkedin_asecret: 827e2419-c287-45b4-bd6d-d974b278f286
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
+
