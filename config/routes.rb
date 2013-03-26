@@ -1,14 +1,6 @@
 Cv::Application.routes.draw do
-
-  resources :education_records
-
-
-  resources :job_titles
-
-
-#  get "cv/index"
-
-  resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records, :schools
+  
+  resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records, :schools, :job_titles, :education_records
 
   #tag links routing  
   get 'skills/:skill', to: 'records#index', as: 'skill'
@@ -17,6 +9,10 @@ Cv::Application.routes.draw do
   
   
   root to: 'cv#index'
+  
+  match "linked_in/:action" => "linked_in##{:action}"
+  match "linked_in" => "linked_in#index"
+  
   
   
   # The priority is based upon order of creation:

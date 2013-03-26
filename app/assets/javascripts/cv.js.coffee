@@ -107,10 +107,30 @@ $(document).ready ->
     $('.tag_cloud_item[data-count!=1]').last().next(".tag_cloud_separator").show()
     
   #onpage element highlighting
-  $(".tag_cloud_item, .tag_item, .record_job_title, .company_name, .location_head, .industry, .school_name, .school_location, .side_company, .side_industry, .side_location, .side_school, .side_title").click (event) ->
+  $(".tag_cloud_item, .tag_item, .record_job_title, .company_name, .location_head, .industry, .school_name, .school_location, .side_company, .side_industry, .side_school, .side_title").click (event) ->
     event.preventDefault()
     currentId = $(this).attr('id')
     toggle_highlight(currentId)
+  
+  $(".side_location").click (event) ->
+    event.preventDefault()
+    id= $(this).attr('id')
+    fullId = "#" + id
+    toggle_highlight(id)
+    if $(fullId ).hasClass("highlight_active")
+      currentId = $(this).attr('data-marker-id')    
+      j = 0
+      while j < Gmaps.map_canvas1.markers.length
+        if Gmaps.map_canvas1.markers[j].id is currentId
+          centerpoint = new google.maps.LatLng(Gmaps.map_canvas1.markers[j].lat, Gmaps.map_canvas1.markers[j].lng)
+          Gmaps.map_canvas1.map.panTo centerpoint
+          Gmaps.map_canvas1.map.setZoom 5
+          break
+        j++
+
+  $("##{Gmaps.map_canvas1.markers[0]}").click (event) ->
+    alert "boo"
+
 
   #language section text on country flags mouseover and click (for touchscreen UIs)
   $(".flags_pic").click (event) ->

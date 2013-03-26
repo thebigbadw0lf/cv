@@ -28,8 +28,20 @@ class CvController < ApplicationController
   	@industries = Industry.find :all, 
             :include => {:companies => :records},
             :conditions => "records.* IS NOT NULL"
-            
-    @json = Location.all.to_gmaps4rails
+  
+    @g_locations = @locations.to_gmaps4rails do |location, marker|
+      #marker.infowindow render_to_string(:partial => "infowindow", :locals => { :location => location })
+      
+      unless location.region then
+        marker.title location.city + ", " + location.country
+        marker.json({ :id => "city_" + location.city.downcase + "_country_" + location.country.downcase })
+      else
+        marker.title location.city + ", " + location.region + ", " + location.country
+        marker.json({ :id => "city_" + location.city.downcase + "_region_" + location.region.downcase + "_country_" + location.country.downcase })
+      end
+    end
+    
+    @shares = linkedin.network_updates(:type => 'SHAR', :count => 5)
   end
   
   protected
