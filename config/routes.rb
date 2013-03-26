@@ -17,9 +17,6 @@ Cv::Application.routes.draw do
   match "linked_in/:action" => "linked_in##{:action}"
   match "linked_in" => "linked_in#index"
   
-  match "errors/:action" => "errors##{:action}"
-  match "errors" => "errors#index"
-  
   
   
   # The priority is based upon order of creation:

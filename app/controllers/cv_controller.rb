@@ -42,7 +42,9 @@ class CvController < ApplicationController
     end
     
     @shares = linkedin.network_updates(:type => 'SHAR', :count => 5)
-
+        
+    rescue
+      @shares = nil
   end
   
   protected
