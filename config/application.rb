@@ -70,5 +70,7 @@ module Cv
     #If you would like to remove unused tag objects after removing taggings, add
     ActsAsTaggableOn.remove_unused_tags = true
     
+    #invoke routes when errors happen
+    config.exceptions_app = self.routes
   end
 end
