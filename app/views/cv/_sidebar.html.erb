@@ -54,4 +54,11 @@
   <%= render 'side_analytics' %>
 </div>
 
-
+<% unless @shares.nil? %>
+  <h4>LinkedIn<br />Network<br />Updates<span class="title_separator_light">:</span></h4>
+  <div class="sidebar_sections">
+      <% friendlify_linkedin_shares(@shares).each do |share| %>
+        <%= render :partial => "side_linkedin", :locals => { :share => share } %>
+      <% end %> 
+  </div>
+<% end %>

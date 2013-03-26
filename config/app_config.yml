@@ -2,7 +2,7 @@ default: &default
   :linkedin_api_key: 4jzkb0wet3x4
   :linkein_secret_key: zQmroAgjlaiecAEr
   :linkedin_client_options:
-    :request_token_path: '/uas/oauth/requestToken?scope=r_fullprofile+rw_nus+r_network'
+    :request_token_path: '/uas/oauth/requestToken?scope=r_basicprofile+rw_nus'
     :access_token_path: '/uas/oauth/accessToken'
     :authorize_path: '/uas/oauth/authorize'
     :api_host: 'https://api.linkedin.com'

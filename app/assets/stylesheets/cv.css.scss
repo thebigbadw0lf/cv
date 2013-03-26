@@ -1463,6 +1463,29 @@ div.infowindow {
   }
 }
 
+div.error {
+  width: 100%;
+  text-align: center;
+  margin-top: 10%;
+  
+  p {
+		font-family: $title_txt, Arial, sans-serif;
+		color: $base_dark_color;
+		text-shadow: lighten($base_dark_color, 80%) 0px 0px 2px;
+		font-size: 4.35em;
+		margin-top: 0px;
+		padding:0px 0px 10px 0px;
+		line-height: 0.91em;
+  }
+  
+  p.lead {
+  	font-family: SourceSansProSemiboldItalic, sans-serif;
+  	text-shadow: lighten($base_dark_color, 70%) 0px 0px 2px;
+    font-size: 2.01em;
+    margin-top: 50px;
+  }
+}
+
 /* print settings */
 
 .print_name {

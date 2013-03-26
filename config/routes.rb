@@ -1,6 +1,10 @@
 Cv::Application.routes.draw do
   
-  resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records, :schools, :job_titles, :education_records
+
+  
+  get "errors/index"
+
+  resources :records_locations, :records_descriptions, :descriptions, :companies, :industries, :locations, :records, :schools, :job_titles, :education_records, :errors
 
   #tag links routing  
   get 'skills/:skill', to: 'records#index', as: 'skill'
@@ -13,7 +17,10 @@ Cv::Application.routes.draw do
   match "linked_in/:action" => "linked_in##{:action}"
   match "linked_in" => "linked_in#index"
   
-  
+  match '/403' => 'errors#index'
+  match '/404' => 'errors#index'
+  match '/422' => 'errors#index'
+  match '/500' => 'errors#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
