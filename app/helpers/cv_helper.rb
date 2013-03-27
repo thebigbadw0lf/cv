@@ -105,39 +105,39 @@ module CvHelper
   def friendlify_linkedin_shares(items)
     shares = Array.new
     
-    items.all.each do |s|
-      unless s.to_hash['update_content'].nil?
-        
+    unless items.empty?
+      items.all.each do |s|
+        unless s.to_hash['update_content'].nil?
+      
           share = s.to_hash['update_content'].first[1]
-      
+    
           post = Hash.new
-      
-          post[:url] = share['site_standard_profile_request']['url']
-          unless post[:picture_url] = share['picture_url'].nil?
-            post[:picture_url] = share['picture_url']
+          
+          unless share['site_standard_profile_request'].nil?
+            post[:url] = share['site_standard_profile_request']['url'] unless share['site_standard_profile_request']['url'].nil?
           end
-          
-          post[:first_name] = share['current_share']['author']['first_name']
-          post[:last_name] = share['current_share']['author']['last_name']
-          post[:headline] = share['current_share']['author']['headline']
-          
+          post[:picture_url] = share['picture_url'] unless share['picture_url'].nil?
           unless share['current_share'].nil?
-            unless share['current_share']['comment'].nil?
-              post[:comment] = share['current_share']['comment']
-            end
-            
-            unless share['current_share']['content'].nil?
-              unless share['current_share']['content']['shortened_url'].nil?
-                post[:comment_url] = share['current_share']['content']['shortened_url']
-              end
+            unless share['current_share']['author'].nil?
+              post[:first_name] = share['current_share']['author']['first_name'] unless share['current_share']['author']['first_name'].nil?            
+              post[:last_name] = share['current_share']['author']['last_name'] unless share['current_share']['author']['last_name'].nil?
+              post[:headline] = share['current_share']['author']['headline'] unless share['current_share']['author']['headline'].nil?
             end
           end
-      
-          shares << post
+        
+          unless share['current_share'].nil?
+            post[:comment] = share['current_share']['comment'] unless share['current_share']['comment'].nil?
+          
+            unless share['current_share']['content'].nil?
+              post[:comment_url] = share['current_share']['content']['shortened_url'] unless share['current_share']['content']['shortened_url'].nil?
+            end
+          end
+    
+          shares << post unless post.empty?
+        end
       end
     end
-    
-    
+
     shares
   end
 end

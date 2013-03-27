@@ -84,9 +84,25 @@
     </div> <!-- /container -->
     
     <div id="big_map_container">
-      <div id="big_map_inner" class="noPrint">
-        <%= link_to "Close...", "#", :id => "close_map_link" -%>
-      </div>
+        <%= gmaps(:map_options  => {:raw               => "{
+                                                              disableDefaultUI: true, 
+                                                              panControl: true, 
+                                                              zoomControl: true,
+                                                              mapTypeControl: true,
+                                                              scaleControl: true,
+                                                              streetViewControl: true,
+                                                              streetViewControlOptions: {
+                                                              },
+                                                              overviewMapControl: true,
+                                                              mapTypeId: google.maps.MapTypeId.ROADMAP}",
+                                    :auto_adjust       => true, 
+                                    :auto_zoom         => true,
+                                    :container_class   => "b_m_i", 
+                                    :id                => "map_canvas2", 
+                                    :class             => "map_canvas" },
+                  :last_map     => true,
+                  :markers      => {:data              => @g_locations2,
+                                    :options           => { :do_clustering => false, :clusterer_gridSize => 50} }) %>
     </div>
     
     <%= yield :scripts %>

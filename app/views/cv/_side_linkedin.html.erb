@@ -5,8 +5,12 @@
     </div>
   <% end %>
   <div class="side_right">
-    <p class="side_item_container"><%= link_to share[:first_name] + " " + share[:last_name], share[:url], :class => "side_item", :target => "blank" %></p>
-    <p class="side_subtitle"><%= truncate share[:headline], :length => 28, :omission => "..." %></p>
+    <% unless share[:first_name].nil? || share[:last_name].nil? %>
+      <p class="side_item_container"><%= link_to share[:first_name] + " " + share[:last_name], share[:url], :class => "side_item", :target => "blank" %></p>
+    <% end %>
+    <% unless share[:headline].nil? %>
+      <p class="side_subtitle"><%= truncate share[:headline], :length => 28, :omission => "..." %></p>
+    <% end %>
     <% unless share[:comment].nil? %>
       <p class="side_info"><%= truncate share[:comment], :length => 120, :omission => "..." %></p>
       <% unless share[:comment_url].nil? %>

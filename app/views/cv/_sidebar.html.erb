@@ -22,7 +22,7 @@
                               :container_class   => "google_map_container", 
                               :id                => "map_canvas1", 
                               :class             => "map_canvas_small" },
-            :last_map     => true,
+            :last_map     => false,
             :markers      => {:data              => @g_locations,
                               :options           => { :do_clustering => true, :clusterer_gridSize => 50} }) %>
                                 
@@ -55,10 +55,13 @@
 </div>
 
 <% unless @shares.nil? %>
-  <h4>LinkedIn<br />Network<br />Updates<span class="title_separator_light">:</span></h4>
-  <div class="sidebar_sections">
-      <% friendlify_linkedin_shares(@shares).each do |share| %>
-        <%= render :partial => "side_linkedin", :locals => { :share => share } %>
-      <% end %> 
-  </div>
+  <% shares = friendlify_linkedin_shares(@shares) %>
+  <% unless shares.empty? %>
+    <h4>LinkedIn<br />Network<br />Updates<span class="title_separator_light">:</span></h4>
+    <div class="sidebar_sections">
+        <% shares.each do |share| %>
+          <%= render :partial => "side_linkedin", :locals => { :share => share } %>
+        <% end %> 
+    </div>
+  <% end %>
 <% end %>
