@@ -190,7 +190,9 @@ $(document).ready ->
     $('#del_highlight_msg').hide()
     position_map_popup("b_m_i", "cls", "map_canvas2", "id", 30, 30)
     $('#big_map_container').fadeIn 500, ->
+    center = Gmaps.map_canvas2.map.getCenter()
     google.maps.event.trigger($("#map_canvas2")[0], 'resize');
+    Gmaps.map_canvas2.map.setCenter(center)
     
       
   $("#close_map_link").click (event) ->
