@@ -66,7 +66,7 @@ class CvController < ApplicationController
     end
     
     # @shares = nil to turn off the linkedin network updates sidebar section
-    @shares = linkedin.network_updates(:type => 'SHAR', :count => 5)
+    @shares = nil #linkedin.network_updates(:type => 'SHAR', :count => 5)
     
     #rescue if linkedin throws errors    
     rescue

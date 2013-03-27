@@ -9,6 +9,7 @@ p_anchorTopPosition = {}
 $(window).resize ->
   cvTopPosition = jQuery("#resume").offset().top
   p_anchorTopPosition = jQuery("#p_anchor").offset().top
+  position_map_popup("b_m_i", "cls", 30, 30)
 
 $(document).ready ->
   cvTopPosition = jQuery("#resume").offset().top
@@ -187,7 +188,10 @@ $(document).ready ->
     event.preventDefault()
     $('#add_highlight_msg').hide()
     $('#del_highlight_msg').hide()
+    position_map_popup("b_m_i", "cls", "map_canvas2", "id", 30, 30)
     $('#big_map_container').fadeIn 500, ->
+    google.maps.event.trigger($("#map_canvas2")[0], 'resize');
+    
       
   $("#close_map_link").click (event) ->
     event.preventDefault()
@@ -224,4 +228,40 @@ toggle_highlight = (id) ->
     $("#add_highlight_msg").html(content_select)
     $('#add_highlight_msg').fadeIn(250).delay(3300).fadeOut 250, ->
 
+position_map_popup = (container_name, container_type = "id", map_name, map_type, border_horizontal = 0, border_vertical = 0) ->  
+  switch container_type
+    when "cls" then elem = "." + container_name
+    when "id" then elem = "#" + container_name
+    
+  switch map_type
+    when "cls" then elem_map = "." + map_name
+    when "id" then elem_map = "#" + map_name
+    
+  margin_h = 0.05
+  margin_v = 0.05
+  w = $(window).width() * (1 - margin_h * 2) - border_horizontal
+  h = $(window).height() * (1 - margin_v * 2) - border_vertical
+  l = $(window).width() * margin_h
+  t = $(window).height() * margin_v
+  
+  set_position(elem, l, t, w, h)
+  
+  positon_big_map(elem_map)
+  
+positon_big_map = (item) ->
+  margin_h = 0.05
+  margin_v = 0.05
+  w = $(window).width() * (1 - margin_h * 2) - 30
+  h = $(window).height() * (1 - margin_v * 2) - 30
+  l = $(window).width() * margin_h - 67
+  t = $(window).height() * margin_v - 33
+  
+  set_position(item, l, t, w, h)
 
+set_position = (item, left, top, width, height) ->
+  $(item).css('left', left);
+  $(item).css('top', top);
+  $(item).width(width)
+  $(item).height(height)
+  
+  
