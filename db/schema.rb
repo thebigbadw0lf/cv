@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316201548) do
+ActiveRecord::Schema.define(:version => 20130328054505) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -80,6 +80,18 @@ ActiveRecord::Schema.define(:version => 20130316201548) do
     t.string   "title_long"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "linked_in_shares", :force => true do |t|
+    t.string   "url"
+    t.string   "picture_url"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "headline"
+    t.string   "comment"
+    t.string   "comment_short_url"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "locations", :force => true do |t|

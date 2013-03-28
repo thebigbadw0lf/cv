@@ -1,20 +1,20 @@
 <div class="side_item_box side_linked">
-  <% unless share[:picture_url].nil? %>
+  <% unless linkedin_record.picture_url.nil? %>
     <div class="side_left">
-      <%= image_tag share[:picture_url], :class => "side_pic" %>
+      <%= image_tag linkedin_record.picture_url, :class => "side_pic" %>
     </div>
   <% end %>
   <div class="side_right">
-    <% unless share[:first_name].nil? || share[:last_name].nil? %>
-      <p class="side_item_container"><%= link_to share[:first_name] + " " + share[:last_name], share[:url], :class => "side_item", :target => "blank" %></p>
+    <% unless linkedin_record.first_name.nil? || linkedin_record.last_name.nil? %>
+      <p class="side_item_container"><%= link_to linkedin_record.first_name + " " + linkedin_record.last_name, linkedin_record.url, :class => "side_item", :target => "blank" %></p>
     <% end %>
-    <% unless share[:headline].nil? %>
-      <p class="side_subtitle"><%= truncate share[:headline], :length => 28, :omission => "..." %></p>
+    <% unless linkedin_record.headline.nil? %>
+      <p class="side_subtitle"><%= truncate linkedin_record.headline, :length => 28, :omission => "..." %></p>
     <% end %>
-    <% unless share[:comment].nil? %>
-      <p class="side_info"><%= truncate share[:comment], :length => 120, :omission => "..." %></p>
-      <% unless share[:comment_url].nil? %>
-        <p class="side_info"><%= link_to share[:comment_url], share[:comment_url], :class => "comment_link", :target => "blank" %></p>
+    <% unless linkedin_record.comment.nil? %>
+      <p class="side_info"><%= truncate linkedin_record.comment, :length => 120, :omission => "..." %></p>
+      <% unless linkedin_record.comment_short_url.nil? %>
+        <p class="side_info"><%= link_to linkedin_record.comment_short_url, linkedin_record.comment_short_url, :class => "comment_link", :target => "blank" %></p>
       <% end %>
     <% end %>
   </div>

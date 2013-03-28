@@ -2,6 +2,8 @@ class CvController < ApplicationController
   layout "cv"
   
   def index
+    1 + "str" rescue
+    
     @years = %w{ 1978 1994 1998 2003 2005 2006(1) 2006(2) 2007 2008 2009 2010 2011 2012 2013 }
     
     @records = Record.find :all, :order => "end_date DESC"
@@ -65,12 +67,15 @@ class CvController < ApplicationController
       end
     end
     
-    # @shares = nil to turn off the linkedin network updates sidebar section
-    @shares = nil #linkedin.network_updates(:type => 'SHAR', :count => 5)
+    @linkedin_records = LinkedInShare.find :all
     
-    #rescue if linkedin throws errors    
-    rescue
-      @shares = nil
+    if (@linkedin_records.count == 5) && (Time.now - @linkedin_records.first.updated_at >= 60 * APP_CONFIG[:linkedin_refresh_interval])
+      @shares = linkedin.network_updates(:type => 'SHAR', :count => 10) rescue @shares = nil
+      save_linkedin_shares(@shares) unless @shares.nil?
+      @linkedin_records = LinkedInShare.find :all
+    end
+    
+    # @linkedin_records = nil to turn off the linkedin network updates sidebar section
   end
   
   protected
@@ -82,5 +87,69 @@ class CvController < ApplicationController
   	end
     
     tag_count
+  end
+  
+  def save_linkedin_shares(items)    
+    shares = Array.new
+    
+    unless items.empty?
+      items.all.each do |s|
+        unless s.to_hash['update_content'].nil?
+      
+          share = s.to_hash['update_content'].first[1]
+    
+          post = Hash.new
+          
+          unless share['site_standard_profile_request'].nil?
+            post[:url] = share['site_standard_profile_request']['url'] unless share['site_standard_profile_request']['url'].nil?
+          end
+          post[:picture_url] = share['picture_url'] unless share['picture_url'].nil?
+          unless share['current_share'].nil?
+            unless share['current_share']['author'].nil?
+              post[:first_name] = share['current_share']['author']['first_name'] unless share['current_share']['author']['first_name'].nil?            
+              post[:last_name] = share['current_share']['author']['last_name'] unless share['current_share']['author']['last_name'].nil?
+              post[:headline] = share['current_share']['author']['headline'] unless share['current_share']['author']['headline'].nil?
+            end
+          end
+        
+          unless share['current_share'].nil?
+            post[:comment] = share['current_share']['comment'] unless share['current_share']['comment'].nil?
+          
+            unless share['current_share']['content'].nil?
+              post[:comment_short_url] = share['current_share']['content']['shortened_url'] unless share['current_share']['content']['shortened_url'].nil?
+            end
+          end
+    
+          shares << post unless post.empty?
+        end
+      end
+    end
+    
+    
+    if shares.count >= 5 then
+      
+      LinkedInShare.delete_all
+      
+      i = 0
+      
+      shares.each do |share|
+        break if i == 5
+        
+        record = LinkedInShare.new do |post|
+          post.url = share[:url]
+          post.picture_url = share[:picture_url]
+          post.first_name = share[:first_name]
+          post.last_name = share[:last_name]
+          post.headline = share[:headline]
+          post.comment = share[:comment]
+          post.comment_short_url = share[:comment_short_url]
+        end
+        
+        unless record.url.blank? || record.first_name.blank? || record.last_name.blank? || record.headline.blank? || record.comment.blank?
+          record.save!
+          i += 1
+        end
+      end      
+    end
   end
 end

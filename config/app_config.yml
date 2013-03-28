@@ -1,13 +1,14 @@
 default: &default
-  :linkedin_api_key: g15uvnfqkz3s
-  :linkein_secret_key: Ha01Zfo9hDJRDusV
+  :linkedin_api_key: kitsjhsiu5qi
+  :linkein_secret_key: 22AvtWtccOXuEHPE
   :linkedin_client_options:
     :request_token_path: '/uas/oauth/requestToken?scope=r_basicprofile+rw_nus'
     :access_token_path: '/uas/oauth/accessToken'
     :authorize_path: '/uas/oauth/authorize'
     :api_host: 'https://api.linkedin.com'
-  :linkedin_atoken: 9da0e8e3-611d-4c6a-9878-b37d084fd234
-  :linkedin_asecret: add11471-12f2-48ce-9d1a-690400606391
+  :linkedin_atoken: 2103e1e0-37ca-4aa8-9987-d8002aec1f37
+  :linkedin_asecret: 40ceccd3-67ca-4d46-925f-3f097ffbc9c0
+  :linkedin_refresh_interval: 60  #this should be in number of minutes
 
 development:
   <<: *default

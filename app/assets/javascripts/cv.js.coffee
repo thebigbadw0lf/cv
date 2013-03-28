@@ -129,10 +129,6 @@ $(document).ready ->
           break
         j++
 
-  $("##{Gmaps.map_canvas1.markers[0]}").click (event) ->
-    alert "boo"
-
-
   #language section text on country flags mouseover and click (for touchscreen UIs)
   $(".flags_pic").click (event) ->
     event.preventDefault()

@@ -101,44 +101,6 @@ module CvHelper
     average_duration = duration / records.count
     verbalize_duration(average_duration.to_f)
   end
-  
-  def friendlify_linkedin_shares(items)
-    shares = Array.new
-    
-    unless items.empty?
-      items.all.each do |s|
-        unless s.to_hash['update_content'].nil?
-      
-          share = s.to_hash['update_content'].first[1]
-    
-          post = Hash.new
-          
-          unless share['site_standard_profile_request'].nil?
-            post[:url] = share['site_standard_profile_request']['url'] unless share['site_standard_profile_request']['url'].nil?
-          end
-          post[:picture_url] = share['picture_url'] unless share['picture_url'].nil?
-          unless share['current_share'].nil?
-            unless share['current_share']['author'].nil?
-              post[:first_name] = share['current_share']['author']['first_name'] unless share['current_share']['author']['first_name'].nil?            
-              post[:last_name] = share['current_share']['author']['last_name'] unless share['current_share']['author']['last_name'].nil?
-              post[:headline] = share['current_share']['author']['headline'] unless share['current_share']['author']['headline'].nil?
-            end
-          end
-        
-          unless share['current_share'].nil?
-            post[:comment] = share['current_share']['comment'] unless share['current_share']['comment'].nil?
-          
-            unless share['current_share']['content'].nil?
-              post[:comment_url] = share['current_share']['content']['shortened_url'] unless share['current_share']['content']['shortened_url'].nil?
-            end
-          end
-    
-          shares << post unless post.empty?
-        end
-      end
-    end
 
-    shares
-  end
 end
 

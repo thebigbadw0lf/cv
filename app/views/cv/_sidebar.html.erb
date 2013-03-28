@@ -52,16 +52,11 @@
 <h4>Career<br />Analytics<span class="title_separator_light">:</span></h4>
 <div class="sidebar_sections">
   <%= render 'side_analytics' %>
-</div>
+</div>  
 
-<% unless @shares.nil? %>
-  <% shares = friendlify_linkedin_shares(@shares) %>
-  <% unless shares.empty? %>
-    <h4>LinkedIn<br />Network<br />Updates<span class="title_separator_light">:</span></h4>
-    <div class="sidebar_sections">
-        <% shares.each do |share| %>
-          <%= render :partial => "side_linkedin", :locals => { :share => share } %>
-        <% end %> 
-    </div>
-  <% end %>
+<% unless @linkedin_records.nil? %>
+  <h4>LinkedIn<br />Network<br />Updates<span class="title_separator_light">:</span></h4>
+  <div class="sidebar_sections">
+    <%= render :partial => "side_linkedin", :collection => @linkedin_records, :as => :linkedin_record %>
+  </div>
 <% end %>
