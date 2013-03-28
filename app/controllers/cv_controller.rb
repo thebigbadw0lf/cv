@@ -69,7 +69,7 @@ class CvController < ApplicationController
     
     @linkedin_records = LinkedInShare.find :all
     
-    if ((@linkedin_records.count == 5) && (Time.now - @linkedin_records.first.updated_at >= 60 * APP_CONFIG[:linkedin_refresh_interval])) || (@linkedin_records.count == 0)
+    if ((@linkedin_records.count < 5) || (Time.now - @linkedin_records.first.updated_at >= 60 * APP_CONFIG[:linkedin_refresh_interval]))
       @shares = linkedin.network_updates(:type => 'SHAR', :count => 10) rescue @shares = nil
       save_linkedin_shares(@shares) unless @shares.nil?
       @linkedin_records = LinkedInShare.find :all
