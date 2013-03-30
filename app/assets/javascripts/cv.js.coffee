@@ -5,6 +5,7 @@
 cvTopPosition = {}
 p_anchorTopPosition = {}
 
+# page fadein effect
 $(window).load ->
   $(".container-narrow").hide().delay(100).fadeIn 800, ->
     center = Gmaps.map_canvas1.map.getCenter()
@@ -282,7 +283,7 @@ map_zoom_center_align = (_map, map_id, close_btn_container, border_horizontal, b
   
   switch zoom
     when 1
-      _map.map.setCenter(new google.maps.LatLng(11.917923, -33.023438))
+      _map.map.setCenter(new google.maps.LatLng(0.0, -33.023438))
       $(close_btn_container).css('top', $(window).height() * margin_vertical + border_vertical + $(map_id).height() - 155)  
       $(close_btn_container).css('left', $(map_id).width() + $(window).width() * margin_horizontal + border_horizontal - $(close_btn_container).width())
     else
