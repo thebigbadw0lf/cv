@@ -270,6 +270,7 @@ map_zoom_center_align = (_map, map_id, close_btn_container, border_horizontal, b
   if $(window).width() <= 620 then zoom = 1 else zoom = 2
   
   w = $(window).width()
+  h = $(window).height()
   
   zoom = switch
     when w <= 620 then 1
@@ -283,11 +284,19 @@ map_zoom_center_align = (_map, map_id, close_btn_container, border_horizontal, b
   
   switch zoom
     when 1
-      _map.map.setCenter(new google.maps.LatLng(0.0, -33.023438))
+      if h >= 400
+        _map.map.setCenter(new google.maps.LatLng(0.0, -33.023438))
+      else
+        _map.map.setCenter(new google.maps.LatLng(50.4378, -33.023438))
+        
       $(close_btn_container).css('top', $(window).height() * margin_vertical + border_vertical + $(map_id).height() - 155)  
       $(close_btn_container).css('left', $(map_id).width() + $(window).width() * margin_horizontal + border_horizontal - $(close_btn_container).width())
     else
-      _map.map.setCenter(new google.maps.LatLng(17.917923, -33.023438))
+      if h >= 500
+        _map.map.setCenter(new google.maps.LatLng(17.917923, -33.023438))
+      else
+        _map.map.setCenter(new google.maps.LatLng(50.4378, -33.023438))
+        
       $(close_btn_container).css('top', $(window).height() * margin_vertical + border_vertical)  
       $(close_btn_container).css('left', ($(window).width() / 2) - ($(close_btn_container).width() / 2))
     
