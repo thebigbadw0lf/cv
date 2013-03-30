@@ -10,6 +10,7 @@ $(window).resize ->
   cvTopPosition = jQuery("#resume").offset().top
   p_anchorTopPosition = jQuery("#p_anchor").offset().top
   position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
+  map_zoom_center(Gmaps.map_canvas2, "#map_canvas2")
 
 $(document).ready ->
   cvTopPosition = jQuery("#resume").offset().top
@@ -186,10 +187,7 @@ $(document).ready ->
     $('#del_highlight_msg').hide()
     position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
     $('#big_map_container').fadeIn 500, ->
-    center = Gmaps.map_canvas2.map.getCenter()
-    google.maps.event.trigger($("#map_canvas2")[0], 'resize');
-    Gmaps.map_canvas2.map.setCenter(center)
-    
+    map_zoom_center(Gmaps.map_canvas2, "#map_canvas2")
       
   $("#close_map_link").click (event) ->
     event.preventDefault()
@@ -252,10 +250,24 @@ positon_big_map = (item, reference) ->
   h = $(reference).height()
   
   set_position(item, 0, 0, w, h)
+  
+  center = Gmaps.map_canvas2.map.getCenter()
+  google.maps.event.trigger($("#map_canvas2")[0], 'resize');
+  Gmaps.map_canvas2.map.setCenter(center)
 
 set_position = (item, left, top, width, height) ->
   $(item).css('left', left)
   $(item).css('top', top)
   $(item).width(width)
-  $(item).height(height)  
+  $(item).height(height)
+  
+map_zoom_center = (_map, map_id) ->
+  if $(window).width() <= 620 then zoom = 1 else zoom = 2
+  
+  google.maps.event.trigger($(map_id)[0], 'resize');
+  _map.map.setCenter(new google.maps.LatLng(30.145127, -39.023438))
+  _map.map.setZoom(zoom)
+  
+  
+
   

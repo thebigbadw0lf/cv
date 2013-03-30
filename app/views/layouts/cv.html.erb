@@ -99,10 +99,13 @@
                                                                },
                                                             streetViewControl: true,
                                                             overviewMapControl: true,
+                                                            overviewMapControlOptions: {
+                                                                 opened:true
+                                                               },
                                                             mapTypeId: google.maps.MapTypeId.ROADMAP}",
-                                  :auto_adjust       => true, 
+                                  :auto_adjust       => false, 
                                   :auto_zoom         => false,
-                                  :zoom              => 3,
+                                  :zoom              => 2,
                                   :container_class   => "b_m_i",
                                   :id                => "map_canvas2", 
                                   :class             => "map_canvas" },
