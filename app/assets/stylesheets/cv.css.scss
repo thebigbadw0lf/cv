@@ -676,7 +676,7 @@ body {
 @media (max-width: 500px) {
   .jumbotron {
     h1 {
-      font-size: 4.01em;
+      font-size: 3.51em;
     }
   }
 }
@@ -844,6 +844,13 @@ span.link_sim:hover, span.company_name:hover, span.school_name:hover {
 		margin-left: 6.01%;
 		margin-bottom: 28px;
 	}
+  
+  .container-narrow > hr {
+  margin-top: 30px;
+  margin-right: 0px;
+  margin-bottom: 30px;
+  margin-left: 0px;
+  }
 }
 
 .btn-active {

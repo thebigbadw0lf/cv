@@ -10,7 +10,7 @@ $(window).resize ->
   cvTopPosition = jQuery("#resume").offset().top
   p_anchorTopPosition = jQuery("#p_anchor").offset().top
   position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
-  map_zoom_center(Gmaps.map_canvas2, "#map_canvas2")
+  map_zoom_center_align(Gmaps.map_canvas2, "#map_canvas2", "#close_map_link_container", 15, 15)
 
 $(document).ready ->
   cvTopPosition = jQuery("#resume").offset().top
@@ -187,7 +187,7 @@ $(document).ready ->
     $('#del_highlight_msg').hide()
     position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
     $('#big_map_container').fadeIn 500, ->
-    map_zoom_center(Gmaps.map_canvas2, "#map_canvas2")
+    map_zoom_center_align(Gmaps.map_canvas2, "#map_canvas2", "#close_map_link_container", 15, 15)
       
   $("#close_map_link").click (event) ->
     event.preventDefault()
@@ -233,17 +233,16 @@ position_map_popup = (container_name, container_type = "id", map_name, map_type,
     when "cls" then elem_map = "." + map_name
     when "id" then elem_map = "#" + map_name
     
-  margin_h = 0.05
-  margin_v = 0.05
-  w = $(window).width() * (1 - margin_h * 2) - border_horizontal*2
-  h = $(window).height() * (1 - margin_v * 2) - border_vertical*2
-  l = $(window).width() * margin_h
-  t = $(window).height() * margin_v
+  margin_horizontal = 0.05
+  margin_vertical = 0.05
+  w = $(window).width() * (1 - margin_horizontal * 2) - border_horizontal*2
+  h = $(window).height() * (1 - margin_vertical  * 2) - border_vertical*2
+  l = $(window).width() * margin_horizontal
+  t = $(window).height() * margin_vertical 
   
   set_position(elem, l, t, w, h)
   positon_big_map(elem_map, elem)
-  $("#close_map_link_container").css('top', t+border_vertical)  
-  $("#close_map_link_container").css('left', ($(window).width() / 2) - ($("#close_map_link_container").width() / 2))  
+ 
   
 positon_big_map = (item, reference) ->  
   w = $(reference).width()
@@ -261,12 +260,32 @@ set_position = (item, left, top, width, height) ->
   $(item).width(width)
   $(item).height(height)
   
-map_zoom_center = (_map, map_id) ->
+map_zoom_center_align = (_map, map_id, close_btn_container, border_horizontal, border_vertical) ->
   if $(window).width() <= 620 then zoom = 1 else zoom = 2
   
+  w = $(window).width()
+  
+  zoom = switch
+    when w <= 620 then 1
+    when w > 620 and w < 1400 then 2
+    else 3
+  
   google.maps.event.trigger($(map_id)[0], 'resize');
-  _map.map.setCenter(new google.maps.LatLng(30.145127, -39.023438))
+  _map.map.setCenter(new google.maps.LatLng(17.917923, -33.023438))
   _map.map.setZoom(zoom)
+  
+  margin_horizontal = 0.05
+  margin_vertical = 0.05
+  
+  switch zoom
+    when 1
+      $(close_btn_container).css('top', $(window).height() * margin_vertical + border_vertical + $(map_id).height() - 155)  
+      $(close_btn_container).css('left', $(map_id).width() + $(window).width() * margin_horizontal + border_horizontal - $(close_btn_container).width())
+    else
+      $(close_btn_container).css('top', $(window).height() * margin_vertical + border_vertical)  
+      $(close_btn_container).css('left', ($(window).width() / 2) - ($(close_btn_container).width() / 2))
+    
+  
   
   
 
