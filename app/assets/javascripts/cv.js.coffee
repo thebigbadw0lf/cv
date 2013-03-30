@@ -5,6 +5,14 @@
 cvTopPosition = {}
 p_anchorTopPosition = {}
 
+$(window).load ->
+  $(".container-narrow").hide().delay(100).fadeIn 800, ->
+    center = Gmaps.map_canvas1.map.getCenter()
+    google.maps.event.trigger($("#map_canvas1")[0], 'resize')
+    Gmaps.map_canvas1.map.setCenter(center)
+    cvTopPosition = jQuery("#resume").offset().top
+    p_anchorTopPosition = jQuery("#p_anchor").offset().top
+
 # recalculate 'cvTopPosition' on browser window resize.
 $(window).resize ->
   cvTopPosition = jQuery("#resume").offset().top
@@ -12,10 +20,7 @@ $(window).resize ->
   position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
   map_zoom_center_align(Gmaps.map_canvas2, "#map_canvas2", "#close_map_link_container", 15, 15)
 
-$(document).ready ->
-  cvTopPosition = jQuery("#resume").offset().top
-  p_anchorTopPosition = jQuery("#p_anchor").offset().top
-  
+$(document).ready ->    
   $("#btn-l").click (event) ->
     event.preventDefault()
     
@@ -286,6 +291,8 @@ map_zoom_center_align = (_map, map_id, close_btn_container, border_horizontal, b
       $(close_btn_container).css('left', ($(window).width() / 2) - ($(close_btn_container).width() / 2))
     
   _map.map.setZoom(zoom)
+  
+  
 
   
   

@@ -645,6 +645,9 @@ $base_dark_color: #000000;
 $title_txt: 'ChunkFiveRegular';
 $body_side_spacing: 30px;
 
+
+
+
 /* bootstrap marketing template customization */
 
 body {
@@ -908,11 +911,6 @@ span.link_sim:hover, span.company_name:hover, span.school_name:hover {
 	background-color: lighten(#595959, 0%);
 }
 
-.carousel-control {
-  border-width:0px;
-}
-
-
 .btn-active:focus, .btn-active:active, .btn-active:visited {
 	text-shadow: lighten(#333333, 10%) 0px 0px 0px;
 	text-decoration: underline;
@@ -959,8 +957,15 @@ div.footer {
 	text-shadow: #999999 0px 0px 2px;
 }
 
+.container-narrow {
+  display: none;
+}
 
 /* carousel customization */
+
+.carousel-control {
+  border-width:0px;
+}
 
 .carousel-caption {
 	position: static;
