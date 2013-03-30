@@ -1419,19 +1419,18 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
   }
 }
 
-
 #big_map_container {
   position: fixed;
   display: none;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 100%;
+  height: 100%; 
   background-color: #999999;
   background-color: rgba(153,153,153,0.9);
 }
 
-.b_m_i {
+.b_m_i {    
   position: relative;
   display: block;
   font-weight: normal;
@@ -1492,11 +1491,31 @@ div.error {
   }
 }
 
-#close_map_link {
+#close_map_link_container {
   position: fixed;
-  top: 20px;
-  left:10px;
+  width: 90px;
+  height: 30px;
+  text-align: center;
+}
+
+#close_map_link {
+  display: inline-block;
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #ffffff;
+  opacity: 0.85;
+  filter: alpha(opacity=85);
   z-index: 9999;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0, .45);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0, .45);
+  box-shadow: 0 0 5px rgba(0,0,0, .45);
+}
+
+#close_map_link:hover {
+  opacity: 1.00;
+  filter: alpha(opacity=100);
 }
 
 /* print settings */

@@ -2,7 +2,7 @@
 	<div class="carousel-slide">
 	  <h1 class="slide_title"><%= title %></h1>
 		<%= picture %>
-	  <p class="lead slide_item"><%= description %></p>
+	  <%= description %>
 	</div>
 	<%= render :partial => "carousel_caption", 
 							:locals 				=>		{ :position => position }

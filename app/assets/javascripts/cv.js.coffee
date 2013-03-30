@@ -9,7 +9,7 @@ p_anchorTopPosition = {}
 $(window).resize ->
   cvTopPosition = jQuery("#resume").offset().top
   p_anchorTopPosition = jQuery("#p_anchor").offset().top
-  position_map_popup("b_m_i", "cls", 30, 30)
+  position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
 
 $(document).ready ->
   cvTopPosition = jQuery("#resume").offset().top
@@ -184,7 +184,7 @@ $(document).ready ->
     event.preventDefault()
     $('#add_highlight_msg').hide()
     $('#del_highlight_msg').hide()
-    position_map_popup("b_m_i", "cls", "map_canvas2", "id", 30, 30)
+    position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
     $('#big_map_container').fadeIn 500, ->
     center = Gmaps.map_canvas2.map.getCenter()
     google.maps.event.trigger($("#map_canvas2")[0], 'resize');
@@ -237,29 +237,25 @@ position_map_popup = (container_name, container_type = "id", map_name, map_type,
     
   margin_h = 0.05
   margin_v = 0.05
-  w = $(window).width() * (1 - margin_h * 2) - border_horizontal
-  h = $(window).height() * (1 - margin_v * 2) - border_vertical
+  w = $(window).width() * (1 - margin_h * 2) - border_horizontal*2
+  h = $(window).height() * (1 - margin_v * 2) - border_vertical*2
   l = $(window).width() * margin_h
   t = $(window).height() * margin_v
   
   set_position(elem, l, t, w, h)
+  positon_big_map(elem_map, elem)
+  $("#close_map_link_container").css('top', t+border_vertical)  
+  $("#close_map_link_container").css('left', ($(window).width() / 2) - ($("#close_map_link_container").width() / 2))  
   
-  positon_big_map(elem_map)
+positon_big_map = (item, reference) ->  
+  w = $(reference).width()
+  h = $(reference).height()
   
-positon_big_map = (item) ->
-  margin_h = 0.05
-  margin_v = 0.05
-  w = $(window).width() * (1 - margin_h * 2) - 30
-  h = $(window).height() * (1 - margin_v * 2) - 30
-  l = $(window).width() * margin_h - 67
-  t = $(window).height() * margin_v - 33
-  
-  set_position(item, l, t, w, h)
+  set_position(item, 0, 0, w, h)
 
 set_position = (item, left, top, width, height) ->
-  $(item).css('left', left);
-  $(item).css('top', top);
+  $(item).css('left', left)
+  $(item).css('top', top)
   $(item).width(width)
-  $(item).height(height)
-  
+  $(item).height(height)  
   

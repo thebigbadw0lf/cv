@@ -85,14 +85,18 @@
     </div> <!-- /container -->
     
     <div id="big_map_container">
-      <%= link_to "Close...", "#", :id => "close_map_link" -%>
-      
       <%= gmaps(:map_options  => {:raw               => "{
                                                             disableDefaultUI: true, 
                                                             panControl: true, 
                                                             zoomControl: true,
                                                             mapTypeControl: true,
-                                                            scaleControl: false,
+                                                            mapTypeControlOptions: {
+                                                                 position:google.maps.ControlPosition.RIGHT_TOP
+                                                               },
+                                                            scaleControl: true,
+                                                            scaleControlOptions: {
+                                                                 position:google.maps.ControlPosition.BOTTOM_CENTER
+                                                               },
                                                             streetViewControl: true,
                                                             overviewMapControl: true,
                                                             mapTypeId: google.maps.MapTypeId.ROADMAP}",
@@ -105,6 +109,10 @@
                 :last_map     => true,
                 :markers      => {:data              => @g_locations2,
                                   :options           => { :do_clustering => false, :clusterer_gridSize => 50} }) %>
+    
+      <div id="close_map_link_container">
+        <%= link_to "close map", "#", :id => "close_map_link" -%>
+      </div>
     </div>
     
     <%= yield :scripts %>

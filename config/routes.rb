@@ -80,5 +80,4 @@ Cv::Application.routes.draw do
   match "/404", :to => "errors#page_not_found"
   match "/500", :to => "errors#index"
   
-  
 end

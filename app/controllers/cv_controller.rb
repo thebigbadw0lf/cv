@@ -1,11 +1,7 @@
 class CvController < ApplicationController
   layout "cv"
   
-  def index
-    1 + "str" rescue
-    
-    @years = %w{ 1978 1994 1998 2003 2005 2006(1) 2006(2) 2007 2008 2009 2010 2011 2012 2013 }
-    
+  def index    
     @records = Record.find :all, :order => "end_date DESC"
     
     @education_records = EducationRecord.find :all, :order => "end_date DESC"
@@ -30,18 +26,6 @@ class CvController < ApplicationController
   	@industries = Industry.find :all, 
             :include => {:companies => :records},
             :conditions => "records.* IS NOT NULL"
-  
-    @g_locations = @locations.to_gmaps4rails do |location, marker|
-      #marker.infowindow render_to_string(:partial => "infowindow", :locals => { :location => location })
-      
-      unless location.region then
-        marker.title location.city + ", " + location.country
-        marker.json({ :id => "city_" + location.city.downcase + "_country_" + location.country.downcase })
-      else
-        marker.title location.city + ", " + location.region + ", " + location.country
-        marker.json({ :id => "city_" + location.city.downcase + "_region_" + location.region.downcase + "_country_" + location.country.downcase })
-      end
-    end
     
     @g_locations = @locations.to_gmaps4rails do |location, marker|
       #marker.infowindow render_to_string(:partial => "infowindow", :locals => { :location => location })
@@ -69,7 +53,7 @@ class CvController < ApplicationController
     
     @linkedin_records = LinkedInShare.find :all
     
-    if ((@linkedin_records.count < 5) || (Time.now - @linkedin_records.first.updated_at >= 60 * APP_CONFIG[:linkedin_refresh_interval]))
+    if (@linkedin_records.count < 5) || (Time.now - @linkedin_records.first.updated_at >= 60 * APP_CONFIG[:linkedin_refresh_interval])
       @shares = linkedin.network_updates(:type => 'SHAR', :count => 10) rescue @shares = nil
       save_linkedin_shares(@shares) unless @shares.nil?
       @linkedin_records = LinkedInShare.find :all

@@ -1,6 +1,11 @@
 module CvHelper
-  def year_format(navigation_counter, position, class_past, class_now, class_future)
-    case navigation_counter
+  
+  def carousel_timeline
+    %w{ 1978 1994 1998 2003 2005 2006 2007 2008 2010 2013 }
+  end
+  
+  def year_format(carousel_navigation_counter, position, class_past, class_now, class_future)
+    case carousel_navigation_counter
       when 0..position-1
         class_past
       when position
@@ -10,8 +15,8 @@ module CvHelper
     end
   end
   
-  def year_switch(navigation_counter)
-    navigation_counter.even? ? "year_box" : "year_box2"
+  def year_switch(carousel_navigation_counter)
+    carousel_navigation_counter.even? ? "year_box" : "year_box2"
   end
   
   def date_format(date)
@@ -35,7 +40,7 @@ module CvHelper
       end
       
       if i==0
-        @days = end_date - start_date # if this is the first iteration (i is 0) then simply subtract start_date from end_date to compute duration
+        @days = end_date - start_date # if this is the first iteration, simply subtract start_date from end_date to compute duration
       end
       
       @days += dur.to_i

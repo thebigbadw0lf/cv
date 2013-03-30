@@ -1,6 +1,6 @@
 <div class="carousel-caption">
-	<%= render :partial => "navigation", 
-								:collection 		=>		@years,
+	<%= render :partial => "carousel_navigation", 
+								:collection 		=>		carousel_timeline, :as => :carousel_navigation,
 								:locals 				=>		{ :position => position }
 	%>
 </div>
