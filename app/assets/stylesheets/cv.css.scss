@@ -944,6 +944,14 @@ span.link_sim:hover, span.company_name:hover, span.school_name:hover {
 	font-size: 1.35em;
 }
 
+.slide_title_separator {
+  display: inline-block;
+  color: lighten($base_dark_color, 25%);
+  font-size: 1.15em;
+  margin: 0px 10px 0px 0px;
+  vertical-align: middle;
+}
+
 .title_separator_light {
 	color: lighten($base_dark_color, 35%);
 	font-size: 1.35em;

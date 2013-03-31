@@ -48,7 +48,7 @@ $(document).ready ->
 
     # Scroll to target
     $("html, body").animate
-      scrollTop: p_anchorTopPosition + 20
+      scrollTop: p_anchorTopPosition + 10
     , "slow"
     
 
@@ -75,7 +75,7 @@ $(document).ready ->
 
     # Scroll to top
     $("html, body").animate
-      scrollTop: p_anchorTopPosition + 20
+      scrollTop: p_anchorTopPosition + 10
     , 800
 
   $(".go-to-top").click (event) ->
