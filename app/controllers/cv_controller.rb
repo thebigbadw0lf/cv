@@ -67,7 +67,8 @@ class CvController < ApplicationController
       
       marker.picture(APP_CONFIG[:gmaps_marker])
     end
-    
+     
+        
     @linkedin_records = LinkedInShare.find :all
     
     if (@linkedin_records.count < 5) || (Time.now - @linkedin_records.first.updated_at >= 60 * APP_CONFIG[:linkedin_refresh_interval])
@@ -91,7 +92,7 @@ class CvController < ApplicationController
   end
   
   def save_linkedin_shares(items)    
-    shares = Array.new
+    messages = Array.new
     
     unless items.empty?
       items.all.each do |s|
@@ -118,40 +119,43 @@ class CvController < ApplicationController
           
             unless share['current_share']['content'].nil?
               post[:comment_short_url] = share['current_share']['content']['shortened_url'] unless share['current_share']['content']['shortened_url'].nil?
+              post[:comment_title] = share['current_share']['content']['title'] unless share['current_share']['content']['title'].nil?
+              post[:comment_description] = share['current_share']['content']['description'] unless share['current_share']['content']['description'].nil?
             end
           end
     
-          shares << post unless post.empty?
+          messages << post unless post.empty?
         end
       end
     end
     
     
-    if shares.count >= 5 then
+    if messages.count >= 5 then
       
       LinkedInShare.delete_all
       
       i = 0
       
-      shares.each do |share|
+      messages.each do |message|
         break if i == 5
         
-        record = LinkedInShare.new do |post|
-          post.url = share[:url]
-          post.picture_url = share[:picture_url]
-          post.first_name = share[:first_name]
-          post.last_name = share[:last_name]
-          post.headline = share[:headline]
-          post.comment = share[:comment]
-          post.comment_short_url = share[:comment_short_url]
+        record = LinkedInShare.new do |r|
+          r.url = message[:url]
+          r.picture_url = message[:picture_url]
+          r.first_name = message[:first_name]
+          r.last_name = message[:last_name]
+          r.headline = message[:headline]
+          r.comment = message[:comment]
+          r.comment_short_url = message[:comment_short_url]
+          r.comment_title = message[:comment_title]
+          r.comment_description = message[:comment_description]
         end
         
-        unless record.url.blank? || record.first_name.blank? || record.last_name.blank? || record.headline.blank? || record.comment.blank?
+        unless record.url.blank? || record.first_name.blank? || record.last_name.blank? || record.headline.blank? || (record.comment.blank? && record.comment_title.blank? && record.comment_description.blank?)
           record.save!
           i += 1
         end
       end      
     end
-  end
-  
+  end  
 end

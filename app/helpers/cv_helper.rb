@@ -130,5 +130,17 @@ module CvHelper
     
     items
   end
+  
+  def compose_comment(comment, comment_title, comment_description)
+    if comment.blank? && comment_title.blank?
+      output = comment_description
+    elsif comment.blank? && !comment_title.blank?
+      output = comment_title
+    elsif !comment.blank? && comment_title.blank?
+      output = comment
+    else
+      comment.length > comment_title.length ? output = comment : output = comment_title
+    end
+  end
 end
 
