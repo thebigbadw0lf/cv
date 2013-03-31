@@ -8,7 +8,7 @@ p_anchorTopPosition = {}
 # page fadein effect
 $(window).load ->
   $("#loader").delay(100).hide()
-  $(".container-narrow").hide().delay(100).fadeIn 800, ->
+  $(".container-narrow").hide().delay(300).fadeIn 800, ->
     small_map_zoom_center_align(Gmaps.map_canvas1)
     center = Gmaps.map_canvas1.map.getCenter()
     google.maps.event.trigger($("#map_canvas1")[0], 'resize')
@@ -124,14 +124,18 @@ $(document).ready ->
     event.preventDefault()
     currentId = $(this).attr('id')
     toggle_highlight(currentId)
+    marker_id = $(this).attr('data-marker-id')
+    if $(this).hasClass("highlight_active")
+      highlight_marker(Gmaps.map_canvas1, marker_id, true, 5)
+    else
+      unhighlight_marker(Gmaps.map_canvas1, marker_id, true)
   
   $(".side_location").click (event) ->
     event.preventDefault()
     id= $(this).attr('id')
-    fullId = "#" + id
     toggle_highlight(id)
     marker_id = $(this).attr('data-marker-id')
-    if $(fullId ).hasClass("highlight_active")
+    if $(this).hasClass("highlight_active")
       highlight_marker(Gmaps.map_canvas1, marker_id, true, 5)
     else
       unhighlight_marker(Gmaps.map_canvas1, marker_id, true) 

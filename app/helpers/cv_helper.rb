@@ -24,6 +24,8 @@ module CvHelper
   end
   
   def calculate_duration(item)
+    start_date_prev, end_date_prev, days = nil
+    
     item.each_with_index do | r, i|  #split records associated with current item
       if defined?(r.is_current) then
         r.is_current == 1 ? end_date = Date.today : end_date = r.end_date #use today's date if item is current
@@ -32,23 +34,25 @@ module CvHelper
       end
       
       start_date = r.start_date
+      
+      dur = 0
     
       if i > 0 then  #start_date_prev(ious) and end_date_prev(ious) are not available in first iteration
-        end_date > @start_date_prev ? end_date_calc = @start_date_prev : end_date_calc = end_date  #eliminate overlaps when previous record's started before the current one ended
-        start_date > @start_date_prev ? start_date_calc = @start_date_prev : start_date_calc = start_date   #eliminate overlaps when previous record's start date started before the current one. In this case the duration for the current entry is zero since it is completely overlapping the start and end of the previous entry
+        end_date > start_date_prev ? end_date_calc = start_date_prev : end_date_calc = end_date  #eliminate overlaps when previous record's started before the current one ended
+        start_date > start_date_prev ? start_date_calc = start_date_prev : start_date_calc = start_date   #eliminate overlaps when previous record's start date started before the current one. In this case the duration for the current entry is zero since it is completely overlapping the start and end of the previous entry
         dur = end_date_calc - start_date_calc # add current entry's duration to overall duration
       end
       
       if i==0
-        @days = end_date - start_date # if this is the first iteration, simply subtract start_date from end_date to compute duration
+        days = end_date - start_date # if this is the first iteration, simply subtract start_date from end_date to compute duration
       end
       
-      @days += dur.to_i
-      @end_date_prev = end_date  #store current end and start dates to use in next iteration
-      @start_date_prev = start_date      
+      days += dur.to_i
+      end_date_prev = end_date  #store current end and start dates to use in next iteration
+      start_date_prev = start_date      
     end
     
-    duration =  @days.to_f
+    duration =  days.to_f
     
     verbalize_duration(duration)
   end

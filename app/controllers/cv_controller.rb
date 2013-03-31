@@ -6,7 +6,10 @@ class CvController < ApplicationController
     
     @education_records = EducationRecord.find :all, :order => "end_date DESC"
     
-    @schools = School.find :all
+    @schools = School.find :all,
+                              :include => :education_records,
+                              :order => "education_records.end_date DESC",
+                              :conditions => "education_records.* IS NOT NULL AND education_records.is_certification = FALSE"
     
     @tags = ActsAsTaggableOn::Tag.find :all,
   	      :select => "#{ActsAsTaggableOn::Tag.table_name}.id, #{ActsAsTaggableOn::Tag.table_name}.name, COUNT(*) AS count",
@@ -17,15 +20,25 @@ class CvController < ApplicationController
     #find out the smallest number of occurences for tags in the tag cloud and make it available to the view (shown in the view in the data-min-count css element from where it is picked up by jQuery and used for hiding less frequent tags in the tag cloud)
   	@min_tag_count = min_tag_count(@tags)
     
-    @job_titles = JobTitle.find :all, :order => "updated_at DESC "
+    @job_titles = JobTitle.find :all,
+                                  :include => :records,
+                                  :order => "records.end_date DESC",
+                                  :conditions => "records.* IS NOT NULL"
     
-  	@companies = Company.find :all, :order => "updated_at DESC"
+  	@companies = Company.find :all,
+                                 :include => :records,
+                                 :order => "records.end_date DESC",
+                                 :conditions => "records.* IS NOT NULL"
     
-  	@locations = Location.find :all, :order => "updated_at DESC"
+  	@locations = Location.find :all,
+                                  :include => :records,
+                                  :order => "records.end_date DESC",
+                                  :conditions => "records.* IS NOT NULL"
   	
-  	@industries = Industry.find :all, 
-            :include => {:companies => :records},
-            :conditions => "records.* IS NOT NULL"
+  	@industries = Industry.find :all,
+                                  :include => { :companies => :records },
+                                  :order => "records.end_date DESC",
+                                  :conditions => "records.* IS NOT NULL"
     
     @g_locations = @locations.to_gmaps4rails do |location, marker|
       #marker.infowindow render_to_string(:partial => "infowindow", :locals => { :location => location })

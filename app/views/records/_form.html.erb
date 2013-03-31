@@ -20,16 +20,20 @@
     <%= f.date_select :end_date, :start_year => 1978 %>
   </div>
   <div class="field">
-    <%= f.label :job_title %><br />
-    <%= f.text_field :job_title %>
-  </div>
-  <div class="field">
     <%= f.label :link %><br />
     <%= f.text_field :link %>
   </div>
   <div class="field">
     <%= f.label :is_current %><br />
     <%= f.number_field :is_current %>
+  </div>
+  <div class="field">
+    <%= f.label :company_id %><br />
+    <%= f.text_field :company_id %>
+  </div>
+  <div class="field">
+    <%= f.label :job_title_id %><br />
+    <%= f.text_field :job_title_id %>
   </div>
   <div class="field">
     <%= f.label :skill_list, "Skills (separated by commas)" %><br />

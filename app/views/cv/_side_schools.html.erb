@@ -1,6 +1,4 @@
-<% unless school.education_records[0].is_certification? then %>
-  <div class="side_item_box">  
-    <p class="side_item_container"><%= link_to school.name, "#", :id => SecureRandom.uuid, :class => "side_item side_school", "data-info" => school.name.downcase, "data-flash-text" => school.name -%></p>
-    <p class="side_info">(<%= calculate_duration(school.education_records) %>)</p>
-  </div>
-<% end %>
+<div class="side_item_box">  
+  <p class="side_item_container"><%= link_to school.name, "#", :id => SecureRandom.uuid, :class => "side_item side_school", "data-info" => school.name.downcase, "data-flash-text" => school.name -%></p>
+  <p class="side_info">(<%= calculate_duration(school.education_records) %>)</p>
+</div>

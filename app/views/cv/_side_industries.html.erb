@@ -1,4 +1,4 @@
 <div class="side_item_box">
   <p class="side_item_container"><%= link_to industry.name.capitalize, "#", :id => SecureRandom.uuid, :class => "side_item side_industry", "data-info" => industry.name.downcase, "data-flash-text" => industry.name.capitalize -%></p>
-  <p class="side_info"><%= calc_duration_industries(industry.companies) %></p>
+  <p class="side_info">(<%= calc_duration_industries(industry.companies) %>)</p>
 </div>
