@@ -1047,13 +1047,8 @@ div.footer {
   width: 10%;
 }
 
-#slide_pic_01 {
-  width: 25%;
-  margin-right: 10px;
-}
-
-#slide_pic_02 {
-  width: 30%;
+#slide_pic_0 {
+  width: 20%;
 }
 
 #slide_pic_1 {
@@ -1061,29 +1056,23 @@ div.footer {
 }
 
 #slide_pic_2 {
-  width: 40%;
-  float: left;
-  margin-right: 20px;
+  width: 20%;
 }
 
 #slide_pic_3 {
-  width: 40%;
-  float: left;
-  margin-right: 20px;
+  width: 20%;
 }
 
 #slide_pic_4 {
-  width: 50%;
+  width: 40%;
 }
 
 #slide_pic_5 {
-  width: 40%;
-  float: left;
-  margin-right: 20px;
+  width: 25%;
 }
 
 #slide_pic_6 {
-  width: 40%;
+  width: 25%;
 }
 
 #slide_pic_7 {
@@ -1091,22 +1080,97 @@ div.footer {
 }
 
 #slide_pic_8 {
-  width: 40%;
+  width: 28%;
 }
 
 #slide_pic_9 {
   width: 25%;
-  float: left;
-  margin-right: 20px;
 }
 
 #slide_pic_10 {
   width: 40%;
-  height: 40%;
 }
 
 #slide_pic_11 {
   width: 40%;
+}
+
+$margin_r: 30px;
+$margin_b: 30px;
+
+#slide_pic_0_small {
+  width: 12%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+}
+
+#slide_pic_1_small {
+  width: 15%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#slide_pic_2_small {
+  width: 10%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+}
+
+#slide_pic_3_small {
+  width: 10%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+}
+
+#slide_pic_4_small {
+  width: 15%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+#slide_pic_5_small {
+  width: 12%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+}
+
+#slide_pic_6_small {
+  width: 15%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+}
+
+#slide_pic_7_small {
+  width: 10%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+}
+
+#slide_pic_8_small {
+  width: 15%;
+  margin-right: $margin_r;
+}
+
+#slide_pic_9_small {
+  width: 13%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+}
+
+#slide_pic_10_small {
+  width: 10%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
+}
+
+#slide_pic_11_small {
+  width: 10%;
+  margin-right: $margin_r;
+  margin-bottom: $margin_b;
 }
 
 .slide_title {

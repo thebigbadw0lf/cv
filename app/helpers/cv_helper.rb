@@ -1,7 +1,7 @@
 module CvHelper
   
   def carousel_timeline
-    ["Jun'78", "Sep'94", "Oct'98", "Jan'03", "Jan'05", "Jan'06", "Oct'06", "May'07", "Jul'08", "Apr'10", "Now..."]
+    ["Jun'78", "Jun'98", "Oct'02", "Jan'05", "Jan'06", "Oct'06", "Jul'08", "Apr'10", "Now..."]
   end
   
   def year_format(carousel_navigation_counter, position, class_past, class_now, class_future)
