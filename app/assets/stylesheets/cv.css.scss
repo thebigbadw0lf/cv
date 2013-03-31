@@ -1102,6 +1102,11 @@ div.footer {
 	display: none;
 }
 
+#loader {
+  text-align:center;
+  width: 100%;
+}
+
 /*controls show on mouseover*/
 /*.carousel-control, .carousel-controls-narrow { visibility: hidden; }
 .carousel:hover .carousel-control, .carousel:hover .carousel-controls-narrow { visibility: visible; }*/
@@ -1482,15 +1487,16 @@ a.side_item, a.side_company, a.side_industry, a.side_location, a.side_school, a.
 }
 
 div.infowindow {
-  width: 150px;
+  width: 200px;
+  height:100px;
   color: #333333;
   text-align: left;
   
   h1 {
-    font-family: SourceSansProRegular, Arial, sans-serif;
-    font-size: 15px;
+    font-family: SourceSansProSemibold, Arial, sans-serif;
+    font-size: 16px;
     line-height: 15px;
-    margin: 0px;
+    margin: 0px 0px 8px 0px;
     padding: 0px;
   }
   
@@ -1500,6 +1506,11 @@ div.infowindow {
     line-height: 14px;
     margin: 0px;
     padding: 0px;
+    
+    span {
+      display: inline-block;
+      margin-bottom: 5px;
+    }
   }
 }
 

@@ -37,6 +37,8 @@ class CvController < ApplicationController
         marker.title location.city + ", " + location.region + ", " + location.country
         marker.json({ :id => "city_" + location.city.downcase + "_region_" + location.region.downcase + "_country_" + location.country.downcase })
       end
+      
+      marker.picture(APP_CONFIG[:gmaps_marker])
     end
     
     @g_locations2 = @locations.to_gmaps4rails do |location, marker|
@@ -49,6 +51,8 @@ class CvController < ApplicationController
         marker.title location.city + ", " + location.region + ", " + location.country
         marker.json({ :id => "large_city_" + location.city.downcase + "_region_" + location.region.downcase + "_country_" + location.country.downcase })
       end
+      
+      marker.picture(APP_CONFIG[:gmaps_marker])
     end
     
     @linkedin_records = LinkedInShare.find :all
@@ -136,4 +140,5 @@ class CvController < ApplicationController
       end      
     end
   end
+  
 end

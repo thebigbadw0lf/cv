@@ -107,5 +107,24 @@ module CvHelper
     verbalize_duration(average_duration.to_f)
   end
 
+  def show_location_items(location)
+    items = Array.new
+    
+    location.records.each do |record|
+      item = Hash.new
+      item[:name] = record.company.name
+      record.company.link.blank? ? item[:url] = "#" : item[:url] = "http://" + record.company.link
+      items << item
+    end
+    
+    location.education_records.each do |record|
+      item = Hash.new
+      item[:name] = record.school.name
+      record.school.link.blank? ? item[:url] = "#" : item[:url] = "http://" + record.school.link
+      items << item
+    end
+    
+    items
+  end
 end
 

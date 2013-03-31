@@ -1,4 +1,9 @@
 <div class="infowindow">
-  <h1><%= location.city + ", " + location.country %></h1>
-  <h2>Some text here.</h2>
+  <h1><%= location.city + ", " -%><%= (location.region + ", ") if location.region? -%><%= location.country -%></h1>
+  <h2><% show_location_items(location).each do |item| %>
+    <%= %{<span>#{link_to item[:name], item[:url], :target => 'blank'}</span>}.html_safe if item[:url] != '#' %>
+    <%= %{<span>#{item[:name]}</span>}.html_safe if item[:url] == '#' %>
+    <%= %{ &#8226; }.html_safe unless item == show_location_items(location).last %>
+    <% end %>
+  </h2>
 </div>

@@ -7,12 +7,16 @@ p_anchorTopPosition = {}
 
 # page fadein effect
 $(window).load ->
+  $("#loader").delay(100).hide()
   $(".container-narrow").hide().delay(100).fadeIn 800, ->
+    small_map_zoom_center_align(Gmaps.map_canvas1)
     center = Gmaps.map_canvas1.map.getCenter()
     google.maps.event.trigger($("#map_canvas1")[0], 'resize')
     Gmaps.map_canvas1.map.setCenter(center)
     cvTopPosition = jQuery("#resume").offset().top
     p_anchorTopPosition = jQuery("#p_anchor").offset().top
+  $("#loader").delay(100).hide()
+  
 
 # recalculate 'cvTopPosition' on browser window resize.
 $(window).resize ->
@@ -21,7 +25,8 @@ $(window).resize ->
   position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
   map_zoom_center_align(Gmaps.map_canvas2, "#map_canvas2", "#close_map_link_container", 15, 15)
 
-$(document).ready ->    
+$(document).ready ->
+  
   $("#btn-l").click (event) ->
     event.preventDefault()
     
@@ -125,16 +130,11 @@ $(document).ready ->
     id= $(this).attr('id')
     fullId = "#" + id
     toggle_highlight(id)
+    marker_id = $(this).attr('data-marker-id')
     if $(fullId ).hasClass("highlight_active")
-      currentId = $(this).attr('data-marker-id')    
-      j = 0
-      while j < Gmaps.map_canvas1.markers.length
-        if Gmaps.map_canvas1.markers[j].id is currentId
-          centerpoint = new google.maps.LatLng(Gmaps.map_canvas1.markers[j].lat, Gmaps.map_canvas1.markers[j].lng)
-          Gmaps.map_canvas1.map.panTo centerpoint
-          Gmaps.map_canvas1.map.setZoom 5
-          break
-        j++
+      highlight_marker(Gmaps.map_canvas1, marker_id, true, 5)
+    else
+      unhighlight_marker(Gmaps.map_canvas1, marker_id, true) 
 
   #language section text on country flags mouseover and click (for touchscreen UIs)
   $(".flags_pic").click (event) ->
@@ -206,8 +206,52 @@ $(document).ready ->
      event.preventDefault()
      $('#email_explain').fadeIn(500).delay(2500).fadeOut 800, ->
 
+  #highlight locations for gmap markers onclick events
+  Gmaps.map_canvas1.callback = ->
+    i = 0
+    while i < Gmaps.map_canvas1.markers.length          
+      google.maps.event.addListener Gmaps.map_canvas1.markers[i].serviceObject, "click", toggleMarker(Gmaps.map_canvas1, Gmaps.map_canvas1.markers[i])
+      i++
+      
+  Gmaps.map_canvas2.callback = ->
+    i = 0
+    while i < Gmaps.map_canvas2.markers.length
+      Gmaps.map_canvas2.markers[i].serviceObject.setZIndex(1)
+      google.maps.event.addListener Gmaps.map_canvas2.markers[i].serviceObject, "click", toggleBigMarker(Gmaps.map_canvas2, Gmaps.map_canvas2.markers[i].id)
+      i++
 
-   
+toggleMarker = (_map, marker) ->
+  ->    
+    unless marker.is_selected
+      highlight_marker(_map, marker.id, false)
+    else
+      unhighlight_marker(_map, marker.id, false)
+    
+    corresponding_city = $(".side_location[data-marker-id='#{marker.id}']")
+    toggle_highlight(corresponding_city.attr('id'))
+
+toggleBigMarker = (_map, currentId) ->
+  ->
+    j = 0
+    while j < _map.markers.length
+      if _map.markers[j].id is currentId
+        _map.markers[j].is_selected = true
+        _map.markers[j].serviceObject.setZIndex(99)
+        _map.markers[j].serviceObject.setIcon("/assets/marker_light.png")
+        google.maps.event.addListener _map.markers[j].infowindow, "closeclick", resetMarkerHighlight(_map.markers[j])
+      else
+        _map.markers[j].is_selected = false
+        _map.markers[j].serviceObject.setZIndex(1)
+        _map.markers[j].serviceObject.setIcon("/assets/marker_dark.png")
+      j++
+      
+resetMarkerHighlight = (marker) ->
+  ->
+    marker.serviceObject.setIcon("/assets/marker_dark.png")
+    marker.serviceObject.setZIndex(1)
+    
+    
+
 toggle_highlight = (id) ->
   elem_id = "#" + id
   $('#del_highlight_msg').clearQueue()
@@ -249,7 +293,10 @@ position_map_popup = (container_name, container_type = "id", map_name, map_type,
   set_position(elem, l, t, w, h)
   positon_big_map(elem_map, elem)
  
-  
+small_map_zoom_center_align = (_map) ->
+  _map.map.setCenter(new google.maps.LatLng(35.0, -50.0))
+  _map.map.setZoom(1) unless _map.map.getZoom() is 1
+
 positon_big_map = (item, reference) ->  
   w = $(reference).width()
   h = $(reference).height()
@@ -302,9 +349,32 @@ map_zoom_center_align = (_map, map_id, close_btn_container, border_horizontal, b
     
   _map.map.setZoom(zoom)
   
-  
-
-  
-  
-
-  
+highlight_marker = (_map, currentId, centerMap = true, zoomLevel = false) ->
+  j = 0
+  while j < _map.markers.length
+    if _map.markers[j].id is currentId
+      _map.markers[j].is_selected = true
+      if centerMap
+        centerpoint = new google.maps.LatLng(_map.markers[j].lat, _map.markers[j].lng)
+        _map.map.panTo centerpoint
+      if zoomLevel
+        _map.map.setZoom zoomLevel
+      _map.markers[j].serviceObject.setIcon("/assets/marker_light.png")
+      break
+    j++
+    
+unhighlight_marker = (_map, currentId, centerMap = false) ->
+  j = 0
+  resetZoom = true
+  while j < _map.markers.length
+    if _map.markers[j].id is currentId
+      _map.markers[j].is_selected = false
+      _map.markers[j].serviceObject.setIcon("/assets/marker_dark.png")
+      centerpoint = new google.maps.LatLng(_map.markers[j].lat, _map.markers[j].lng)
+    resetZoom = false if _map.markers[j].is_selected
+    j++
+  if resetZoom
+    small_map_zoom_center_align(Gmaps.map_canvas1)
+  else if centerMap and _map.map.getZoom() > 1
+    _map.map.panTo centerpoint
+    

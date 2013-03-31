@@ -9,6 +9,10 @@ default: &default
   :linkedin_atoken: 2103e1e0-37ca-4aa8-9987-d8002aec1f37
   :linkedin_asecret: 40ceccd3-67ca-4d46-925f-3f097ffbc9c0
   :linkedin_refresh_interval: 60  #this should be in number of minutes
+  :gmaps_marker:
+     :picture: '/assets/marker_dark.png'
+     :width: 32
+     :height: 37
 
 development:
   <<: *default

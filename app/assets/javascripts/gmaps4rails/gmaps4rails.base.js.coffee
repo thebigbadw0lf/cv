@@ -27,7 +27,30 @@ class @Gmaps4Rails
     @geolocationSuccess = -> false  #triggered when geolocation succeeds. Can be customized.
     @geolocationFailure = -> false  #triggered when geolocation fails. If customized, must be like= function(navigator_handles_geolocation){} where 'navigator_handles_geolocation' is a boolean
     @callback           = -> false  #to let user set a custom callback function
-    @customClusterer    = -> false  #to let user set custom clusterer pictures
+    @customClusterer    = ->  
+      [{
+        textSize: 12, 
+        textColor: '#fff',
+        url: "assets/clusterer_small.png",
+        height: 52,
+        width: 53
+      },
+      {
+        textSize: 10, 
+        textColor: '#fff',
+        url: "assets/clusterer_medium.png",
+        height: 55,
+        width: 56
+      },
+      {
+        textSize: 10, 
+        textColor: '#fff',
+        url: "assets/clusterer_large.png",
+        width: 66,
+        height: 65
+      }]
+    #@customClusterer    = -> false  #to let user set custom clusterer pictures
+    
     @infobox            = -> false  #to let user use custom infoboxes
     @jsTemplate         = false     #to let user create infowindows client side
 

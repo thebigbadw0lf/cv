@@ -23,6 +23,8 @@
   </head>
 
   <body>
+    
+    <div id="loader">CV now loading...</div>
 
     <div class="container-narrow">
 
@@ -100,7 +102,7 @@
                                                             streetViewControl: true,
                                                             overviewMapControl: true,
                                                             overviewMapControlOptions: {
-                                                                 opened:true
+                                                                 opened: true
                                                                },
                                                             mapTypeId: google.maps.MapTypeId.ROADMAP}",
                                   :auto_adjust       => false, 
@@ -111,7 +113,8 @@
                                   :class             => "map_canvas" },
                 :last_map     => true,
                 :markers      => {:data              => @g_locations2,
-                                  :options           => { :do_clustering => false, :clusterer_gridSize => 50} }) %>
+                                  :options           => { :do_clustering => false } 
+                                  }) %>
     
       <div id="close_map_link_container">
         <%= link_to "close map", "#", :id => "close_map_link" -%>
