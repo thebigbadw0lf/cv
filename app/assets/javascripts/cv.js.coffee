@@ -52,7 +52,7 @@ $(document).ready ->
     , "slow"
     
 
-  $(".close_presentation").click (event) ->
+  $(".close_slideshow").click (event) ->
     event.preventDefault()
     $("#presentation").toggle()
     $("#am").fadeToggle "slow", ->
