@@ -4,7 +4,9 @@ class CvController < ApplicationController
   def index    
     @records = Record.find :all, :order => "end_date DESC"
     
-    @education_records = EducationRecord.find :all, :order => "end_date DESC"
+    @education_records = EducationRecord.find :all, 
+                              :order => "end_date DESC",
+                              :conditions => "is_certification = FALSE"
     
     @schools = School.find :all,
                               :include => :education_records,
