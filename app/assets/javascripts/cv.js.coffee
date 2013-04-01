@@ -41,7 +41,7 @@ $(document).ready ->
     $("#am").toggle()
     $("#presentation").fadeToggle "slow", ->
     
-    $(".carousel").carousel interval: 25000
+    $(".carousel").carousel interval: false
     $(".carousel").carousel "cycle"
 
     # Scroll to target
