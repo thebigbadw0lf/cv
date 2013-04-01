@@ -39,7 +39,7 @@ class CvController < ApplicationController
   	
   	@industries = Industry.find :all,
                                   :include => { :companies => :records },
-                                  :order => "records.end_date DESC",
+                                  :order => "records.end_date DESC, industries.id ASC",
                                   :conditions => "records.* IS NOT NULL"
     
     @g_locations = @locations.to_gmaps4rails do |location, marker|
