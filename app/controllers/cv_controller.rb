@@ -77,7 +77,7 @@ class CvController < ApplicationController
       @linkedin_records = LinkedInShare.find :all
     end
     
-    # @linkedin_records = nil to turn off the linkedin network updates sidebar section
+    #@linkedin_records = nil #uncomment this to turn off the linkedin network updates sidebar section
   end
   
   protected
