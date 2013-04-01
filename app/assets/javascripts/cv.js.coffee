@@ -41,7 +41,7 @@ $(document).ready ->
     $("#am").toggle()
     $("#presentation").fadeToggle "slow", ->
     
-    $(".carousel").carousel interval: false
+    $(".carousel").carousel interval: 20000
     $(".carousel").carousel "cycle"
 
     # Scroll to target
@@ -50,7 +50,7 @@ $(document).ready ->
     , "slow"
     
 
-  $(".close_slideshow").click (event) ->
+  $(".close_slideshow, #close_presentation").click (event) ->
     event.preventDefault()
     $("#presentation").toggle()
     $("#am").fadeToggle "slow", ->
