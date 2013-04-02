@@ -214,6 +214,12 @@ $(document).ready ->
     while i < Gmaps.map_canvas1.markers.length          
       google.maps.event.addListener Gmaps.map_canvas1.markers[i].serviceObject, "click", toggleMarker(Gmaps.map_canvas1, Gmaps.map_canvas1.markers[i])
       i++
+    
+    markers = Gmaps.map_canvas1.markers
+    
+    Gmaps.map_canvas1.markerClusterer.setCalculator (markers) ->
+      set_clusterer_calculator(markers)
+
       
   Gmaps.map_canvas2.callback = ->
     i = 0
@@ -221,6 +227,22 @@ $(document).ready ->
       Gmaps.map_canvas2.markers[i].serviceObject.setZIndex(1)
       google.maps.event.addListener Gmaps.map_canvas2.markers[i].serviceObject, "click", toggleBigMarker(Gmaps.map_canvas2, Gmaps.map_canvas2.markers[i].id)
       i++
+      
+
+set_clusterer_calculator = (markers) ->
+  if markers.length >= 4 # red
+    return (
+      text: markers.length
+      index: 3
+    )
+  if markers.length >= 3 # yellow
+    return (
+      text: markers.length
+      index: 2
+    )
+  text: markers.length
+  index: 0
+  
 
 toggleMarker = (_map, marker) ->
   ->    

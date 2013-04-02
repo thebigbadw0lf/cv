@@ -36,14 +36,14 @@ class @Gmaps4Rails
         width: 53
       },
       {
-        textSize: 10, 
-        textColor: '#fff',
+        textSize: 12, 
+        textColor: '#000',
         url: "assets/clusterer_medium.png",
         height: 55,
         width: 56
       },
       {
-        textSize: 10, 
+        textSize: 14, 
         textColor: '#fff',
         url: "assets/clusterer_large.png",
         width: 66,
