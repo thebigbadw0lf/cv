@@ -21,7 +21,7 @@ $(window).resize ->
   cvTopPosition = $("#resume").offset().top
   p_anchorTopPosition = $("#p_anchor").offset().top
   position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
-  map_zoom_center_align(Gmaps.map_canvas2, "#map_canvas2", "#close_map_link_container", 15, 15)
+  map_zoom_center_align(Gmaps.map_canvas2, "#map_canvas2", "#close_map_link_container", "#map_legend_container", 15, 15)
 
 $(document).ready ->
   
@@ -195,7 +195,7 @@ $(document).ready ->
     $('#del_highlight_msg').hide()
     position_map_popup("b_m_i", "cls", "map_canvas2", "id", 15, 15)
     $('#big_map_container').fadeIn 500, ->
-    map_zoom_center_align(Gmaps.map_canvas2, "#map_canvas2", "#close_map_link_container", 15, 15)
+    map_zoom_center_align(Gmaps.map_canvas2, "#map_canvas2", "#close_map_link_container", "#map_legend_container", 15, 15)
       
   $("#close_map_link").click (event) ->
     event.preventDefault()
@@ -337,7 +337,7 @@ set_position = (item, left, top, width, height) ->
   $(item).width(width)
   $(item).height(height)
   
-map_zoom_center_align = (_map, map_id, close_btn_container, border_horizontal, border_vertical) ->
+map_zoom_center_align = (_map, map_id, close_btn_container, legend_container, border_horizontal, border_vertical) ->
   if $(window).width() <= 620 then zoom = 1 else zoom = 2
   
   w = $(window).width()
@@ -362,11 +362,17 @@ map_zoom_center_align = (_map, map_id, close_btn_container, border_horizontal, b
         
       $(close_btn_container).css('top', $(window).height() * margin_vertical + border_vertical + $(map_id).height() - 155)  
       $(close_btn_container).css('left', $(map_id).width() + $(window).width() * margin_horizontal + border_horizontal - $(close_btn_container).width())
+      $(legend_container).hide()
     else
       if h >= 500
         _map.map.setCenter(new google.maps.LatLng(17.917923, -33.023438))
+        
+        $(legend_container).css('top', $(window).height() * margin_vertical + border_vertical + $(map_id).height() - 210)  
+        $(legend_container).css('left', $(map_id).width() + $(window).width() * margin_horizontal + border_horizontal - $(legend_container).width() - 11)
+        $(legend_container).show()
       else
         _map.map.setCenter(new google.maps.LatLng(50.4378, -33.023438))
+        $(legend_container).hide()
         
       $(close_btn_container).css('top', $(window).height() * margin_vertical + border_vertical)  
       $(close_btn_container).css('left', ($(window).width() / 2) - ($(close_btn_container).width() / 2))

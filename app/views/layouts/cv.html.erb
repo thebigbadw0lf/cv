@@ -18,8 +18,7 @@
 
 
     <!-- Fav icons -->
-    <link rel="shortcut icon" href="/assets/favicon.png">
-    <link rel="shortcut icon" href="/assets/favicon.ico" />
+
   </head>
 
   <body>
@@ -122,6 +121,14 @@
       <div id="close_map_link_container">
         <%= link_to "close map", "#", :id => "close_map_link" -%>
       </div>
+      
+      <div id="map_legend_container">
+        <div>
+          <%= image_tag "marker_light.png" -%> Selected location.
+        </div>
+        <div>
+          <%= image_tag "marker_dark.png" -%> I've lived here.
+        </div>
     </div>
     
     <%= yield :scripts %>

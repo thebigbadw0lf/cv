@@ -1888,6 +1888,21 @@ div.error {
   filter: alpha(opacity=100);
 }
 
+#map_legend_container {
+  position: fixed;
+  width: 158px;
+  height: 80px;
+  padding: 5px 0px 0px 5px;
+  text-align: left;
+  background-color: #ffffff;
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+  z-index: 9999;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0, .45);
+  -moz-box-shadow: 0 0 5px rgba(0,0,0, .45);
+  box-shadow: 0 0 5px rgba(0,0,0, .45);
+}
+
 p.slide_item {
   font-size: 20px;
 }
