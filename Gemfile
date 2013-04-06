@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'unicorn'
 
+gem 'newrelic_rpm'
+
 gem 'rails', '3.2.12'
 
 # Bundle edge Rails instead:
