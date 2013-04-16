@@ -122,10 +122,12 @@ module CvHelper
     end
     
     location.education_records.each do |record|
-      item = Hash.new
-      item[:name] = record.school.name
-      record.school.link.blank? ? item[:url] = "#" : item[:url] = "http://" + record.school.link
-      items << item
+      unless record.is_certification == TRUE
+        item = Hash.new
+        item[:name] = record.school.name
+        record.school.link.blank? ? item[:url] = "#" : item[:url] = "http://" + record.school.link
+        items << item
+      end
     end
     
     items

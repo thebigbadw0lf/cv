@@ -33,9 +33,9 @@ class CvController < ApplicationController
                                  :conditions => "records.* IS NOT NULL"
     
   	@locations = Location.find :all,
-                                  :include => :records,
-                                  :order => "records.end_date DESC",
-                                  :conditions => "records.* IS NOT NULL"
+                                  :include => [:records, :education_records],
+                                  :order => "records.end_date DESC, education_records.end_date DESC",
+                                  :conditions => "records.* IS NOT NULL OR (education_records.* IS NOT NULL AND education_records.is_certification IS FALSE)"
   	
   	@industries = Industry.find :all,
                                   :include => { :companies => :records },
